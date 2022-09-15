@@ -157,8 +157,8 @@ def get_index(url, save_as):
 
 if __name__ == "__main__":
     initialise()
-    doc = get_index(root_url, "index.html")
-    add_docs(doc)
+    doc_soup = get_index(root_url, "index.html")
+    add_docs(doc_soup)
     add_info_plist()
     with open(os.path.join(output, "git/git.html"), "r+") as f:
         soup = bs(f, parser)
