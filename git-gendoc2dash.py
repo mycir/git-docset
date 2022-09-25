@@ -4,7 +4,6 @@
 """
 import os
 import sqlite3
-import sys
 from shutil import copy
 
 import requests
