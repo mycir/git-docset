@@ -18,7 +18,7 @@ def initialise():
     global parser
     global db
     global cur
-    global sections_all
+    global sections
     docset_name = "Git.docset"
     output = docset_name + "/Contents/Resources/Documents"
     root_url = "http://git-scm.com/docs"
@@ -38,7 +38,7 @@ def initialise():
             id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
     )
     cur.execute("CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);")
-    sections_all = {"index.html": ("Git - Reference", "Index")}
+    sections = {"index.html": ("Git - Reference", "Index")}
 
 
 def get_index(url):
@@ -57,8 +57,8 @@ def get_index(url):
         f.write(str(doc_soup))
 
 
-def update_db(sections_all):
-    for path, (name, type) in sections_all.items():
+def update_db(sections):
+    for path, (name, type) in sections.items():
         if type == "":
             if name[0].isupper():
                 type = "Guide"
@@ -72,10 +72,10 @@ def update_db(sections_all):
 
 
 def add_docs(start, end):
-    global sections_all
-    start_prev = len(sections_all) - 1
+    global sections
+    start_prev = len(sections) - 1
     for path, (name, _) in dict(
-        itertools.islice(sections_all.items(), start, end)
+        itertools.islice(sections.items(), start, end)
     ).items():
         # create subdir
         folder = os.path.join(output)
@@ -107,13 +107,13 @@ def add_docs(start, end):
                 print("Failed")
                 print("{}: {}".format(type(e).__name__, e))
     start = end + 1
-    end = len(sections_all) - 1
+    end = len(sections) - 1
     if end > start_prev:
         add_docs(start, end)
 
 
 def fix_links(doc_soup):
-    global sections_all
+    global sections
     for link in doc_soup.findAll("a", {"href": True}):
         if link.attrs and not link["href"].startswith("http"):
             if "#" not in link.attrs["href"]:
@@ -126,8 +126,8 @@ def fix_links(doc_soup):
                     type = "Guide"
                 path = link["href"][1:] + ".html"
                 link["href"] = f"/git{link['href']}.html"
-                if path not in sections_all:
-                    sections_all.update({path: (link.text.strip(), type)})
+                if path not in sections:
+                    sections.update({path: (link.text.strip(), type)})
             else:
                 link_parts = link["href"].split("#")
                 if link_parts[0] != "":
@@ -165,8 +165,8 @@ def add_info_plist():
 if __name__ == "__main__":
     initialise()
     get_index(root_url)
-    add_docs(1, len(sections_all) - 1)
+    add_docs(1, len(sections) - 1)
     add_info_plist()
-    update_db(sections_all)
+    update_db(sections)
     db.commit()
     db.close()
