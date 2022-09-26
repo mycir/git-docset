@@ -2,6 +2,7 @@
     Generate Dash docset for Git
     http://git-scm.com/docs
 """
+import itertools
 import os
 import sqlite3
 from shutil import copy
@@ -37,7 +38,7 @@ def initialise():
             id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
     )
     cur.execute("CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);")
-    sections_all = []
+    sections_all = {"index.html": ("Git - Reference", "Index")}
 
 
 def get_index(url):
@@ -46,19 +47,7 @@ def get_index(url):
     title = soup.find("title")
     doc_soup = soup.find(id="main")
     doc_soup.insert(0, title)
-    sections = []
-    titles = []
-    for i, link in enumerate(doc_soup.findAll("a", {"href": True})):
-        name = link.text.strip()
-        path = link["href"]
-        if path is not None and path.startswith("/docs/"):
-            if "#" not in path:
-                sections.append(path)
-                titles.append(name)
-                link["href"] = link["href"][1:] + ".html"
-            else:
-                link_parts = link["href"][1:].split("#")
-                link["href"] = link_parts[0] + ".html#" + link_parts[1]
+    fix_links(doc_soup)
     with open(
         os.path.join(output, "index.html"),
         "w",
@@ -66,32 +55,31 @@ def get_index(url):
         errors="ignore",
     ) as f:
         f.write(str(doc_soup))
-    update_db("Reference", "index.html", type="Index")
-    return (sections, titles)
 
 
-def update_db(name, path, type=None):
-    if type is None:
-        if name[0].isupper():
-            type = "Guide"
-        else:
-            type = "func"
-    cur.execute(
-        "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)",
-        (name, type, path),
-    )
-    print("DB add >> name: %s, path: %s" % (name, path))
+def update_db(sections_all):
+    for path, (name, type) in sections_all.items():
+        if type == "":
+            if name[0].isupper():
+                type = "Guide"
+            else:
+                type = "func"
+        cur.execute(
+            "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)",
+            (name, type, path),
+        )
+        print("DB add >> name: %s, path: %s" % (name, path))
 
 
-def add_docs(sections, titles):
+def add_docs(start, end):
     global sections_all
-    sections_new = []
-    titles_new = []
-    # download pages and update db
-    for path, name in zip(sections, titles):
+    start_prev = len(sections_all) - 1
+    for path, (name, _) in dict(
+        itertools.islice(sections_all.items(), start, end)
+    ).items():
         # create subdir
         folder = os.path.join(output)
-        for i in range(1, len(path.split("/")) - 1):
+        for i in range(0, len(path.split("/")) - 1):
             folder += "/" + path.split("/")[i]
         if not os.path.exists(folder):
             os.makedirs(folder)
@@ -106,47 +94,46 @@ def add_docs(sections, titles):
                 title_tag = soup.new_tag("title")
                 title_tag.append(name)
                 doc_soup.insert(0, title_tag)
-                doc_soup = fix_links(
-                    doc_soup,
-                    sections_new,
-                    titles_new,
-                    prefix="/git/",
-                    suffix=".html",
-                )
+                doc_soup = fix_links(doc_soup)
                 with open(
-                    os.path.join(folder, page_id) + ".html",
+                    os.path.join(folder, page_id),
                     "w",
                     encoding="iso-8859-1",
                     errors="ignore",
                 ) as f:
                     f.write(str(doc_soup))
                 print("Success")
-                update_db(name, path[1:] + ".html")
             except Exception as e:
                 print("Failed")
-                print('{}: {}'.format(type(e).__name__, e))
-    sections_all += sections
-    if sections_new > []:
-        add_docs(sections_new, titles_new)
+                print("{}: {}".format(type(e).__name__, e))
+    start = end + 1
+    end = len(sections_all) - 1
+    if end > start_prev:
+        add_docs(start, end)
 
 
-def fix_links(doc_soup, sections, titles, prefix="", suffix=""):
+def fix_links(doc_soup):
     global sections_all
     for link in doc_soup.findAll("a", {"href": True}):
         if link.attrs and not link["href"].startswith("http"):
             if "#" not in link.attrs["href"]:
-                if link["href"] not in sections_all:
-                    if link["href"] not in sections:
-                        sections.append(link["href"])
-                        titles.append(link.text.strip())
-                link["href"] = f"{prefix}{link['href'][1:]}{suffix}"
+                type = ""
+                if link.text.endswith("[1]"):
+                    type = "Command"
+                elif link.text.endswith("[5]"):
+                    type = "File"
+                elif link.text.endswith("[7]"):
+                    type = "Guide"
+                path = link["href"][1:] + ".html"
+                link["href"] = f"/git{link['href']}.html"
+                if path not in sections_all:
+                    sections_all.update({path: (link.text.strip(), type)})
             else:
                 link_parts = link["href"].split("#")
                 if link_parts[0] != "":
-                    link["href"] = (
-                        f"{prefix}{link_parts[0][1:]}"
-                        f"{suffix}#{link_parts[1]}"
-                    )
+                    link[
+                        "href"
+                    ] = f"/git{link_parts[0]}.html#{link_parts[1]}"
     return doc_soup
 
 
@@ -177,8 +164,9 @@ def add_info_plist():
 
 if __name__ == "__main__":
     initialise()
-    sections, titles = get_index(root_url)
-    add_docs(sections, titles)
+    get_index(root_url)
+    add_docs(1, len(sections_all) - 1)
     add_info_plist()
+    update_db(sections_all)
     db.commit()
     db.close()

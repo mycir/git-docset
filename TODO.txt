@@ -1,2 +1,1 @@
-- Code to prevent unnecessary aliases being added to DB
 - Better categorisation of documents, e.g. protocols. (Guess from title, page format?)
