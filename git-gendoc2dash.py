@@ -4,6 +4,7 @@
 """
 import itertools
 import os
+import re
 import sqlite3
 from shutil import copy
 
@@ -63,7 +64,7 @@ def update_db(sections):
             if name[0].isupper():
                 type = "Guide"
             else:
-                type = "func"
+                type = "Unknown"
         cur.execute(
             "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)",
             (name, type, path),
@@ -95,6 +96,11 @@ def add_docs(start, end):
                 title_tag.append(name)
                 doc_soup.insert(0, title_tag)
                 doc_soup = fix_links(doc_soup)
+                # TODO move to categorisation func
+                if doc_soup.find(
+                    "h2", {"id": re.compile("^.?options$", flags=re.IGNORECASE)}
+                ):
+                    sections.update({path: (name, "Command")})
                 with open(
                     os.path.join(folder, page_id),
                     "w",
@@ -117,13 +123,14 @@ def fix_links(doc_soup):
     for link in doc_soup.findAll("a", {"href": True}):
         if link.attrs and not link["href"].startswith("http"):
             if "#" not in link.attrs["href"]:
-                type = ""
                 if link.text.endswith("[1]"):
                     type = "Command"
                 elif link.text.endswith("[5]"):
                     type = "File"
                 elif link.text.endswith("[7]"):
                     type = "Guide"
+                else:
+                    type = ""
                 path = link["href"][1:] + ".html"
                 link["href"] = f"/git{link['href']}.html"
                 if path not in sections:
@@ -131,9 +138,7 @@ def fix_links(doc_soup):
             else:
                 link_parts = link["href"].split("#")
                 if link_parts[0] != "":
-                    link[
-                        "href"
-                    ] = f"/git{link_parts[0]}.html#{link_parts[1]}"
+                    link["href"] = f"/git{link_parts[0]}.html#{link_parts[1]}"
     return doc_soup
 
 

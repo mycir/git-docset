@@ -1,3 +1,7 @@
+.*
+/scratch/
+/graveyard/
+
 *.py[cod]
 
 # C extensions
