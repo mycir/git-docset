@@ -7,4 +7,4 @@ Forked from [git-dash](https://github.com/iamaziz/git-dash).
 Changes: Ported to Python 3, updated for js driven links, more sections.
 
 #### Screenshot
-![Git Commands Reference](./screenshot.png)
+![Screenshot](./screenshot.png)
