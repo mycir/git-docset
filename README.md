@@ -1,6 +1,6 @@
 ## Dash docset of Git commands
 
-[Git commands reference](http://git-scm.com/docs) docset for [Dash](http://kapeli.com/dash).
+[Git commands reference](http://git-scm.com/docs) docset for [Dash](https://kapeli.com/dash) or [Zeal](https://zealdocs.org/).
 
 Forked from [git-dash](https://github.com/iamaziz/git-dash).
 
