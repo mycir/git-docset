@@ -22,7 +22,7 @@
 <p>Displays paths that have differences between the index file and the
 current HEAD commit, paths that have differences between the working
 tree and the index file, and paths in the working tree that are not
-tracked by Git (and are not ignored by <a href="/git/docs/gitignore.html">gitignore[5]</a>). The first
+tracked by Git (and are not ignored by <a href="gitignore.html">gitignore[5]</a>). The first
 are what you <em>would</em> commit by running <code>git commit</code>; the second and
 third are what you <em>could</em> commit by running <em>git add</em> before running
 <code>git commit</code>.</p>
@@ -112,7 +112,7 @@ return more quickly without showing untracked files.</p>
 </div>
 <div class="paragraph">
 <p>The default can be changed using the status.showUntrackedFiles
-configuration variable documented in <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+configuration variable documented in <a href="git-config.html">git-config[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -124,7 +124,7 @@ either "none", "untracked", "dirty" or "all", which is the default.
 Using "none" will consider the submodule modified when it either contains
 untracked or modified files or its HEAD differs from the commit recorded
 in the superproject and can be used to override any settings of the
-<em>ignore</em> option in <a href="/git/docs/git-config.html">git-config[1]</a> or <a href="/git/docs/gitmodules.html">gitmodules[5]</a>. When
+<em>ignore</em> option in <a href="git-config.html">git-config[1]</a> or <a href="gitmodules.html">gitmodules[5]</a>. When
 "untracked" is used submodules are not considered dirty when they only
 contain untracked content (but they are still scanned for modified
 content). Using "dirty" ignores all changes to the work tree of submodules,
@@ -195,17 +195,17 @@ branch relative to its upstream branch.  Defaults to true.</p>
 <dt class="hdlist1" id="Documentation/git-status.txt---no-renames"> <a class="anchor" href="#Documentation/git-status.txt---no-renames"></a>--no-renames </dt>
 <dd>
 <p>Turn on/off rename detection regardless of user configuration.
-See also <a href="/git/docs/git-diff.html">git-diff[1]</a> <code>--no-renames</code>.</p>
+See also <a href="git-diff.html">git-diff[1]</a> <code>--no-renames</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-status.txt---find-renamesltngt"> <a class="anchor" href="#Documentation/git-status.txt---find-renamesltngt"></a>--find-renames[=&lt;n&gt;] </dt>
 <dd>
 <p>Turn on rename detection, optionally setting the similarity
 threshold.
-See also <a href="/git/docs/git-diff.html">git-diff[1]</a> <code>--find-renames</code>.</p>
+See also <a href="git-diff.html">git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-status.txt-ltpathspecgt82308203"> <a class="anchor" href="#Documentation/git-status.txt-ltpathspecgt82308203"></a>&lt;pathspec&gt; </dt>
 <dd>
-<p>See the <em>pathspec</em> entry in <a href="/git/docs/gitglossary.html">gitglossary[7]</a>.</p>
+<p>See the <em>pathspec</em> entry in <a href="gitglossary.html">gitglossary[7]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -565,7 +565,7 @@ byte.</p>
 <div class="paragraph">
 <p>Without the <code>-z</code> option, pathnames with "unusual" characters are
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+(see <a href="git-config.html">git-config[1]</a>).</p>
 </div>
 </div>
 </div>
@@ -589,7 +589,7 @@ directory.</p>
 <p>If <code>status.submoduleSummary</code> is set to a non zero number or true (identical
 to -1 or an unlimited number), the submodule summary will be enabled for
 the long format and a summary of commits for modified submodules will be
-shown (see --summary-limit option of <a href="/git/docs/git-submodule.html">git-submodule[1]</a>). Please note
+shown (see --summary-limit option of <a href="git-submodule.html">git-submodule[1]</a>). Please note
 that the summary output from the status command will be suppressed for all
 submodules when <code>diff.ignoreSubmodules</code> is set to <em>all</em> or only for those
 submodules where <code>submodule.&lt;name&gt;.ignore=all</code>. To also view the summary for
@@ -611,7 +611,7 @@ them out is just to save subsequent programs from repeating our
 computation). When <code>status</code> is run in the background, the lock held
 during the write may conflict with other simultaneous processes, causing
 them to fail. Scripts running <code>status</code> in the background should consider
-using <code>git --no-optional-locks status</code> (see <a href="/git/docs/git.html">git[1]</a> for details).</p>
+using <code>git --no-optional-locks status</code> (see <a href="git.html">git[1]</a> for details).</p>
 </div>
 </div>
 </div>
@@ -619,7 +619,7 @@ using <code>git --no-optional-locks status</code> (see <a href="/git/docs/git.ht
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/gitignore.html">gitignore[5]</a></p>
+<p><a href="gitignore.html">gitignore[5]</a></p>
 </div>
 </div>
 </div>
@@ -627,7 +627,7 @@ using <code>git --no-optional-locks status</code> (see <a href="/git/docs/git.ht
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

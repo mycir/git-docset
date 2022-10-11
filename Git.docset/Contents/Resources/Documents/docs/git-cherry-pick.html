@@ -46,7 +46,7 @@ in the index file and in your working tree.</p>
 <li>
 <p>For conflicting paths, the index file records up to three
 versions, as described in the "TRUE MERGE" section of
-<a href="/git/docs/git-merge.html">git-merge[1]</a>.  The working tree files will include
+<a href="git-merge.html">git-merge[1]</a>.  The working tree files will include
 a description of the conflict bracketed by the usual
 conflict markers <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</p>
 </li>
@@ -56,7 +56,7 @@ conflict markers <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt
 </ol>
 </div>
 <div class="paragraph">
-<p>See <a href="/git/docs/git-merge.html">git-merge[1]</a> for some hints on resolving such
+<p>See <a href="git-merge.html">git-merge[1]</a> for some hints on resolving such
 conflicts.</p>
 </div>
 </div>
@@ -70,10 +70,10 @@ conflicts.</p>
 <dd>
 <p>Commits to cherry-pick.
 For a more complete list of ways to spell commits, see
-<a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>.
+<a href="gitrevisions.html">gitrevisions[7]</a>.
 Sets of commits can be passed but no traversal is done by
 default, as if the <code>--no-walk</code> option was specified, see
-<a href="/git/docs/git-rev-list.html">git-rev-list[1]</a>. Note that specifying a range will
+<a href="git-rev-list.html">git-rev-list[1]</a>. Note that specifying a range will
 feed all &lt;commit&gt; arguments to a single revision walk
 (see a later example that uses <em>maint master..next</em>).</p>
 </dd>
@@ -86,7 +86,7 @@ message prior to committing.</p>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---cleanupltmodegt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>This option determines how the commit message will be cleaned up before
-being passed on to the commit machinery. See <a href="/git/docs/git-commit.html">git-commit[1]</a> for more
+being passed on to the commit machinery. See <a href="git-commit.html">git-commit[1]</a> for more
 details. In particular, if the <em>&lt;mode&gt;</em> is given a value of <code>scissors</code>,
 scissors will be appended to <code>MERGE_MSG</code> before being passed on in the case
 of a conflict.</p>
@@ -140,7 +140,7 @@ effect to your index in a row.</p>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---signoff"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---signoff"></a>--signoff </dt>
 <dd>
 <p>Add a <code>Signed-off-by</code> trailer at the end of the commit message.
-See the signoff option in <a href="/git/docs/git-commit.html">git-commit[1]</a> for more information.</p>
+See the signoff option in <a href="git-commit.html">git-commit[1]</a> for more information.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt--Sltkeyidgt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt--Sltkeyidgt"></a>-S[&lt;keyid&gt;] </dt>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---gpg-signltkeyidgt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---gpg-signltkeyidgt"></a>--gpg-sign[=&lt;keyid&gt;] </dt>
@@ -189,20 +189,25 @@ creates an empty commit object.  Implies <code>--allow-empty</code>.</p>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---strategyltstrategygt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---strategyltstrategygt"></a>--strategy=&lt;strategy&gt; </dt>
 <dd>
 <p>Use the given merge strategy.  Should only be used once.
-See the MERGE STRATEGIES section in <a href="/git/docs/git-merge.html">git-merge[1]</a>
+See the MERGE STRATEGIES section in <a href="git-merge.html">git-merge[1]</a>
 for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt--Xltoptiongt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt--Xltoptiongt"></a>-X&lt;option&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---strategy-optionltoptiongt"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
 <dd>
 <p>Pass the merge strategy-specific option through to the
-merge strategy.  See <a href="/git/docs/git-merge.html">git-merge[1]</a> for details.</p>
+merge strategy.  See <a href="git-merge.html">git-merge[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---rerere-autoupdate"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="Documentation/git-cherry-pick.txt---no-rerere-autoupdate"> <a class="anchor" href="#Documentation/git-cherry-pick.txt---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Allow the rerere mechanism to update the index with the
-result of auto-conflict resolution if possible.</p>
+<p>After the rerere mechanism reuses a recorded resolution on
+the current conflict to update the files in the working
+tree, allow it to also update the index with the result of
+resolution.  <code>--no-rerere-autoupdate</code> is a good way to
+double-check what <code>rerere</code> did and catch potential
+mismerges, before committing the result to the index with a
+separate <code>git add</code>.</p>
 </dd>
 </dl>
 </div>
@@ -335,7 +340,7 @@ matching context lines.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-revert.html">git-revert[1]</a></p>
+<p><a href="git-revert.html">git-revert[1]</a></p>
 </div>
 </div>
 </div>
@@ -343,7 +348,7 @@ matching context lines.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

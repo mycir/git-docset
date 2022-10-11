@@ -22,7 +22,7 @@
 		[--exclude-standard]
 		[--error-unmatch] [--with-tree=&lt;tree-ish&gt;]
 		[--full-name] [--recurse-submodules]
-		[--abbrev[=&lt;n&gt;]] [--] [&lt;file&gt;]</pre>
+		[--abbrev[=&lt;n&gt;]] [--format=&lt;format&gt;] [--] [&lt;file&gt;]</pre>
 </div>
 </div>
 </div>
@@ -150,10 +150,10 @@ with <code>-s</code> or <code>-u</code> options does not make any sense.</p>
 <dt class="hdlist1" id="Documentation/git-ls-files.txt--t"> <a class="anchor" href="#Documentation/git-ls-files.txt--t"></a>-t </dt>
 <dd>
 <p>This feature is semi-deprecated. For scripting purpose,
-<a href="/git/docs/git-status.html">git-status[1]</a> <code>--porcelain</code> and
-<a href="/git/docs/git-diff-files.html">git-diff-files[1]</a> <code>--name-status</code> are almost always
+<a href="git-status.html">git-status[1]</a> <code>--porcelain</code> and
+<a href="git-diff-files.html">git-diff-files[1]</a> <code>--name-status</code> are almost always
 superior alternatives, and users should look at
-<a href="/git/docs/git-status.html">git-status[1]</a> <code>--short</code> or <a href="/git/docs/git-diff.html">git-diff[1]</a>
+<a href="git-status.html">git-status[1]</a> <code>--short</code> or <a href="git-diff.html">git-diff[1]</a>
 <code>--name-status</code> for more user-friendly alternatives.</p>
 <div class="openblock">
 <div class="content">
@@ -200,13 +200,13 @@ a space) at the start of each line:</p>
 <dd>
 <p>Similar to <code>-t</code>, but use lowercase letters for files
 that are marked as <em>assume unchanged</em> (see
-<a href="/git/docs/git-update-index.html">git-update-index[1]</a>).</p>
+<a href="git-update-index.html">git-update-index[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-ls-files.txt--f"> <a class="anchor" href="#Documentation/git-ls-files.txt--f"></a>-f </dt>
 <dd>
 <p>Similar to <code>-t</code>, but use lowercase letters for files
 that are marked as <em>fsmonitor valid</em> (see
-<a href="/git/docs/git-update-index.html">git-update-index[1]</a>).</p>
+<a href="git-update-index.html">git-update-index[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-ls-files.txt---full-name"> <a class="anchor" href="#Documentation/git-ls-files.txt---full-name"></a>--full-name </dt>
 <dd>
@@ -261,6 +261,15 @@ followed by the  ("attr/&lt;eolattr&gt;").</p>
 to the contained files. Sparse directories will be shown with a
 trailing slash, such as "x/" for a sparse directory "x".</p>
 </dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt---formatltformatgt"> <a class="anchor" href="#Documentation/git-ls-files.txt---formatltformatgt"></a>--format=&lt;format&gt; </dt>
+<dd>
+<p>A string that interpolates <code>%(fieldname)</code> from the result being shown.
+It also interpolates <code>%%</code> to <code>%</code>, and <code>%xx</code> where <code>xx</code> are hex digits
+interpolates to character with hex code <code>xx</code>; for example <code>%00</code>
+interpolates to <code>\0</code> (NUL), <code>%09</code> to <code>\t</code> (TAB) and %0a to <code>\n</code> (LF).
+--format cannot be combined with <code>-s</code>, <code>-o</code>, <code>-k</code>, <code>-t</code>, <code>--resolve-undo</code>
+and <code>--eol</code>.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-ls-files.txt---"> <a class="anchor" href="#Documentation/git-ls-files.txt---"></a>-- </dt>
 <dd>
 <p>Do not interpret any more arguments as options.</p>
@@ -299,13 +308,67 @@ detailed information on unmerged paths.</p>
 the index records up to three such pairs; one from tree O in stage
 1, A in stage 2, and B in stage 3.  This information can be used by
 the user (or the porcelain) to see what should eventually be recorded at the
-path. (see <a href="/git/docs/git-read-tree.html">git-read-tree[1]</a> for more information on state)</p>
+path. (see <a href="git-read-tree.html">git-read-tree[1]</a> for more information on state)</p>
 </div>
 <div class="paragraph">
 <p>Without the <code>-z</code> option, pathnames with "unusual" characters are
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>).  Using <code>-z</code> the filename is output
+(see <a href="git-config.html">git-config[1]</a>).  Using <code>-z</code> the filename is output
 verbatim and the line is terminated by a NUL byte.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to print in a custom format by using the <code>--format</code>
+option, which is able to interpolate different fields using
+a <code>%(fieldname)</code> notation. For example, if you only care about the
+"objectname" and "path" fields, you can execute with a specific
+"--format" like</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>git ls-files --format='%(objectname) %(path)'</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_field_names"><a class="anchor" href="#_field_names"></a>FIELD NAMES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The way each path is shown can be customized by using the
+<code>--format=&lt;format&gt;</code> option, where the %(fieldname) in the
+&lt;format&gt; string for various aspects of the index entry are
+interpolated.  The following "fieldname" are understood:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-objectmode"> <a class="anchor" href="#Documentation/git-ls-files.txt-objectmode"></a>objectmode </dt>
+<dd>
+<p>The mode of the file which is recorded in the index.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-objectname"> <a class="anchor" href="#Documentation/git-ls-files.txt-objectname"></a>objectname </dt>
+<dd>
+<p>The name of the file which is recorded in the index.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-stage"> <a class="anchor" href="#Documentation/git-ls-files.txt-stage"></a>stage </dt>
+<dd>
+<p>The stage of the file which is recorded in the index.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-eolinfoindex"> <a class="anchor" href="#Documentation/git-ls-files.txt-eolinfoindex"></a>eolinfo:index </dt>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-eolinfoworktree"> <a class="anchor" href="#Documentation/git-ls-files.txt-eolinfoworktree"></a>eolinfo:worktree </dt>
+<dd>
+<p>The &lt;eolinfo&gt; (see the description of the <code>--eol</code> option) of
+the contents in the index or in the worktree for the path.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-eolattr"> <a class="anchor" href="#Documentation/git-ls-files.txt-eolattr"></a>eolattr </dt>
+<dd>
+<p>The &lt;eolattr&gt; (see the description of the <code>--eol</code> option)
+that applies to the path.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-ls-files.txt-path"> <a class="anchor" href="#Documentation/git-ls-files.txt-path"></a>path </dt>
+<dd>
+<p>The pathname of the file which is recorded in the index.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -315,7 +378,7 @@ verbatim and the line is terminated by a NUL byte.</p>
 <div class="paragraph">
 <p><em>git ls-files</em> can use a list of "exclude patterns" when
 traversing the directory tree and finding files to show when the
-flags --others or --ignored are specified.  <a href="/git/docs/gitignore.html">gitignore[5]</a>
+flags --others or --ignored are specified.  <a href="gitignore.html">gitignore[5]</a>
 specifies the format of exclude patterns.</p>
 </div>
 <div class="paragraph">
@@ -355,7 +418,7 @@ pattern file appears in.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-read-tree.html">git-read-tree[1]</a>, <a href="/git/docs/gitignore.html">gitignore[5]</a></p>
+<p><a href="git-read-tree.html">git-read-tree[1]</a>, <a href="gitignore.html">gitignore[5]</a></p>
 </div>
 </div>
 </div>
@@ -363,7 +426,7 @@ pattern file appears in.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

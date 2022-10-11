@@ -1,4 +1,4 @@
-<div id="main"><title>Git Users Manual</title>
+<div id="main"><title>user-manual</title>
 <div class="sect1">
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
@@ -24,7 +24,7 @@ regressions, and so on.</p>
 </div>
 <div class="paragraph">
 <p>Comprehensive reference documentation is available through the man
-pages, or <a href="/git/docs/git-help.html">git-help[1]</a> command.  For example, for the command
+pages, or <a href="git-help.html">git-help[1]</a> command.  For example, for the command
 <code>git clone &lt;repo&gt;</code>, you can either use:</p>
 </div>
 <div class="listingblock">
@@ -42,7 +42,7 @@ pages, or <a href="/git/docs/git-help.html">git-help[1]</a> command.  For exampl
 </div>
 <div class="paragraph">
 <p>With the latter, you can use the manual viewer of your choice; see
-<a href="/git/docs/git-help.html">git-help[1]</a> for more information.</p>
+<a href="git-help.html">git-help[1]</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>See also <a href="#git-quick-start">Git Quick Reference</a> for a brief overview of Git commands,
@@ -64,7 +64,7 @@ complete.</p>
 read this manual.</p>
 </div>
 <div class="paragraph">
-<p>The best way to get one is by using the <a href="/git/docs/git-clone.html">git-clone[1]</a> command to
+<p>The best way to get one is by using the <a href="git-clone.html">git-clone[1]</a> command to
 download a copy of an existing repository.  If you dont already have a
 project in mind, here are some interesting examples:</p>
 </div>
@@ -106,7 +106,7 @@ merge and diverge.</p>
 <div class="paragraph">
 <p>A single Git repository can track development on multiple branches.  It
 does this by keeping a list of <a href="#def_head">heads</a> which reference the
-latest commit on each branch; the <a href="/git/docs/git-branch.html">git-branch[1]</a> command shows
+latest commit on each branch; the <a href="git-branch.html">git-branch[1]</a> command shows
 you the list of branch heads:</p>
 </div>
 <div class="listingblock">
@@ -123,7 +123,7 @@ the project referred to by that branch head.</p>
 <div class="paragraph">
 <p>Most projects also use <a href="#def_tag">tags</a>.  Tags, like heads, are
 references into the projects history, and can be listed using the
-<a href="/git/docs/git-tag.html">git-tag[1]</a> command:</p>
+<a href="git-tag.html">git-tag[1]</a> command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -146,7 +146,7 @@ while heads are expected to advance as development progresses.</p>
 </div>
 <div class="paragraph">
 <p>Create a new branch head pointing to one of these versions and check it
-out using <a href="/git/docs/git-switch.html">git-switch[1]</a>:</p>
+out using <a href="git-switch.html">git-switch[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -155,7 +155,7 @@ out using <a href="/git/docs/git-switch.html">git-switch[1]</a>:</p>
 </div>
 <div class="paragraph">
 <p>The working directory then reflects the contents that the project had
-when it was tagged v2.6.13, and <a href="/git/docs/git-branch.html">git-branch[1]</a> shows two
+when it was tagged v2.6.13, and <a href="git-branch.html">git-branch[1]</a> shows two
 branches, with an asterisk marking the currently checked-out branch:</p>
 </div>
 <div class="listingblock">
@@ -185,7 +185,7 @@ carefully.</p>
 <h3 id="understanding-commits"><a class="anchor" href="#understanding-commits"></a>Understanding History: Commits</h3>
 <div class="paragraph">
 <p>Every change in the history of a project is represented by a commit.
-The <a href="/git/docs/git-show.html">git-show[1]</a> command shows the most recent commit on the
+The <a href="git-show.html">git-show[1]</a> command shows the most recent commit on the
 current branch:</p>
 </div>
 <div class="listingblock">
@@ -252,7 +252,7 @@ each parent representing the most recent commit on one of the lines
 of development leading to that point.</p>
 </div>
 <div class="paragraph">
-<p>The best way to see how this works is using the <a href="/git/docs/gitk.html">gitk[1]</a>
+<p>The best way to see how this works is using the <a href="gitk.html">gitk[1]</a>
 command; running gitk now on a Git repository and looking for merge
 commits will help understand how Git organizes history.</p>
 </div>
@@ -411,7 +411,7 @@ of the HEAD in the repository that you cloned from.  That repository
 may also have had other branches, though, and your local repository
 keeps branches which track each of those remote branches, called
 remote-tracking branches, which you
-can view using the <code>-r</code> option to <a href="/git/docs/git-branch.html">git-branch[1]</a>:</p>
+can view using the <code>-r</code> option to <a href="git-branch.html">git-branch[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -481,7 +481,7 @@ exists a tag and a branch with the same name.</p>
 <p>(Newly created refs are actually stored in the <code>.git/refs</code> directory,
 under the path given by their name.  However, for efficiency reasons
 they may also be packed together in a single file; see
-<a href="/git/docs/git-pack-refs.html">git-pack-refs[1]</a>).</p>
+<a href="git-pack-refs.html">git-pack-refs[1]</a>).</p>
 </div>
 <div class="paragraph">
 <p>As another useful shortcut, the "HEAD" of a repository can be referred
@@ -492,7 +492,7 @@ is usually a shortcut for the HEAD branch in the repository "origin".</p>
 <p>For the complete list of paths which Git checks for references, and
 the order it uses to decide which to choose when there are multiple
 references with the same shorthand name, see the "SPECIFYING
-REVISIONS" section of <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>.</p>
+REVISIONS" section of <a href="gitrevisions.html">gitrevisions[7]</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -512,7 +512,7 @@ repository.  It will not touch any of your own branchesnot even the
 <h3 id="fetching-branches"><a class="anchor" href="#fetching-branches"></a>Fetching branches from other repositories</h3>
 <div class="paragraph">
 <p>You can also track branches from repositories other than the one you
-cloned from, using <a href="/git/docs/git-remote.html">git-remote[1]</a>:</p>
+cloned from, using <a href="git-remote.html">git-remote[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -561,7 +561,7 @@ a new stanza:</p>
 <p>This is what causes Git to track the remotes branches; you may modify
 or delete these configuration options by editing <code>.git/config</code> with a
 text editor.  (See the "CONFIGURATION FILE" section of
-<a href="/git/docs/git-config.html">git-config[1]</a> for details.)</p>
+<a href="git-config.html">git-config[1]</a> for details.)</p>
 </div>
 </div>
 </div>
@@ -590,7 +590,7 @@ commit that introduced a bug into a project.</p>
 "master" crashes.  Sometimes the best way to find the cause of such a
 regression is to perform a brute-force search through the projects
 history to find the particular commit that caused the problem.  The
-<a href="/git/docs/git-bisect.html">git-bisect[1]</a> command can help you do this:</p>
+<a href="git-bisect.html">git-bisect[1]</a> command can help you do this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -624,7 +624,7 @@ half each time.</p>
 <div class="paragraph">
 <p>After about 13 tests (in this case), it will output the commit id of
 the guilty commit.  You can then examine the commit with
-<a href="/git/docs/git-show.html">git-show[1]</a>, find out who wrote it, and mail them your bug
+<a href="git-show.html">git-show[1]</a>, find out who wrote it, and mail them your bug
 report with the commit id.  Finally, run</p>
 </div>
 <div class="listingblock">
@@ -678,7 +678,7 @@ bad one between some first skipped commits and a later bad commit.</p>
 <div class="paragraph">
 <p>There are also ways to automate the bisecting process if you have a
 test script that can tell a good from a bad commit. See
-<a href="/git/docs/git-bisect.html">git-bisect[1]</a> for more information about this and other <code>git
+<a href="git-bisect.html">git-bisect[1]</a> for more information about this and other <code>git
 bisect</code> features.</p>
 </div>
 </div>
@@ -708,7 +708,7 @@ branch</p>
 </div>
 <div class="paragraph">
 <p>There are many more; see the "SPECIFYING REVISIONS" section of the
-<a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> man page for the complete list of ways to
+<a href="gitrevisions.html">gitrevisions[7]</a> man page for the complete list of ways to
 name revisions.  Some examples:</p>
 </div>
 <div class="listingblock">
@@ -759,7 +759,7 @@ which refers to the other branch that were merging in to the current
 branch.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-rev-parse.html">git-rev-parse[1]</a> command is a low-level command that is
+<p>The <a href="git-rev-parse.html">git-rev-parse[1]</a> command is a low-level command that is
 occasionally useful for translating some name for a commit to the object
 name for that commit:</p>
 </div>
@@ -787,14 +787,14 @@ running</p>
 <div class="paragraph">
 <p>This creates a "lightweight" tag.  If you would also like to include a
 comment with the tag, and possibly sign it cryptographically, then you
-should create a tag object instead; see the <a href="/git/docs/git-tag.html">git-tag[1]</a> man page
+should create a tag object instead; see the <a href="git-tag.html">git-tag[1]</a> man page
 for details.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="browsing-revisions"><a class="anchor" href="#browsing-revisions"></a>Browsing revisions</h3>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-log.html">git-log[1]</a> command can show lists of commits.  On its
+<p>The <a href="git-log.html">git-log[1]</a> command can show lists of commits.  On its
 own, it shows all commits reachable from the parent commit; but you
 can also make more specific requests:</p>
 </div>
@@ -830,7 +830,7 @@ commits since v2.5 which touch the <code>Makefile</code> or any file under <code
 </div>
 </div>
 <div class="paragraph">
-<p>See the <code>--pretty</code> option in the <a href="/git/docs/git-log.html">git-log[1]</a> man page for more
+<p>See the <code>--pretty</code> option in the <a href="git-log.html">git-log[1]</a> man page for more
 display options.</p>
 </div>
 <div class="paragraph">
@@ -844,7 +844,7 @@ commits are listed in may be somewhat arbitrary.</p>
 <h3 id="generating-diffs"><a class="anchor" href="#generating-diffs"></a>Generating diffs</h3>
 <div class="paragraph">
 <p>You can generate diffs between any two versions using
-<a href="/git/docs/git-diff.html">git-diff[1]</a>:</p>
+<a href="git-diff.html">git-diff[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -863,7 +863,7 @@ can use three dots instead of two:</p>
 </div>
 <div class="paragraph">
 <p>Sometimes what you want instead is a set of patches; for this you can
-use <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a>:</p>
+use <a href="git-format-patch.html">git-format-patch[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -908,7 +908,7 @@ since it diverged from <code>origin</code>:</p>
 </div>
 <div class="paragraph">
 <p>Alternatively, you may often see this sort of thing done with the
-lower-level command <a href="/git/docs/git-rev-list.html">git-rev-list[1]</a>, which just lists the SHA-1s
+lower-level command <a href="git-rev-list.html">git-rev-list[1]</a>, which just lists the SHA-1s
 of all the given commits:</p>
 </div>
 <div class="listingblock">
@@ -977,7 +977,7 @@ releases.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>or you can use <a href="/git/docs/git-name-rev.html">git-name-rev[1]</a>, which will give the commit a
+<p>or you can use <a href="git-name-rev.html">git-name-rev[1]</a>, which will give the commit a
 name based on any tag it finds pointing to one of the commits
 descendants:</p>
 </div>
@@ -988,7 +988,7 @@ e05db0fd tags/v1.5.0-rc1^0~23</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-describe.html">git-describe[1]</a> command does the opposite, naming the
+<p>The <a href="git-describe.html">git-describe[1]</a> command does the opposite, naming the
 revision using a tag on which the given commit is based:</p>
 </div>
 <div class="listingblock">
@@ -1003,7 +1003,7 @@ given commit.</p>
 </div>
 <div class="paragraph">
 <p>If you just want to verify whether a given tagged version contains a
-given commit, you could use <a href="/git/docs/git-merge-base.html">git-merge-base[1]</a>:</p>
+given commit, you could use <a href="git-merge-base.html">git-merge-base[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1030,7 +1030,7 @@ actually is an ancestor of v1.5.0-rc1.</p>
 because it outputs only commits that are not reachable from v1.5.0-rc1.</p>
 </div>
 <div class="paragraph">
-<p>As yet another alternative, the <a href="/git/docs/git-show-branch.html">git-show-branch[1]</a> command lists
+<p>As yet another alternative, the <a href="git-show-branch.html">git-show-branch[1]</a> command lists
 the commits reachable from its arguments with a display on the left-hand
 side that indicates which arguments that commit is reachable from.
 So, if you run something like</p>
@@ -1068,7 +1068,7 @@ head named <code>master</code> but not from any other head in your repository.</
 </div>
 <div class="paragraph">
 <p>We can list all the heads in this repository with
-<a href="/git/docs/git-show-ref.html">git-show-ref[1]</a>:</p>
+<a href="git-show-ref.html">git-show-ref[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1113,14 +1113,14 @@ commits reachable from some head but not from any tag in the repository:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>(See <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> for explanations of commit-selecting
+<p>(See <a href="gitrevisions.html">gitrevisions[7]</a> for explanations of commit-selecting
 syntax such as <code>--not</code>.)</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="making-a-release"><a class="anchor" href="#making-a-release"></a>Creating a changelog and tarball for a software release</h4>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-archive.html">git-archive[1]</a> command can create a tar or zip archive from
+<p>The <a href="git-archive.html">git-archive[1]</a> command can create a tar or zip archive from
 any version of a project; for example:</p>
 </div>
 <div class="listingblock">
@@ -1131,7 +1131,7 @@ any version of a project; for example:</p>
 <div class="paragraph">
 <p>will use HEAD to produce a gzipped tar archive in which each filename
 is preceded by <code>project/</code>.  The output file format is inferred from
-the output file extension if possible, see <a href="/git/docs/git-archive.html">git-archive[1]</a> for
+the output file extension if possible, see <a href="git-archive.html">git-archive[1]</a> for
 details.</p>
 </div>
 <div class="paragraph">
@@ -1194,8 +1194,8 @@ commit.  You can find out with this:</p>
 </div>
 <div class="paragraph">
 <p>Figuring out why this works is left as an exercise to the (advanced)
-student.  The <a href="/git/docs/git-log.html">git-log[1]</a>, <a href="/git/docs/git-diff-tree.html">git-diff-tree[1]</a>, and
-<a href="/git/docs/git-hash-object.html">git-hash-object[1]</a> man pages may prove helpful.</p>
+student.  The <a href="git-log.html">git-log[1]</a>, <a href="git-diff-tree.html">git-diff-tree[1]</a>, and
+<a href="git-hash-object.html">git-hash-object[1]</a> man pages may prove helpful.</p>
 </div>
 </div>
 </div>
@@ -1208,7 +1208,7 @@ student.  The <a href="/git/docs/git-log.html">git-log[1]</a>, <a href="/git/doc
 <h3 id="telling-git-your-name"><a class="anchor" href="#telling-git-your-name"></a>Telling Git your name</h3>
 <div class="paragraph">
 <p>Before creating any commits, you should introduce yourself to Git.
-The easiest way to do so is to use <a href="/git/docs/git-config.html">git-config[1]</a>:</p>
+The easiest way to do so is to use <a href="git-config.html">git-config[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1228,7 +1228,7 @@ home directory:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See the "CONFIGURATION FILE" section of <a href="/git/docs/git-config.html">git-config[1]</a> for
+<p>See the "CONFIGURATION FILE" section of <a href="git-config.html">git-config[1]</a> for
 details on the configuration file.  The file is plain text, so you can
 also edit it with your favorite editor.</p>
 </div>
@@ -1380,7 +1380,7 @@ $ git status	    # a brief per-file summary of the above.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>You can also use <a href="/git/docs/git-gui.html">git-gui[1]</a> to create commits, view changes in
+<p>You can also use <a href="git-gui.html">git-gui[1]</a> to create commits, view changes in
 the index and the working tree files, and individually select diff hunks
 for inclusion in the index (by right-clicking on the diff hunk and
 choosing "Stage Hunk For Commit").</p>
@@ -1394,7 +1394,7 @@ with a single short (less than 50 character) line summarizing the
 change, followed by a blank line and then a more thorough
 description.  The text up to the first blank line in a commit
 message is treated as the commit title, and that title is used
-throughout Git.  For example, <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a> turns a
+throughout Git.  For example, <a href="git-format-patch.html">git-format-patch[1]</a> turns a
 commit into email, and it uses the title on the Subject line and the
 rest of the commit in the body.</p>
 </div>
@@ -1429,7 +1429,7 @@ foo.txt
 </div>
 </div>
 <div class="paragraph">
-<p>See <a href="/git/docs/gitignore.html">gitignore[5]</a> for a detailed explanation of the syntax.  You can
+<p>See <a href="gitignore.html">gitignore[5]</a> for a detailed explanation of the syntax.  You can
 also place .gitignore files in other directories in your working tree, and they
 will apply to those directories and their subdirectories.  The <code>.gitignore</code>
 files can be added to your repository like any other files (just run <code>git add
@@ -1443,14 +1443,14 @@ for other users who clone your repository.</p>
 them in a file in your repository named <code>.git/info/exclude</code>, or in any
 file specified by the <code>core.excludesFile</code> configuration variable.
 Some Git commands can also take exclude patterns directly on the
-command line.  See <a href="/git/docs/gitignore.html">gitignore[5]</a> for the details.</p>
+command line.  See <a href="gitignore.html">gitignore[5]</a> for the details.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="how-to-merge"><a class="anchor" href="#how-to-merge"></a>How to merge</h3>
 <div class="paragraph">
 <p>You can rejoin two diverging branches of development using
-<a href="/git/docs/git-merge.html">git-merge[1]</a>:</p>
+<a href="git-merge.html">git-merge[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1470,7 +1470,7 @@ half-merged results when this combining results in conflicts.
 Therefore, if you have uncommitted changes touching the same files as
 the ones impacted by the merge, Git will refuse to proceed. Most of
 the time, you will want to commit your changes before you can merge,
-and if you dont, then <a href="/git/docs/git-stash.html">git-stash[1]</a> can take these changes
+and if you dont, then <a href="git-stash.html">git-stash[1]</a> can take these changes
 away while youre doing the merge, and reapply them afterwards.</p>
 </div>
 <div class="paragraph">
@@ -1511,7 +1511,7 @@ information you need to help resolve the merge.</p>
 </div>
 <div class="paragraph">
 <p>Files with conflicts are marked specially in the index, so until you
-resolve the problem and update the index, <a href="/git/docs/git-commit.html">git-commit[1]</a> will
+resolve the problem and update the index, <a href="git-commit.html">git-commit[1]</a> will
 fail:</p>
 </div>
 <div class="listingblock">
@@ -1521,7 +1521,7 @@ file.txt: needs merge</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Also, <a href="/git/docs/git-status.html">git-status[1]</a> will list those files as "unmerged", and the
+<p>Also, <a href="git-status.html">git-status[1]</a> will list those files as "unmerged", and the
 files with conflicts will have conflict markers added, like this:</p>
 </div>
 <div class="listingblock">
@@ -1556,7 +1556,7 @@ also provides more information to help resolve conflicts:</p>
 <h4 id="conflict-resolution"><a class="anchor" href="#conflict-resolution"></a>Getting conflict-resolution help during a merge</h4>
 <div class="paragraph">
 <p>All of the changes that Git was able to merge automatically are
-already added to the index file, so <a href="/git/docs/git-diff.html">git-diff[1]</a> shows only
+already added to the index file, so <a href="git-diff.html">git-diff[1]</a> shows only
 the conflicts.  It uses an unusual syntax:</p>
 </div>
 <div class="listingblock">
@@ -1592,7 +1592,7 @@ $ git show :3:file.txt	# the version from MERGE_HEAD.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you ask <a href="/git/docs/git-diff.html">git-diff[1]</a> to show the conflicts, it runs a
+<p>When you ask <a href="git-diff.html">git-diff[1]</a> to show the conflicts, it runs a
 three-way diff between the conflicted merge results in the work tree with
 stages 2 and 3 to show only hunks whose contents come from both sides,
 mixed (in other words, when a hunks merge results come only from stage 2,
@@ -1605,7 +1605,7 @@ each line by a single <code>+</code> or <code>-</code>, it now uses two columns:
 column is used for differences between the first parent and the working
 directory copy, and the second for differences between the second parent
 and the working directory copy.  (See the "COMBINED DIFF FORMAT" section
-of <a href="/git/docs/git-diff-files.html">git-diff-files[1]</a> for a details of the format.)</p>
+of <a href="git-diff-files.html">git-diff-files[1]</a> for a details of the format.)</p>
 </div>
 <div class="paragraph">
 <p>After resolving the conflict in the obvious way (but before updating the
@@ -1644,7 +1644,7 @@ $ git diff --theirs file.txt	# same as the above.</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-log.html">git-log[1]</a> and <a href="/git/docs/gitk.html">gitk[1]</a> commands also provide special help
+<p>The <a href="git-log.html">git-log[1]</a> and <a href="gitk.html">gitk[1]</a> commands also provide special help
 for merges:</p>
 </div>
 <div class="listingblock">
@@ -1658,7 +1658,7 @@ $ gitk --merge</pre>
 MERGE_HEAD, and which touch an unmerged file.</p>
 </div>
 <div class="paragraph">
-<p>You may also use <a href="/git/docs/git-mergetool.html">git-mergetool[1]</a>, which lets you merge the
+<p>You may also use <a href="git-mergetool.html">git-mergetool[1]</a>, which lets you merge the
 unmerged files using external tools such as Emacs or kdiff3.</p>
 </div>
 <div class="paragraph">
@@ -1753,7 +1753,7 @@ a branch that has had its history changed.</p>
 <h4 id="reverting-a-commit"><a class="anchor" href="#reverting-a-commit"></a>Fixing a mistake with a new commit</h4>
 <div class="paragraph">
 <p>Creating a new commit that reverts an earlier change is very easy;
-just pass the <a href="/git/docs/git-revert.html">git-revert[1]</a> command a reference to the bad
+just pass the <a href="git-revert.html">git-revert[1]</a> command a reference to the bad
 commit; for example, to revert the most recent commit:</p>
 </div>
 <div class="listingblock">
@@ -1804,7 +1804,7 @@ changes, giving you a chance to edit the old commit message first.</p>
 </div>
 <div class="paragraph">
 <p>Again, you should never do this to a commit that may already have
-been merged into another branch; use <a href="/git/docs/git-revert.html">git-revert[1]</a> instead in
+been merged into another branch; use <a href="git-revert.html">git-revert[1]</a> instead in
 that case.</p>
 </div>
 <div class="paragraph">
@@ -1818,7 +1818,7 @@ this is an advanced topic to be left for
 <div class="paragraph">
 <p>In the process of undoing a previous bad change, you may find it
 useful to check out an older version of a particular file using
-<a href="/git/docs/git-restore.html">git-restore[1]</a>. The command</p>
+<a href="git-restore.html">git-restore[1]</a>. The command</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1832,7 +1832,7 @@ also updates the index to match.  It does not change branches.</p>
 <div class="paragraph">
 <p>If you just want to look at an old version of the file, without
 modifying the working directory, you can do that with
-<a href="/git/docs/git-show.html">git-show[1]</a>:</p>
+<a href="git-show.html">git-show[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1848,7 +1848,7 @@ modifying the working directory, you can do that with
 <div class="paragraph">
 <p>While you are in the middle of working on something complicated, you
 find an unrelated but obvious and trivial bug.  You would like to fix it
-before continuing.  You can use <a href="/git/docs/git-stash.html">git-stash[1]</a> to save the current
+before continuing.  You can use <a href="git-stash.html">git-stash[1]</a> to save the current
 state of your work, and after fixing the bug (or, optionally after doing
 so on a different branch and then coming back), unstash the
 work-in-progress changes.</p>
@@ -1885,7 +1885,7 @@ $ git commit -a -m "blorpl: typofix"</pre>
 <div class="paragraph">
 <p>On large repositories, Git depends on compression to keep the history
 information from taking up too much space on disk or in memory.  Some
-Git commands may automatically run <a href="/git/docs/git-gc.html">git-gc[1]</a>, so you dont
+Git commands may automatically run <a href="git-gc.html">git-gc[1]</a>, so you dont
 have to worry about running it manually.  However, compressing a large
 repository may take a while, so you may want to call <code>gc</code> explicitly
 to avoid automatic compression kicking in when it is not convenient.</p>
@@ -1896,7 +1896,7 @@ to avoid automatic compression kicking in when it is not convenient.</p>
 <div class="sect3">
 <h4 id="checking-for-corruption"><a class="anchor" href="#checking-for-corruption"></a>Checking the repository for corruption</h4>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-fsck.html">git-fsck[1]</a> command runs a number of self-consistency checks
+<p>The <a href="git-fsck.html">git-fsck[1]</a> command runs a number of self-consistency checks
 on the repository, and reports on any problems.  This may take some
 time.</p>
 </div>
@@ -1970,9 +1970,9 @@ youve checked out.</p>
 </div>
 <div class="paragraph">
 <p>The reflogs are kept by default for 30 days, after which they may be
-pruned.  See <a href="/git/docs/git-reflog.html">git-reflog[1]</a> and <a href="/git/docs/git-gc.html">git-gc[1]</a> to learn
+pruned.  See <a href="git-reflog.html">git-reflog[1]</a> and <a href="git-gc.html">git-gc[1]</a> to learn
 how to control this pruning, and see the "SPECIFYING REVISIONS"
-section of <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> for details.</p>
+section of <a href="gitrevisions.html">gitrevisions[7]</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>Note that the reflog history is very different from normal Git history.
@@ -2048,7 +2048,7 @@ into your own work.</p>
 </div>
 <div class="paragraph">
 <p>We have already seen <a href="#Updating-a-repository-With-git-fetch">how to
-keep remote-tracking branches up to date</a> with <a href="/git/docs/git-fetch.html">git-fetch[1]</a>,
+keep remote-tracking branches up to date</a> with <a href="git-fetch.html">git-fetch[1]</a>,
 and how to merge two branches.  So you can merge in changes from the
 original repositorys master branch with:</p>
 </div>
@@ -2059,7 +2059,7 @@ $ git merge origin/master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>However, the <a href="/git/docs/git-pull.html">git-pull[1]</a> command provides a way to do this in
+<p>However, the <a href="git-pull.html">git-pull[1]</a> command provides a way to do this in
 one step:</p>
 </div>
 <div class="listingblock">
@@ -2088,8 +2088,8 @@ the current branch.</p>
 will pull
 by default from that branch.  See the descriptions of the
 <code>branch.&lt;name&gt;.remote</code> and <code>branch.&lt;name&gt;.merge</code> options in
-<a href="/git/docs/git-config.html">git-config[1]</a>, and the discussion of the <code>--track</code> option in
-<a href="/git/docs/git-checkout.html">git-checkout[1]</a>, to learn how to control these defaults.</p>
+<a href="git-config.html">git-config[1]</a>, and the discussion of the <code>--track</code> option in
+<a href="git-checkout.html">git-checkout[1]</a>, to learn how to control these defaults.</p>
 </div>
 <div class="paragraph">
 <p>In addition to saving you keystrokes, <code>git pull</code> also helps you by
@@ -2123,7 +2123,7 @@ $ git merge branch</pre>
 just be to send them as patches in email:</p>
 </div>
 <div class="paragraph">
-<p>First, use <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a>; for example:</p>
+<p>First, use <a href="git-format-patch.html">git-format-patch[1]</a>; for example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2145,7 +2145,7 @@ manner.</p>
 <div class="paragraph">
 <p>You can then import these into your mail client and send them by
 hand.  However, if you have a lot to send at once, you may prefer to
-use the <a href="/git/docs/git-send-email.html">git-send-email[1]</a> script to automate the process.
+use the <a href="git-send-email.html">git-send-email[1]</a> script to automate the process.
 Consult the mailing list for your project first to determine
 their requirements for submitting patches.</p>
 </div>
@@ -2153,7 +2153,7 @@ their requirements for submitting patches.</p>
 <div class="sect2">
 <h3 id="importing-patches"><a class="anchor" href="#importing-patches"></a>Importing patches to a project</h3>
 <div class="paragraph">
-<p>Git also provides a tool called <a href="/git/docs/git-am.html">git-am[1]</a> (am stands for
+<p>Git also provides a tool called <a href="git-am.html">git-am[1]</a> (am stands for
 "apply mailbox"), for importing such an emailed series of patches.
 Just save all of the patch-containing messages, in order, into a
 single mailbox file, say <code>patches.mbox</code>, then run</p>
@@ -2194,7 +2194,7 @@ taken from the message containing each patch.</p>
 <div class="paragraph">
 <p>Another way to submit changes to a project is to tell the maintainer
 of that project to pull the changes from your repository using
-<a href="/git/docs/git-pull.html">git-pull[1]</a>.  In the section "<a href="#getting-updates-With-git-pull">Getting updates with <code>git pull</code></a>" we described this as a way to get
+<a href="git-pull.html">git-pull[1]</a>.  In the section "<a href="#getting-updates-With-git-pull">Getting updates with <code>git pull</code></a>" we described this as a way to get
 updates from the "main" repository, but it works just as well in the
 other direction.</p>
 </div>
@@ -2289,7 +2289,7 @@ appear at.  You can then skip to the section
 repository</a>", below.</p>
 </div>
 <div class="paragraph">
-<p>Otherwise, all you need to do is start <a href="/git/docs/git-daemon.html">git-daemon[1]</a>; it will
+<p>Otherwise, all you need to do is start <a href="git-daemon.html">git-daemon[1]</a>; it will
 listen on port 9418.  By default, it will allow access to any directory
 that looks like a Git directory and contains the magic file
 git-daemon-export-ok.  Passing some directory paths as <code>git daemon</code>
@@ -2297,7 +2297,7 @@ arguments will further restrict the exports to those paths.</p>
 </div>
 <div class="paragraph">
 <p>You can also run <code>git daemon</code> as an inetd service; see the
-<a href="/git/docs/git-daemon.html">git-daemon[1]</a> man page for details.  (See especially the
+<a href="git-daemon.html">git-daemon[1]</a> man page for details.  (See especially the
 examples section.)</p>
 </div>
 </div>
@@ -2322,7 +2322,7 @@ $ mv hooks/post-update.sample hooks/post-update</pre>
 </div>
 <div class="paragraph">
 <p>(For an explanation of the last two lines, see
-<a href="/git/docs/git-update-server-info.html">git-update-server-info[1]</a> and <a href="/git/docs/githooks.html">githooks[5]</a>.)</p>
+<a href="git-update-server-info.html">git-update-server-info[1]</a> and <a href="githooks.html">githooks[5]</a>.)</p>
 </div>
 <div class="paragraph">
 <p>Advertise the URL of <code>proj.git</code>.  Anybody else should then be able to
@@ -2335,7 +2335,7 @@ clone or pull from that URL, for example with a command line like:</p>
 </div>
 <div class="paragraph">
 <p>(See also
-<a href="/git/docs/howto/setup-git-server-over-http.html">setup-git-server-over-http</a>
+<a href="howto/setup-git-server-over-http.html">setup-git-server-over-http</a>
 for a slightly more sophisticated setup using WebDAV which also
 allows pushing over HTTP.)</p>
 </div>
@@ -2350,7 +2350,7 @@ access, which you will need to update the public repository with the
 latest changes created in your private repository.</p>
 </div>
 <div class="paragraph">
-<p>The simplest way to do this is using <a href="/git/docs/git-push.html">git-push[1]</a> and ssh; to
+<p>The simplest way to do this is using <a href="git-push.html">git-push[1]</a> and ssh; to
 update the remote branch named <code>master</code> with the latest state of your
 branch named <code>master</code>, run</p>
 </div>
@@ -2378,7 +2378,7 @@ handling this case.</p>
 repository that has a checked-out working tree, but a push to update the
 currently checked-out branch is denied by default to prevent confusion.
 See the description of the receive.denyCurrentBranch option
-in <a href="/git/docs/git-config.html">git-config[1]</a> for details.</p>
+in <a href="git-config.html">git-config[1]</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>As with <code>git fetch</code>, you may also set up configuration options to
@@ -2410,7 +2410,7 @@ save typing; so, for example:</p>
 <div class="paragraph">
 <p>See the explanations of the <code>remote.&lt;name&gt;.url</code>,
 <code>branch.&lt;name&gt;.remote</code>, and <code>remote.&lt;name&gt;.push</code> options in
-<a href="/git/docs/git-config.html">git-config[1]</a> for details.</p>
+<a href="git-config.html">git-config[1]</a> for details.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2483,7 +2483,7 @@ the right to push to the same repository.  In that case, the correct
 solution is to retry the push after first updating your work: either by a
 pull, or by a fetch followed by a rebase; see the
 <a href="#setting-up-a-shared-repository">next section</a> and
-<a href="/git/docs/gitcvs-migration.html">gitcvs-migration[7]</a> for more.</p>
+<a href="gitcvs-migration.html">gitcvs-migration[7]</a> for more.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2492,7 +2492,7 @@ pull, or by a fetch followed by a rebase; see the
 <p>Another way to collaborate is by using a model similar to that
 commonly used in CVS, where several developers with special rights
 all push to and pull from a single shared repository.  See
-<a href="/git/docs/gitcvs-migration.html">gitcvs-migration[7]</a> for instructions on how to
+<a href="gitcvs-migration.html">gitcvs-migration[7]</a> for instructions on how to
 set this up.</p>
 </div>
 <div class="paragraph">
@@ -2536,13 +2536,13 @@ Git. Features like RSS/Atom feeds and blame/annotation details may
 optionally be enabled.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-instaweb.html">git-instaweb[1]</a> command provides a simple way to start
+<p>The <a href="git-instaweb.html">git-instaweb[1]</a> command provides a simple way to start
 browsing the repository using gitweb. The default server when using
 instaweb is lighttpd.</p>
 </div>
 <div class="paragraph">
 <p>See the file gitweb/INSTALL in the Git source tree and
-<a href="/git/docs/gitweb.html">gitweb[1]</a> for instructions on details setting up a permanent
+<a href="gitweb.html">gitweb[1]</a> for instructions on details setting up a permanent
 installation with a CGI or Perl capable server.</p>
 </div>
 </div>
@@ -2557,8 +2557,8 @@ expensive.</p>
 </div>
 <div class="paragraph">
 <p>A <a href="#def_shallow_clone">shallow clone</a> is created by specifying
-the <a href="/git/docs/git-clone.html">git-clone[1]</a> <code>--depth</code> switch. The depth can later be
-changed with the <a href="/git/docs/git-fetch.html">git-fetch[1]</a> <code>--depth</code> switch, or full
+the <a href="git-clone.html">git-clone[1]</a> <code>--depth</code> switch. The depth can later be
+changed with the <a href="git-fetch.html">git-fetch[1]</a> <code>--depth</code> switch, or full
 history restored with <code>--unshallow</code>.</p>
 </div>
 <div class="paragraph">
@@ -2611,15 +2611,15 @@ $ cd work</pre>
 </div>
 <div class="paragraph">
 <p>Linuss tree will be stored in the remote-tracking branch named origin/master,
-and can be updated using <a href="/git/docs/git-fetch.html">git-fetch[1]</a>; you can track other
-public trees using <a href="/git/docs/git-remote.html">git-remote[1]</a> to set up a "remote" and
-<a href="/git/docs/git-fetch.html">git-fetch[1]</a> to keep them up to date; see
+and can be updated using <a href="git-fetch.html">git-fetch[1]</a>; you can track other
+public trees using <a href="git-remote.html">git-remote[1]</a> to set up a "remote" and
+<a href="git-fetch.html">git-fetch[1]</a> to keep them up to date; see
 <a href="#repositories-and-branches">Repositories and Branches</a>.</p>
 </div>
 <div class="paragraph">
 <p>Now create the branches in which you are going to work; these start out
 at the current tip of origin/master branch, and should be set up (using
-the <code>--track</code> option to <a href="/git/docs/git-branch.html">git-branch[1]</a>) to merge changes in from
+the <code>--track</code> option to <a href="git-branch.html">git-branch[1]</a>) to merge changes in from
 Linus by default.</p>
 </div>
 <div class="listingblock">
@@ -2629,7 +2629,7 @@ $ git branch --track release origin/master</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>These can be easily kept up to date using <a href="/git/docs/git-pull.html">git-pull[1]</a>.</p>
+<p>These can be easily kept up to date using <a href="git-pull.html">git-pull[1]</a>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2647,7 +2647,7 @@ will become part of the permanent history when you ask Linus to pull
 from the release branch.</p>
 </div>
 <div class="paragraph">
-<p>A few configuration variables (see <a href="/git/docs/git-config.html">git-config[1]</a>) can
+<p>A few configuration variables (see <a href="git-config.html">git-config[1]</a>) can
 make it easy to push both branches to your public tree.  (See
 <a href="#setting-up-a-public-repository">Setting up a public repository</a>.)</p>
 </div>
@@ -2663,7 +2663,7 @@ EOF</pre>
 </div>
 <div class="paragraph">
 <p>Then you can push both the test and release trees using
-<a href="/git/docs/git-push.html">git-push[1]</a>:</p>
+<a href="git-push.html">git-push[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2793,7 +2793,7 @@ merge that into the <code>test</code> branch.</p>
 </div>
 <div class="paragraph">
 <p>After pushing your work to <code>mytree</code>, you can use
-<a href="/git/docs/git-request-pull.html">git-request-pull[1]</a> to prepare a "please pull" request message
+<a href="git-request-pull.html">git-request-pull[1]</a> to prepare a "please pull" request message
 to send to Linus:</p>
 </div>
 <div class="listingblock">
@@ -3030,7 +3030,7 @@ the result would create a new merge commit, like this:</p>
 <div class="paragraph">
 <p>However, if you prefer to keep the history in mywork a simple series of
 commits without any merges, you may instead choose to use
-<a href="/git/docs/git-rebase.html">git-rebase[1]</a>:</p>
+<a href="git-rebase.html">git-rebase[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3119,7 +3119,7 @@ $ git reset --hard origin</pre>
 </div>
 <div class="paragraph">
 <p>Then modify, reorder, or eliminate patches as needed before applying
-them again with <a href="/git/docs/git-am.html">git-am[1]</a>:</p>
+them again with <a href="git-am.html">git-am[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3189,7 +3189,7 @@ the original branch by using the <a href="#reflogs">reflog</a>.</p>
 </div>
 <div class="paragraph">
 <p>For a more detailed discussion of the procedure and additional tips,
-see the "INTERACTIVE MODE" section of <a href="/git/docs/git-rebase.html">git-rebase[1]</a>.</p>
+see the "INTERACTIVE MODE" section of <a href="git-rebase.html">git-rebase[1]</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -3260,7 +3260,7 @@ published branches should never be rewritten.</p>
 <div class="sect2">
 <h3 id="bisect-merges"><a class="anchor" href="#bisect-merges"></a>Why bisecting merge commits can be harder than bisecting linear history</h3>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-bisect.html">git-bisect[1]</a> command correctly handles history that
+<p>The <a href="git-bisect.html">git-bisect[1]</a> command correctly handles history that
 includes merge commits.  However, when the commit that it finds is a
 merge commit, the user may need to work harder than usual to figure out
 why that commit introduced a problem.</p>
@@ -3299,7 +3299,7 @@ so no conflict resolution is required.</p>
 on the lower line of development have not been converted to the new
 semantics introduced on the upper line of development.  So if all
 you know is that D is bad, that Z is good, and that
-<a href="/git/docs/git-bisect.html">git-bisect[1]</a> identifies C as the culprit, how will you
+<a href="git-bisect.html">git-bisect[1]</a> identifies C as the culprit, how will you
 figure out that the problem is due to this change in semantics?</p>
 </div>
 <div class="paragraph">
@@ -3342,7 +3342,7 @@ publishing.</p>
 <div class="sect2">
 <h3 id="fetching-individual-branches"><a class="anchor" href="#fetching-individual-branches"></a>Fetching individual branches</h3>
 <div class="paragraph">
-<p>Instead of using <a href="/git/docs/git-remote.html">git-remote[1]</a>, you can also choose just
+<p>Instead of using <a href="git-remote.html">git-remote[1]</a>, you can also choose just
 to update one branch at a time, and to store it locally under an
 arbitrary name:</p>
 </div>
@@ -3447,7 +3447,7 @@ may be lost, as we saw in the previous section.</p>
 <p>We saw above that <code>origin</code> is just a shortcut to refer to the
 repository that you originally cloned from.  This information is
 stored in Git configuration variables, which you can see using
-<a href="/git/docs/git-config.html">git-config[1]</a>:</p>
+<a href="git-config.html">git-config[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3482,7 +3482,7 @@ create similar configuration options to save typing; for example,</p>
 </div>
 <div class="paragraph">
 <p>Also note that the above configuration can be performed by directly
-editing the file <code>.git/config</code> instead of using <a href="/git/docs/git-remote.html">git-remote[1]</a>.</p>
+editing the file <code>.git/config</code> instead of using <a href="git-remote.html">git-remote[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>After configuring the remote, the following three commands will do the
@@ -3496,8 +3496,8 @@ $ git fetch example</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>See <a href="/git/docs/git-config.html">git-config[1]</a> for more details on the configuration
-options mentioned above and <a href="/git/docs/git-fetch.html">git-fetch[1]</a> for more details on
+<p>See <a href="git-config.html">git-config[1]</a> for more details on the configuration
+options mentioned above and <a href="git-fetch.html">git-fetch[1]</a> for more details on
 the refspec syntax.</p>
 </div>
 </div>
@@ -3586,7 +3586,7 @@ signature.</p>
 <div class="paragraph">
 <p>The "commit" object links a physical state of a tree with a description
 of how we got there and why.  Use the <code>--pretty=raw</code> option to
-<a href="/git/docs/git-show.html">git-show[1]</a> or <a href="/git/docs/git-log.html">git-log[1]</a> to examine your favorite
+<a href="git-show.html">git-show[1]</a> or <a href="git-log.html">git-log[1]</a> to examine your favorite
 commit:</p>
 </div>
 <div class="listingblock">
@@ -3643,10 +3643,10 @@ of the tree referred to by this commit with the trees associated with
 its parents.  In particular, Git does not attempt to record file renames
 explicitly, though it can identify cases where the existence of the same
 file data at changing paths suggests a rename.  (See, for example, the
-<code>-M</code> option to <a href="/git/docs/git-diff.html">git-diff[1]</a>).</p>
+<code>-M</code> option to <a href="git-diff.html">git-diff[1]</a>).</p>
 </div>
 <div class="paragraph">
-<p>A commit is usually created by <a href="/git/docs/git-commit.html">git-commit[1]</a>, which creates a
+<p>A commit is usually created by <a href="git-commit.html">git-commit[1]</a>, which creates a
 commit whose parent is normally the current HEAD, and whose tree is
 taken from the content currently stored in the index.</p>
 </div>
@@ -3654,8 +3654,8 @@ taken from the content currently stored in the index.</p>
 <div class="sect3">
 <h4 id="tree-object"><a class="anchor" href="#tree-object"></a>Tree Object</h4>
 <div class="paragraph">
-<p>The ever-versatile <a href="/git/docs/git-show.html">git-show[1]</a> command can also be used to
-examine tree objects, but <a href="/git/docs/git-ls-tree.html">git-ls-tree[1]</a> will give you more
+<p>The ever-versatile <a href="git-show.html">git-show[1]</a> command can also be used to
+examine tree objects, but <a href="git-ls-tree.html">git-ls-tree[1]</a> will give you more
 details:</p>
 </div>
 <div class="listingblock">
@@ -3699,7 +3699,7 @@ attention to the executable bit.</p>
 <div class="sect3">
 <h4 id="blob-object"><a class="anchor" href="#blob-object"></a>Blob Object</h4>
 <div class="paragraph">
-<p>You can use <a href="/git/docs/git-show.html">git-show[1]</a> to examine the contents of a blob; take,
+<p>You can use <a href="git-show.html">git-show[1]</a> to examine the contents of a blob; take,
 for example, the blob in the entry for <code>COPYING</code> from the tree above:</p>
 </div>
 <div class="listingblock">
@@ -3725,7 +3725,7 @@ renaming a file does not change the object that file is associated with.</p>
 </div>
 <div class="paragraph">
 <p>Note that any tree or blob object can be examined using
-<a href="/git/docs/git-show.html">git-show[1]</a> with the &lt;revision&gt;:&lt;path&gt; syntax.  This can
+<a href="git-show.html">git-show[1]</a> with the &lt;revision&gt;:&lt;path&gt; syntax.  This can
 sometimes be useful for browsing the contents of a tree that is not
 currently checked out.</p>
 </div>
@@ -3769,7 +3769,7 @@ like GPG/PGP.</p>
 <div class="paragraph">
 <p>A tag object contains an object, object type, tag name, the name of the
 person ("tagger") who created the tag, and a message, which may contain
-a signature, as can be seen using <a href="/git/docs/git-cat-file.html">git-cat-file[1]</a>:</p>
+a signature, as can be seen using <a href="git-cat-file.html">git-cat-file[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3790,8 +3790,8 @@ nLE/L9aUXdWeTFPron96DLA=
 </div>
 </div>
 <div class="paragraph">
-<p>See the <a href="/git/docs/git-tag.html">git-tag[1]</a> command to learn how to create and verify tag
-objects.  (Note that <a href="/git/docs/git-tag.html">git-tag[1]</a> can also be used to create
+<p>See the <a href="git-tag.html">git-tag[1]</a> command to learn how to create and verify tag
+objects.  (Note that <a href="git-tag.html">git-tag[1]</a> can also be used to create
 "lightweight tags", which are not tag objects at all, but just simple
 references whose names begin with <code>refs/tags/</code>).</p>
 </div>
@@ -3821,7 +3821,7 @@ those "loose" objects.</p>
 <p>You can save space and make Git faster by moving these loose objects in
 to a "pack file", which stores a group of objects in an efficient
 compressed format; the details of how pack files are formatted can be
-found in <a href="/git/docs/pack-format.html">pack format</a>.</p>
+found in <a href="gitformat-pack.html">gitformat-pack[5]</a>.</p>
 </div>
 <div class="paragraph">
 <p>To put the loose objects into a pack, just run git repack:</p>
@@ -3863,14 +3863,14 @@ You can verify that the loose objects are gone by looking at the
 objects will work exactly as they did before.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-gc.html">git-gc[1]</a> command performs packing, pruning, and more for
+<p>The <a href="git-gc.html">git-gc[1]</a> command performs packing, pruning, and more for
 you, so is normally the only high-level command you need.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="dangling-objects"><a class="anchor" href="#dangling-objects"></a>Dangling objects</h4>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-fsck.html">git-fsck[1]</a> command will sometimes complain about dangling
+<p>The <a href="git-fsck.html">git-fsck[1]</a> command will sometimes complain about dangling
 objects.  They are not a problem.</p>
 </div>
 <div class="paragraph">
@@ -3987,7 +3987,7 @@ especially commits is <strong>much</strong> harder).</p>
 </div>
 <div class="paragraph">
 <p>Before starting, verify that there is corruption, and figure out where
-it is with <a href="/git/docs/git-fsck.html">git-fsck[1]</a>; this may be time-consuming.</p>
+it is with <a href="git-fsck.html">git-fsck[1]</a>; this may be time-consuming.</p>
 </div>
 <div class="paragraph">
 <p>Assume the output looks like this:</p>
@@ -4005,7 +4005,7 @@ missing blob 4b9458b3786228369c63936db65827de3cc06200</pre>
 points to it.  If you could find just one copy of that missing blob
 object, possibly in some other repository, you could move it into
 <code>.git/objects/4b/9458b3...</code> and be done.  Suppose you cant.  You can
-still examine the tree that pointed to it with <a href="/git/docs/git-ls-tree.html">git-ls-tree[1]</a>,
+still examine the tree that pointed to it with <a href="git-ls-tree.html">git-ls-tree[1]</a>,
 which might output something like:</p>
 </div>
 <div class="listingblock">
@@ -4025,7 +4025,7 @@ which might output something like:</p>
 say its in <code>somedirectory</code>.  If youre lucky the missing copy might be
 the same as the copy you have checked out in your working tree at
 <code>somedirectory/myfile</code>; you can test whether thats right with
-<a href="/git/docs/git-hash-object.html">git-hash-object[1]</a>:</p>
+<a href="git-hash-object.html">git-hash-object[1]</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4111,7 +4111,7 @@ just missing one particular blob version.</p>
 <div class="paragraph">
 <p>The index is a binary file (generally kept in <code>.git/index</code>) containing a
 sorted list of path names, each with permissions and the SHA-1 of a blob
-object; <a href="/git/docs/git-ls-files.html">git-ls-files[1]</a> can show you the contents of the index:</p>
+object; <a href="git-ls-files.html">git-ls-files[1]</a> can show you the contents of the index:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -4138,7 +4138,7 @@ properties:</p>
 <p>The index contains all the information necessary to generate a single
 (uniquely determined) tree object.</p>
 <div class="paragraph">
-<p>For example, running <a href="/git/docs/git-commit.html">git-commit[1]</a> generates this tree object
+<p>For example, running <a href="git-commit.html">git-commit[1]</a> generates this tree object
 from the index, stores it in the object database, and uses it as the
 tree object associated with the new commit.</p>
 </div>
@@ -4163,7 +4163,7 @@ you can create a three-way merge between them.</p>
 <div class="paragraph">
 <p>We saw in <a href="#conflict-resolution">Getting conflict-resolution help during a merge</a> that during a merge the index can
 store multiple versions of a single file (called "stages").  The third
-column in the <a href="/git/docs/git-ls-files.html">git-ls-files[1]</a> output above is the stage
+column in the <a href="git-ls-files.html">git-ls-files[1]</a> output above is the stage
 number, and will take on values other than 0 for files with merge
 conflicts.</p>
 </div>
@@ -4225,7 +4225,7 @@ Partial checkouts of the superproject are possible: you can tell Git to
 clone none, some or all of the submodules.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-submodule.html">git-submodule[1]</a> command is available since Git 1.5.3.  Users
+<p>The <a href="git-submodule.html">git-submodule[1]</a> command is available since Git 1.5.3.  Users
 with Git 1.5.2 can look up the submodule commits in the repository and
 manually check them out; earlier versions wont recognize the submodules at
 all.</p>
@@ -4295,7 +4295,7 @@ Do not use local URLs here if you plan to publish your superproject!
 current directory and by default checks out the master branch.</p>
 </li>
 <li>
-<p>It adds the submodules clone path to the <a href="/git/docs/gitmodules.html">gitmodules[5]</a> file and
+<p>It adds the submodules clone path to the <a href="gitmodules.html">gitmodules[5]</a> file and
 adds this file to the index, ready to be committed.</p>
 </li>
 <li>
@@ -4530,29 +4530,29 @@ understand its inner workings.</p>
 <div class="sect2">
 <h3 id="object-manipulation"><a class="anchor" href="#object-manipulation"></a>Object access and manipulation</h3>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-cat-file.html">git-cat-file[1]</a> command can show the contents of any object,
-though the higher-level <a href="/git/docs/git-show.html">git-show[1]</a> is usually more useful.</p>
+<p>The <a href="git-cat-file.html">git-cat-file[1]</a> command can show the contents of any object,
+though the higher-level <a href="git-show.html">git-show[1]</a> is usually more useful.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-commit-tree.html">git-commit-tree[1]</a> command allows constructing commits with
+<p>The <a href="git-commit-tree.html">git-commit-tree[1]</a> command allows constructing commits with
 arbitrary parents and trees.</p>
 </div>
 <div class="paragraph">
-<p>A tree can be created with <a href="/git/docs/git-write-tree.html">git-write-tree[1]</a> and its data can be
-accessed by <a href="/git/docs/git-ls-tree.html">git-ls-tree[1]</a>.  Two trees can be compared with
-<a href="/git/docs/git-diff-tree.html">git-diff-tree[1]</a>.</p>
+<p>A tree can be created with <a href="git-write-tree.html">git-write-tree[1]</a> and its data can be
+accessed by <a href="git-ls-tree.html">git-ls-tree[1]</a>.  Two trees can be compared with
+<a href="git-diff-tree.html">git-diff-tree[1]</a>.</p>
 </div>
 <div class="paragraph">
-<p>A tag is created with <a href="/git/docs/git-mktag.html">git-mktag[1]</a>, and the signature can be
-verified by <a href="/git/docs/git-verify-tag.html">git-verify-tag[1]</a>, though it is normally simpler to
-use <a href="/git/docs/git-tag.html">git-tag[1]</a> for both.</p>
+<p>A tag is created with <a href="git-mktag.html">git-mktag[1]</a>, and the signature can be
+verified by <a href="git-verify-tag.html">git-verify-tag[1]</a>, though it is normally simpler to
+use <a href="git-tag.html">git-tag[1]</a> for both.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="the-workflow"><a class="anchor" href="#the-workflow"></a>The Workflow</h3>
 <div class="paragraph">
-<p>High-level operations such as <a href="/git/docs/git-commit.html">git-commit[1]</a> and
-<a href="/git/docs/git-restore.html">git-restore[1]</a> work by moving data
+<p>High-level operations such as <a href="git-commit.html">git-commit[1]</a> and
+<a href="git-restore.html">git-restore[1]</a> work by moving data
 between the working tree, the index, and the object database.  Git
 provides low-level operations which perform each of these steps
 individually.</p>
@@ -4567,7 +4567,7 @@ combinations:</p>
 <div class="sect3">
 <h4 id="working-directory-to-index"><a class="anchor" href="#working-directory-to-index"></a>working directory  index</h4>
 <div class="paragraph">
-<p>The <a href="/git/docs/git-update-index.html">git-update-index[1]</a> command updates the index with
+<p>The <a href="git-update-index.html">git-update-index[1]</a> command updates the index with
 information from the working directory.  You generally update the
 index information by just specifying the filename you want to update,
 like so:</p>
@@ -4603,8 +4603,8 @@ it will only update the fields that are used to quickly test whether
 an object still matches its old backing store object.</p>
 </div>
 <div class="paragraph">
-<p>The previously introduced <a href="/git/docs/git-add.html">git-add[1]</a> is just a wrapper for
-<a href="/git/docs/git-update-index.html">git-update-index[1]</a>.</p>
+<p>The previously introduced <a href="git-add.html">git-add[1]</a> is just a wrapper for
+<a href="git-update-index.html">git-update-index[1]</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4764,7 +4764,7 @@ what the last committed state was.</p>
 <div class="paragraph">
 <p>You can examine the data represented in the object database and the
 index with various helper tools. For every object, you can use
-<a href="/git/docs/git-cat-file.html">git-cat-file[1]</a> to examine details about the
+<a href="git-cat-file.html">git-cat-file[1]</a> to examine details about the
 object:</p>
 </div>
 <div class="listingblock">
@@ -5452,7 +5452,7 @@ revision as the branch you are merging. This will happen frequently on a
 branchs <a href="#def_head_ref">head ref</a> from a remote
 <a href="#def_repository">repository</a>, to find out which objects are
 missing from the local <a href="#def_object_database">object database</a>,
-and to get them, too.  See also <a href="/git/docs/git-fetch.html">git-fetch[1]</a>.</p>
+and to get them, too.  See also <a href="git-fetch.html">git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddeffilesystemafilesystem"> <a class="anchor" href="#Documentation/user-manual.txt-aiddeffilesystemafilesystem"></a><a id="def_file_system"></a>file system </dt>
 <dd>
@@ -5478,7 +5478,7 @@ is different from what was recorded when the commit was
 created. Configured via the <code>.git/info/grafts</code> file.</p>
 <div class="paragraph">
 <p>Note that the grafts mechanism is outdated and can lead to problems
-transferring objects between repositories; see <a href="/git/docs/git-replace.html">git-replace[1]</a>
+transferring objects between repositories; see <a href="git-replace.html">git-replace[1]</a>
 for a more flexible and robust system to do the same thing.</p>
 </div>
 </dd>
@@ -5491,7 +5491,7 @@ for a more flexible and robust system to do the same thing.</p>
 <p>A <a href="#def_ref">named reference</a> to the <a href="#def_commit">commit</a> at the tip of a
 <a href="#def_branch">branch</a>.  Heads are stored in a file in
 <code>$GIT_DIR/refs/heads/</code> directory, except when using packed refs. (See
-<a href="/git/docs/git-pack-refs.html">git-pack-refs[1]</a>.)</p>
+<a href="git-pack-refs.html">git-pack-refs[1]</a>.)</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefHEADaHEAD"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefHEADaHEAD"></a><a id="def_HEAD"></a>HEAD </dt>
 <dd>
@@ -5750,7 +5750,7 @@ matches "<code>a/b</code>", "<code>a/x/b</code>", "<code>a/x/y/b</code>" and so 
 requirements", all of which must be met in order for the
 path to be considered a match; this is in addition to the
 usual non-magic pathspec pattern matching.
-See <a href="/git/docs/gitattributes.html">gitattributes[5]</a>.</p>
+See <a href="gitattributes.html">gitattributes[5]</a>.</p>
 <div class="paragraph">
 <p>Each of the attribute requirements for the path takes one of
 these forms:</p>
@@ -5803,7 +5803,7 @@ parents.</p>
 routines that help select changes that add or delete a given text
 string. With the <code>--pickaxe-all</code> option, it can be used to view the full
 <a href="#def_changeset">changeset</a> that introduced or removed, say, a
-particular line of text. See <a href="/git/docs/git-diff.html">git-diff[1]</a>.</p>
+particular line of text. See <a href="git-diff.html">git-diff[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefplumbingaplumbing"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefplumbingaplumbing"></a><a id="def_plumbing"></a>plumbing </dt>
 <dd>
@@ -5843,7 +5843,7 @@ MERGE_HEAD</code> will work.</p>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefpullapull"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefpullapull"></a><a id="def_pull"></a>pull </dt>
 <dd>
 <p>Pulling a <a href="#def_branch">branch</a> means to <a href="#def_fetch">fetch</a> it and
-<a href="#def_merge">merge</a> it.  See also <a href="/git/docs/git-pull.html">git-pull[1]</a>.</p>
+<a href="#def_merge">merge</a> it.  See also <a href="git-pull.html">git-pull[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefpushapush"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefpushapush"></a><a id="def_push"></a>push </dt>
 <dd>
@@ -5881,7 +5881,7 @@ to the result.</p>
 that points to an <a href="#def_object_name">object name</a> or another
 ref (the latter is called a <a href="#def_symref">symbolic ref</a>).
 For convenience, a ref can sometimes be abbreviated when used
-as an argument to a Git command; see <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>
+as an argument to a Git command; see <a href="gitrevisions.html">gitrevisions[7]</a>
 for details.
 Refs are stored in the <a href="#def_repository">repository</a>.</p>
 <div class="paragraph">
@@ -5899,7 +5899,7 @@ The most notable example is <code>HEAD</code>.</p>
 <p>A reflog shows the local "history" of a ref.  In other words,
 it can tell you what the 3rd last revision in <em>this</em> repository
 was, and what was the current state in <em>this</em> repository,
-yesterday 9:14pm.  See <a href="/git/docs/git-reflog.html">git-reflog[1]</a> for details.</p>
+yesterday 9:14pm.  See <a href="git-reflog.html">git-reflog[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefrefspecarefspec"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefrefspecarefspec"></a><a id="def_refspec"></a>refspec </dt>
 <dd>
@@ -5970,8 +5970,8 @@ parents, even though they are recorded in the <a href="#def_commit_object">commi
 object</a>). This is sometimes useful when you are interested only in the
 recent history of a project even though the real history recorded in the
 upstream is much larger. A shallow repository
-is created by giving the <code>--depth</code> option to <a href="/git/docs/git-clone.html">git-clone[1]</a>, and
-its history can be later deepened with <a href="/git/docs/git-fetch.html">git-fetch[1]</a>.</p>
+is created by giving the <code>--depth</code> option to <a href="git-clone.html">git-clone[1]</a>, and
+its history can be later deepened with <a href="git-fetch.html">git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddefstashastashentry"> <a class="anchor" href="#Documentation/user-manual.txt-aiddefstashastashentry"></a><a id="def_stash"></a>stash entry </dt>
 <dd>
@@ -5997,7 +5997,7 @@ copies of) commit objects of the contained submodules.</p>
 id itself, it is of the format <em>ref: refs/some/thing</em> and when
 referenced, it recursively dereferences to this reference.
 <em><a href="#def_HEAD">HEAD</a></em> is a prime example of a symref. Symbolic
-references are manipulated with the <a href="/git/docs/git-symbolic-ref.html">git-symbolic-ref[1]</a>
+references are manipulated with the <a href="git-symbolic-ref.html">git-symbolic-ref[1]</a>
 command.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/user-manual.txt-aiddeftagatag"> <a class="anchor" href="#Documentation/user-manual.txt-aiddeftagatag"></a><a id="def_tag"></a>tag </dt>
@@ -6407,7 +6407,7 @@ everything in between.</p>
 <p>hooks</p>
 </li>
 <li>
-<p>list of commands in <a href="/git/docs/git.html">git[1]</a></p>
+<p>list of commands in <a href="git.html">git[1]</a></p>
 </li>
 </ul>
 </div>

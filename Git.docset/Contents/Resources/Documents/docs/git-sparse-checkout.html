@@ -1,4 +1,4 @@
-<div id="main"><title>git-sparse-checkout[1]</title>
+<div id="main"><title>sparse-checkout</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -66,8 +66,8 @@ does not alter the sparse-checkout settings in other worktrees, the <em>set</em>
 subcommand will upgrade your repository config to use worktree-specific
 config if not already present. The sparsity defined by the arguments to
 the <em>set</em> subcommand are stored in the worktree-specific sparse-checkout
-file. See <a href="/git/docs/git-worktree.html">git-worktree[1]</a> and the documentation of
-<code>extensions.worktreeConfig</code> in <a href="/git/docs/git-config.html">git-config[1]</a> for more details.</p>
+file. See <a href="git-worktree.html">git-worktree[1]</a> and the documentation of
+<code>extensions.worktreeConfig</code> in <a href="git-config.html">git-config[1]</a> for more details.</p>
 </div>
 <div class="paragraph">
 <p>When the <code>--stdin</code> option is provided, the directories or patterns are
@@ -214,7 +214,7 @@ to make the working directory match.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>"Sparse checkout" allows populating the working directory sparsely.  It
-uses the skip-worktree bit (see <a href="/git/docs/git-update-index.html">git-update-index[1]</a>) to tell Git
+uses the skip-worktree bit (see <a href="git-update-index.html">git-update-index[1]</a>) to tell Git
 whether a file in the working directory is worth looking at. If the
 skip-worktree bit is set, and the file is not present in the working tree,
 then its absence is ignored. Git will avoid populating the contents of
@@ -403,7 +403,7 @@ pattern set is allowed when <code>core.sparseCheckoutCone</code> is enabled.</p>
 </div>
 <div class="paragraph">
 <p>The sparse-checkout file uses the same syntax as <code>.gitignore</code> files;
-see <a href="/git/docs/gitignore.html">gitignore[5]</a> for details.  Here, though, the patterns are
+see <a href="gitignore.html">gitignore[5]</a> for details.  Here, though, the patterns are
 usually being used to select which files to include rather than which
 files to exclude.  (However, it can get a bit confusing since
 gitignore-style patterns have negations defined by patterns which
@@ -431,7 +431,7 @@ at this point would be</p>
 </div>
 </div>
 <div class="paragraph">
-<p>See also the "Sparse Checkout" section of <a href="/git/docs/git-read-tree.html">git-read-tree[1]</a> to
+<p>See also the "Sparse Checkout" section of <a href="git-read-tree.html">git-read-tree[1]</a> to
 learn more about the gitignore-style patterns used in sparse
 checkouts.</p>
 </div>
@@ -561,8 +561,8 @@ of these restrictions.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-read-tree.html">git-read-tree[1]</a>
-<a href="/git/docs/gitignore.html">gitignore[5]</a></p>
+<p><a href="git-read-tree.html">git-read-tree[1]</a>
+<a href="gitignore.html">gitignore[5]</a></p>
 </div>
 </div>
 </div>
@@ -570,7 +570,7 @@ of these restrictions.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

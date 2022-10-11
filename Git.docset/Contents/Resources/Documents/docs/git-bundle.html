@@ -35,9 +35,9 @@ to another.</p>
 <div class="paragraph">
 <p>Git commands that fetch or otherwise "read" via protocols such as
 <code>ssh://</code> and <code>https://</code> can also operate on bundle files. It is
-possible <a href="/git/docs/git-clone.html">git-clone[1]</a> a new repository from a bundle, to use
-<a href="/git/docs/git-fetch.html">git-fetch[1]</a> to fetch from one, and to list the references
-contained within it with <a href="/git/docs/git-ls-remote.html">git-ls-remote[1]</a>. Theres no
+possible <a href="git-clone.html">git-clone[1]</a> a new repository from a bundle, to use
+<a href="git-fetch.html">git-fetch[1]</a> to fetch from one, and to list the references
+contained within it with <a href="git-ls-remote.html">git-ls-remote[1]</a>. Theres no
 corresponding "write" support, i.e.a <em>git push</em> into a bundle is not
 supported.</p>
 </div>
@@ -50,18 +50,18 @@ supported.</p>
 <h2 id="_bundle_format"><a class="anchor" href="#_bundle_format"></a>BUNDLE FORMAT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bundles are <code>.pack</code> files (see <a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>) with a
+<p>Bundles are <code>.pack</code> files (see <a href="git-pack-objects.html">git-pack-objects[1]</a>) with a
 header indicating what references are contained within the bundle.</p>
 </div>
 <div class="paragraph">
-<p>Like the the packed archive format itself bundles can either be
+<p>Like the packed archive format itself bundles can either be
 self-contained, or be created using exclusions.
 See the "OBJECT PREREQUISITES" section below.</p>
 </div>
 <div class="paragraph">
 <p>Bundles created using revision exclusions are "thin packs" created
-using the <code>--thin</code> option to <a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>, and
-unbundled using the <code>--fix-thin</code> option to <a href="/git/docs/git-index-pack.html">git-index-pack[1]</a>.</p>
+using the <code>--thin</code> option to <a href="git-pack-objects.html">git-pack-objects[1]</a>, and
+unbundled using the <code>--fix-thin</code> option to <a href="git-index-pack.html">git-index-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>There is no option to create a "thick pack" when using revision
@@ -71,10 +71,8 @@ size. That theyre "thin" under the hood is merely noted here as a
 curiosity, and as a reference to other documentation.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="/git/docs/bundle-format.html">the <code>bundle-format</code>
-documentation</a> for more details and the discussion of "thin pack" in
-<a href="/git/docs/pack-format.html">the pack format documentation</a> for
-further details.</p>
+<p>See <a href="gitformat-bundle.html">gitformat-bundle[5]</a> for more details and the discussion of
+"thin pack" in <a href="gitformat-pack.html">gitformat-pack[5]</a> for further details.</p>
 </div>
 </div>
 </div>
@@ -98,7 +96,7 @@ bundle format itself as well as checking that the prerequisite
 commits exist and are fully linked in the current repository.
 Then, <em>git bundle</em> prints a list of missing commits, if any.
 Finally, information about additional capabilities, such as "object
-filter", is printed. See "Capabilities" in link:technical/bundle-format.html
+filter", is printed. See "Capabilities" in <a href="gitformat-bundle.html">gitformat-bundle[5]</a>
 for more information. The exit code is zero for success, but will
 be nonzero if the bundle file is invalid.</p>
 </dd>
@@ -361,7 +359,7 @@ have the necessary objects, you can use that knowledge to specify the
 prerequisites, giving a cut-off point to limit the revisions and objects that go
 in the resulting bundle. The previous example used the lastR2bundle tag
 for this purpose, but you can use any other options that you would give to
-the <a href="/git/docs/git-log.html">git-log[1]</a> command. Here are more examples:</p>
+the <a href="git-log.html">git-log[1]</a> command. Here are more examples:</p>
 </div>
 <div class="paragraph">
 <p>You can use a tag that is present in both:</p>
@@ -421,10 +419,18 @@ references when fetching:</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_file_format"><a class="anchor" href="#_file_format"></a>FILE FORMAT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>See <a href="gitformat-bundle.html">gitformat-bundle[5]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

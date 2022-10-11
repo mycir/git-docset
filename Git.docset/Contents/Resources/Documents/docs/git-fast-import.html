@@ -223,7 +223,7 @@ The default is unlimited.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-fast-import.txt-fastimportunpackLimit"> <a class="anchor" href="#Documentation/git-fast-import.txt-fastimportunpackLimit"></a>fastimport.unpackLimit </dt>
 <dd>
-<p>See <a href="/git/docs/git-config.html">git-config[1]</a></p>
+<p>See <a href="git-config.html">git-config[1]</a></p>
 </dd>
 </dl>
 </div>
@@ -696,7 +696,7 @@ consist only of base-10 digits.</p>
 </li>
 <li>
 <p>Any valid Git SHA-1 expression that resolves to a commit.  See
-SPECIFYING REVISIONS in <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> for details.</p>
+SPECIFYING REVISIONS in <a href="gitrevisions.html">gitrevisions[7]</a> for details.</p>
 </li>
 <li>
 <p>The special null SHA-1 (40 zeros) specifies that the branch is to be
@@ -1934,8 +1934,8 @@ final packfile size (30-50% smaller can be quite typical).</p>
 <p>Instead of running <code>git repack</code> you can also run <code>git gc
 --aggressive</code>, which will also optimize other things after an import
 (e.g. pack loose refs). As noted in the "AGGRESSIVE" section in
-<a href="/git/docs/git-gc.html">git-gc[1]</a> the <code>--aggressive</code> option will find new deltas with
-the <code>-f</code> option to <a href="/git/docs/git-repack.html">git-repack[1]</a>. For the reasons elaborated
+<a href="git-gc.html">git-gc[1]</a> the <code>--aggressive</code> option will find new deltas with
+the <code>-f</code> option to <a href="git-repack.html">git-repack[1]</a>. For the reasons elaborated
 on above using <code>--aggressive</code> after a fast-import is one of the few
 cases where its known to be worthwhile.</p>
 </div>
@@ -2052,10 +2052,34 @@ compression.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-fast-import.txt-fastimportunpackLimit-1"> <a class="anchor" href="#Documentation/git-fast-import.txt-fastimportunpackLimit-1"></a>fastimport.unpackLimit </dt>
+<dd>
+<p>If the number of objects imported by <a href="git-fast-import.html">git-fast-import[1]</a>
+is below this limit, then the objects will be unpacked into
+loose object files.  However if the number of imported objects
+equals or exceeds this limit then the pack will be stored as a
+pack.  Storing the pack from a fast-import can make the import
+operation complete faster, especially on slow filesystems.  If
+not set, the value of <code>transfer.unpackLimit</code> is used instead.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-fast-export.html">git-fast-export[1]</a></p>
+<p><a href="git-fast-export.html">git-fast-export[1]</a></p>
 </div>
 </div>
 </div>
@@ -2063,7 +2087,7 @@ compression.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

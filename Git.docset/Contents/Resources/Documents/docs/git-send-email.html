@@ -24,9 +24,9 @@
 <p>Takes the patches given on the command line and emails them out.
 Patches can be specified as files, directories (which will send all
 files in the directory), or directly as a revision list.  In the
-last case, any format accepted by <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a> can
+last case, any format accepted by <a href="git-format-patch.html">git-format-patch[1]</a> can
 be passed to git send-email, as well as options understood by
-<a href="/git/docs/git-format-patch.html">git-format-patch[1]</a>.</p>
+<a href="git-format-patch.html">git-format-patch[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The header of the email is configurable via command-line options.  If not
@@ -41,7 +41,7 @@ enabled interface to provide the necessary information.</p>
 <li>
 <p>mbox format files</p>
 <div class="paragraph">
-<p>This is what <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a> generates.  Most headers and MIME
+<p>This is what <a href="git-format-patch.html">git-format-patch[1]</a> generates.  Most headers and MIME
 formatting are ignored.</p>
 </div>
 </li>
@@ -88,7 +88,7 @@ Default is the value of <code>sendemail.cc</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt---compose"> <a class="anchor" href="#Documentation/git-send-email.txt---compose"></a>--compose </dt>
 <dd>
-<p>Invoke a text editor (see GIT_EDITOR in <a href="/git/docs/git-var.html">git-var[1]</a>)
+<p>Invoke a text editor (see GIT_EDITOR in <a href="git-var.html">git-var[1]</a>)
 to edit an introductory message for the patch series.</p>
 <div class="paragraph">
 <p>When <code>--compose</code> is used, git send-email will use the From, Subject, and
@@ -565,7 +565,7 @@ Currently, validation means the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Invoke the sendemail-validate hook if present (see <a href="/git/docs/githooks.html">githooks[5]</a>).</p>
+<p>Invoke the sendemail-validate hook if present (see <a href="githooks.html">githooks[5]</a>).</p>
 </li>
 <li>
 <p>Warn of patches that contain lines longer than
@@ -609,8 +609,51 @@ See <em>sendemail.aliasesfile</em> for more information about aliases.</p>
 <div class="sect1">
 <h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
 <div class="dlist">
 <dl>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailidentity"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailidentity"></a>sendemail.identity </dt>
+<dd>
+<p>A configuration identity. When given, causes values in the
+<em>sendemail.&lt;identity&gt;</em> subsection to take precedence over
+values in the <em>sendemail</em> section. The default identity is
+the value of <code>sendemail.identity</code>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpEncryption"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpEncryption"></a>sendemail.smtpEncryption </dt>
+<dd>
+<p>See <a href="git-send-email.html">git-send-email[1]</a> for description.  Note that this
+setting is not subject to the <em>identity</em> mechanism.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpsslcertpath"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpsslcertpath"></a>sendemail.smtpsslcertpath </dt>
+<dd>
+<p>Path to ca-certificates (either a directory or a single file).
+Set it to an empty string to disable certificate verification.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailltidentitygt"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailltidentitygt"></a>sendemail.&lt;identity&gt;.* </dt>
+<dd>
+<p>Identity-specific versions of the <em>sendemail.*</em> parameters
+found below, taking precedence over those when this
+identity is selected, through either the command-line or
+<code>sendemail.identity</code>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailmultiEdit"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailmultiEdit"></a>sendemail.multiEdit </dt>
+<dd>
+<p>If true (default), a single editor instance will be spawned to edit
+files you have to edit (patches when <code>--annotate</code> is used, and the
+summary when <code>--compose</code> is used). If false, files will be edited one
+after the other, spawning a new editor each time.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailconfirm"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailconfirm"></a>sendemail.confirm </dt>
+<dd>
+<p>Sets the default for whether to confirm before sending. Must be
+one of <em>always</em>, <em>never</em>, <em>cc</em>, <em>compose</em>, or <em>auto</em>. See <code>--confirm</code>
+in the <a href="git-send-email.html">git-send-email[1]</a> documentation for the meaning of these
+values.</p>
+</dd>
 <dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailaliasesFile"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailaliasesFile"></a>sendemail.aliasesFile </dt>
 <dd>
 <p>To avoid typing long email addresses, point this to one or more
@@ -658,18 +701,54 @@ recognized by the parser.</p>
 </div>
 </div>
 </dd>
-<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailmultiEdit"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailmultiEdit"></a>sendemail.multiEdit </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailannotate"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailannotate"></a>sendemail.annotate </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailbcc"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailbcc"></a>sendemail.bcc </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailcc"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailcc"></a>sendemail.cc </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailccCmd"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailccCmd"></a>sendemail.ccCmd </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailchainReplyTo"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailchainReplyTo"></a>sendemail.chainReplyTo </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailenvelopeSender"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailenvelopeSender"></a>sendemail.envelopeSender </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailfrom"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailfrom"></a>sendemail.from </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsignedoffbycc"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsignedoffbycc"></a>sendemail.signedoffbycc </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpPass"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpPass"></a>sendemail.smtpPass </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsuppresscc"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsuppresscc"></a>sendemail.suppresscc </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsuppressFrom"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsuppressFrom"></a>sendemail.suppressFrom </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailto"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailto"></a>sendemail.to </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailtocmd"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailtocmd"></a>sendemail.tocmd </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpDomain"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpDomain"></a>sendemail.smtpDomain </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpServer"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpServer"></a>sendemail.smtpServer </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpServerPort"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpServerPort"></a>sendemail.smtpServerPort </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpServerOption"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpServerOption"></a>sendemail.smtpServerOption </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpUser"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpUser"></a>sendemail.smtpUser </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailthread"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailthread"></a>sendemail.thread </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailtransferEncoding"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailtransferEncoding"></a>sendemail.transferEncoding </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailvalidate"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailvalidate"></a>sendemail.validate </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailxmailer"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailxmailer"></a>sendemail.xmailer </dt>
 <dd>
-<p>If true (default), a single editor instance will be spawned to edit
-files you have to edit (patches when <code>--annotate</code> is used, and the
-summary when <code>--compose</code> is used). If false, files will be edited one
-after the other, spawning a new editor each time.</p>
+<p>These configuration variables all provide a default for
+<a href="git-send-email.html">git-send-email[1]</a> command-line options. See its
+documentation for details.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailconfirm"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailconfirm"></a>sendemail.confirm </dt>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsignedoffccdeprecated"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsignedoffccdeprecated"></a>sendemail.signedoffcc (deprecated) </dt>
 <dd>
-<p>Sets the default for whether to confirm before sending. Must be
-one of <em>always</em>, <em>never</em>, <em>cc</em>, <em>compose</em>, or <em>auto</em>. See <code>--confirm</code>
-in the previous section for the meaning of these values.</p>
+<p>Deprecated alias for <code>sendemail.signedoffbycc</code>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpBatchSize"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpBatchSize"></a>sendemail.smtpBatchSize </dt>
+<dd>
+<p>Number of messages to be sent per connection, after that a relogin
+will happen.  If the value is 0 or undefined, send all messages in
+one connection.
+See also the <code>--batch-size</code> option of <a href="git-send-email.html">git-send-email[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailsmtpReloginDelay"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailsmtpReloginDelay"></a>sendemail.smtpReloginDelay </dt>
+<dd>
+<p>Seconds wait before reconnecting to smtp server.
+See also the <code>--relogin-delay</code> option of <a href="git-send-email.html">git-send-email[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-send-email.txt-sendemailforbidSendmailVariables"> <a class="anchor" href="#Documentation/git-send-email.txt-sendemailforbidSendmailVariables"></a>sendemail.forbidSendmailVariables </dt>
+<dd>
+<p>To avoid common misconfiguration mistakes, <a href="git-send-email.html">git-send-email[1]</a>
+will abort with a warning if any configuration options for "sendmail"
+exist. Set this variable to bypass the check.</p>
 </dd>
 </dl>
 </div>
@@ -717,7 +796,7 @@ $ git send-email outgoing/*</pre>
 <div class="paragraph">
 <p>The first time you run it, you will be prompted for your credentials.  Enter the
 app-specific or your regular password as appropriate.  If you have credential
-helper configured (see <a href="/git/docs/git-credential.html">git-credential[1]</a>), the password will be saved in
+helper configured (see <a href="git-credential.html">git-credential[1]</a>), the password will be saved in
 the credential store so you wont have to type it the next time.</p>
 </div>
 <div class="paragraph">
@@ -734,7 +813,7 @@ Authen::SASL and Mail::Address.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-format-patch.html">git-format-patch[1]</a>, <a href="/git/docs/git-imap-send.html">git-imap-send[1]</a>, mbox(5)</p>
+<p><a href="git-format-patch.html">git-format-patch[1]</a>, <a href="git-imap-send.html">git-imap-send[1]</a>, mbox(5)</p>
 </div>
 </div>
 </div>
@@ -742,7 +821,7 @@ Authen::SASL and Mail::Address.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

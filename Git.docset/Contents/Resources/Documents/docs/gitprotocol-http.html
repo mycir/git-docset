@@ -1,6 +1,22 @@
-<div id="main"><title>the HTTP
-transfer protocols</title>
-<div id="preamble">
+<div id="main"><title>gitprotocol-http</title>
+<div class="sect1">
+<h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>gitprotocol-http - Git HTTP-based protocols</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content">&lt;over-the-wire-protocol&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Git supports two HTTP based transfer protocols.  A "dumb" protocol
@@ -300,12 +316,12 @@ S: 0000</pre>
 </div>
 <div class="paragraph">
 <p>The client may send Extra Parameters (see
-Documentation/technical/pack-protocol.txt) as a colon-separated string
+<a href="gitprotocol-pack.html">gitprotocol-pack[5]</a>) as a colon-separated string
 in the Git-Protocol HTTP header.</p>
 </div>
 <div class="paragraph">
 <p>Uses the <code>--http-backend-info-refs</code> option to
-<a href="/git/docs/git-upload-pack.html">git-upload-pack[1]</a>.</p>
+<a href="git-upload-pack.html">git-upload-pack[1]</a>.</p>
 </div>
 <div class="sect3">
 <h4 id="_dumb_server_response"><a class="anchor" href="#_dumb_server_response"></a>Dumb Server Response</h4>
@@ -719,13 +735,28 @@ update          =  old_id SP new_id SP name</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<h2 id="_references"><a class="anchor" href="#_references"></a>REFERENCES</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="http://www.ietf.org/rfc/rfc1738.txt">RFC 1738: Uniform Resource Locators (URL)</a>
-<a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616: Hypertext Transfer ProtocolHTTP/1.1</a>
-link:technical/pack-protocol.html
-link:technical/protocol-capabilities.html</p>
+<a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616: Hypertext Transfer ProtocolHTTP/1.1</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="gitprotocol-pack.html">gitprotocol-pack[5]</a>
+<a href="gitprotocol-capabilities.html">gitprotocol-capabilities[5]</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

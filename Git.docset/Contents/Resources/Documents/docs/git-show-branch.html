@@ -1,4 +1,4 @@
-<div id="main"><title>git-show-branch[1]</title>
+<div id="main"><title>show-branch</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -44,7 +44,7 @@ no &lt;rev&gt; or &lt;glob&gt; is given on the command line.</p>
 <dl>
 <dt class="hdlist1" id="Documentation/git-show-branch.txt-ltrevgt"> <a class="anchor" href="#Documentation/git-show-branch.txt-ltrevgt"></a>&lt;rev&gt; </dt>
 <dd>
-<p>Arbitrary extended SHA-1 expression (see <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>)
+<p>Arbitrary extended SHA-1 expression (see <a href="gitrevisions.html">gitrevisions[7]</a>)
 that typically names a branch head or a tag.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-show-branch.txt-ltglobgt"> <a class="anchor" href="#Documentation/git-show-branch.txt-ltglobgt"></a>&lt;glob&gt; </dt>
@@ -107,7 +107,7 @@ tree.</p>
 <p>Instead of showing the commit list, determine possible
 merge bases for the specified commits. All merge bases
 will be contained in all specified commits. This is
-different from how <a href="/git/docs/git-merge-base.html">git-merge-base[1]</a> handles
+different from how <a href="git-merge-base.html">git-merge-base[1]</a> handles
 the case of three or more commits.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-show-branch.txt---independent"> <a class="anchor" href="#Documentation/git-show-branch.txt---independent"></a>--independent </dt>
@@ -247,10 +247,29 @@ topologically related with each other.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-show-branch.txt-showBranchdefault"> <a class="anchor" href="#Documentation/git-show-branch.txt-showBranchdefault"></a>showBranch.default </dt>
+<dd>
+<p>The default set of branches for <a href="git-show-branch.html">git-show-branch[1]</a>.
+See <a href="git-show-branch.html">git-show-branch[1]</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

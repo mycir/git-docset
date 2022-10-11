@@ -39,7 +39,56 @@ def initialise():
             id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);"
     )
     cur.execute("CREATE UNIQUE INDEX anchor ON searchIndex (name, type, path);")
-    sections = {"index.html": ("Git - Reference", "Index")}
+    sections = {
+        "index.html": ("Git - Reference", "Index"),
+        "docs/git.html": ("git", "Command"),
+    }
+
+
+def get_git(url):
+    global sections
+    page = requests.get(url).text
+    soup = bs(page, parser)
+    title = soup.find("title")
+    doc_soup = soup.find(id="main")
+    doc_soup.insert(0, title)
+    sects = [
+        "_high_level_commands",
+        "_low_level_commands",
+        "_guides",
+        "_interfaces",
+    ]
+    types = ["Command", "Command", "Guide", "Interface"]
+    headings = doc_soup.findAll(
+        "h2",
+        {
+            "id": re.compile(
+                f"{sects[0]}|{sects[1]}|{sects[2]}|{sects[3]}",
+                flags=re.IGNORECASE,
+            )
+        },
+    )
+    for s in enumerate(sects):
+        lists = headings[s[0]].parent.findAll("div", attrs={"class": "dlist"})
+        for list in lists:
+            links = list.findAll("a", {"class": False, "href": True})
+            for link in links:
+                path = link["href"].lstrip("./")
+                if path.startswith("docs/git-"):
+                    name = path.split("-", 1)[1]
+                else:
+                    name = path.replace("docs/", "")
+                sections.update({path + ".html": (name, types[s[0]])})
+    fix_links(doc_soup)
+    folder = os.path.join(output, "docs")
+    os.makedirs(folder, exist_ok=True)
+    with open(
+        os.path.join(output, "docs/git.html"),
+        "w",
+        encoding="iso-8859-1",
+        errors="ignore",
+    ) as f:
+        f.write(str(doc_soup))
 
 
 def get_index(url):
@@ -48,7 +97,7 @@ def get_index(url):
     title = soup.find("title")
     doc_soup = soup.find(id="main")
     doc_soup.insert(0, title)
-    fix_links(doc_soup)
+    fix_links(doc_soup, index=True)
     with open(
         os.path.join(output, "index.html"),
         "w",
@@ -96,11 +145,6 @@ def add_docs(start, end):
                 title_tag.append(name)
                 doc_soup.insert(0, title_tag)
                 doc_soup = fix_links(doc_soup)
-                # TODO move to categorisation func
-                if doc_soup.find(
-                    "h2", {"id": re.compile("^.?options$", flags=re.IGNORECASE)}
-                ):
-                    sections.update({path: (name, "Command")})
                 with open(
                     os.path.join(folder, page_id),
                     "w",
@@ -118,7 +162,7 @@ def add_docs(start, end):
         add_docs(start, end)
 
 
-def fix_links(doc_soup):
+def fix_links(doc_soup, index=False):
     global sections
     for link in doc_soup.findAll("a", {"href": True}):
         if link.attrs and not link["href"].startswith("http"):
@@ -131,14 +175,26 @@ def fix_links(doc_soup):
                     type = "Guide"
                 else:
                     type = ""
-                path = link["href"][1:] + ".html"
-                link["href"] = f"/git{link['href']}.html"
-                if path not in sections:
-                    sections.update({path: (link.text.strip(), type)})
+                path_noext = link["href"].lstrip("./")
+                path = path_noext + ".html"
+                if index:
+                    link["href"] = path
+                else:
+                    if path not in sections:
+                        if path_noext.startswith("docs/git-"):
+                            name = path_noext.split("-", 1)[1]
+                        else:
+                            name = path_noext.replace("docs/", "")
+                        sections.update({path: (name, type)})
+                    link["href"] = path.replace("docs/", "")
             else:
                 link_parts = link["href"].split("#")
+                if index:
+                    ext = ".html"
+                else:
+                    ext = ""
                 if link_parts[0] != "":
-                    link["href"] = f"/git{link_parts[0]}.html#{link_parts[1]}"
+                    link["href"] = f"{link_parts[0][1:]}{ext}#{link_parts[1]}"
     return doc_soup
 
 
@@ -169,8 +225,9 @@ def add_info_plist():
 
 if __name__ == "__main__":
     initialise()
+    get_git(root_url + "/git")
     get_index(root_url)
-    add_docs(1, len(sections) - 1)
+    add_docs(2, len(sections) - 1)
     add_info_plist()
     update_db(sections)
     db.commit()

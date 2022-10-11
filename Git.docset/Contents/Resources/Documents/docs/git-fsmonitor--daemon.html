@@ -1,4 +1,4 @@
-<div id="main"><title>git-fsmonitor--daemon[1]</title>
+<div id="main"><title>fsmonitor--daemon</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -27,8 +27,8 @@ changes using platform-specific file system notification facilities.</p>
 </div>
 <div class="paragraph">
 <p>This daemon communicates directly with commands like <code>git status</code>
-using the <a href="/git/docs/api-simple-ipc.html">simple IPC</a> interface
-instead of the slower <a href="/git/docs/githooks.html">githooks[5]</a> interface.</p>
+using the <a href="api-simple-ipc.html">simple IPC</a> interface
+instead of the slower <a href="githooks.html">githooks[5]</a> interface.</p>
 </div>
 <div class="paragraph">
 <p>This daemon is built into Git so that no third-party tools are
@@ -74,13 +74,13 @@ increased if they just ask for a summary of changes to the working
 directory and can avoid scanning the disk.</p>
 </div>
 <div class="paragraph">
-<p>When <code>core.fsmonitor</code> is set to <code>true</code> (see <a href="/git/docs/git-config.html">git-config[1]</a>)
+<p>When <code>core.fsmonitor</code> is set to <code>true</code> (see <a href="git-config.html">git-config[1]</a>)
 commands, such as <code>git status</code>, will ask the daemon for changes and
 automatically start it (if necessary).</p>
 </div>
 <div class="paragraph">
 <p>For more information see the "File System Monitor" section in
-<a href="/git/docs/git-update-index.html">git-update-index[1]</a>.</p>
+<a href="git-update-index.html">git-update-index[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -102,7 +102,7 @@ but it will not cause an incorrect result.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
-<div id="main"><title>git-diff-files[1]</title>
+<div id="main"><title>diff-files</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -191,7 +191,7 @@ lines.</p>
 sub-directory. The behavior of <code>--dirstat</code> can be customized by
 passing it a comma separated list of parameters.
 The defaults are controlled by the <code>diff.dirstat</code> configuration
-variable (see <a href="/git/docs/git-config.html">git-config[1]</a>).
+variable (see <a href="git-config.html">git-config[1]</a>).
 The following parameters are available:</p>
 <div class="openblock">
 <div class="content">
@@ -270,13 +270,13 @@ given, do not munge pathnames and use NULs as output field terminators.</p>
 <div class="paragraph">
 <p>Without this option, pathnames with "unusual" characters are quoted as
 explained for the configuration variable <code>core.quotePath</code> (see
-<a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+<a href="git-config.html">git-config[1]</a>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---name-only"> <a class="anchor" href="#Documentation/git-diff-files.txt---name-only"></a>--name-only </dt>
 <dd>
 <p>Show only names of changed files. The file names are often encoded in UTF-8.
-For more information see the discussion about encoding in the <a href="/git/docs/git-log.html">git-log[1]</a>
+For more information see the discussion about encoding in the <a href="git-log.html">git-log[1]</a>
 manual page.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---name-status"> <a class="anchor" href="#Documentation/git-diff-files.txt---name-status"></a>--name-status </dt>
@@ -292,7 +292,7 @@ Just like <code>--name-only</code> the file names are often encoded in UTF-8.</p
 shows the names of the commits at the beginning and end of the range.
 When <code>--submodule</code> or <code>--submodule=log</code> is specified, the <em>log</em>
 format is used.  This format lists the commits in the range like
-<a href="/git/docs/git-submodule.html">git-submodule[1]</a> <code>summary</code> does.  When <code>--submodule=diff</code>
+<a href="git-submodule.html">git-submodule[1]</a> <code>summary</code> does.  When <code>--submodule=diff</code>
 is specified, the <em>diff</em> format is used.  This format shows an
 inline diff of the changes in the submodule contents between the
 commit range.  Defaults to <code>diff.submodule</code> or the <em>short</em> format
@@ -476,7 +476,7 @@ and, correspondingly, show differences character by character.</p>
 </div>
 <div class="paragraph">
 <p>The regex can also be set via a diff driver or configuration option, see
-<a href="/git/docs/gitattributes.html">gitattributes[5]</a> or <a href="/git/docs/git-config.html">git-config[1]</a>.  Giving it explicitly
+<a href="gitattributes.html">gitattributes[5]</a> or <a href="git-config.html">git-config[1]</a>.  Giving it explicitly
 overrides any diff driver or configuration setting.  Diff drivers
 override configuration settings.</p>
 </div>
@@ -688,7 +688,7 @@ occurrences of that string did not change).</p>
 filter will be ignored.</p>
 </div>
 <div class="paragraph">
-<p>See the <em>pickaxe</em> entry in <a href="/git/docs/gitdiffcore.html">gitdiffcore[7]</a> for more
+<p>See the <em>pickaxe</em> entry in <a href="gitdiffcore.html">gitdiffcore[7]</a> for more
 information.</p>
 </div>
 </dd>
@@ -718,7 +718,7 @@ expression to match.</p>
 <dd>
 <p>Control the order in which files appear in the output.
 This overrides the <code>diff.orderFile</code> configuration variable
-(see <a href="/git/docs/git-config.html">git-config[1]</a>).  To cancel <code>diff.orderFile</code>,
+(see <a href="git-config.html">git-config[1]</a>).  To cancel <code>diff.orderFile</code>,
 use <code>-O/dev/null</code>.</p>
 <div class="paragraph">
 <p>The output order is determined by the order of glob patterns in
@@ -840,7 +840,7 @@ is unset.</p>
 <p>Show whole function as context lines for each change.
 The function names are determined in the same way as
 <code>git diff</code> works out patch hunk headers (see <em>Defining a
-custom hunk-header</em> in <a href="/git/docs/gitattributes.html">gitattributes[5]</a>).</p>
+custom hunk-header</em> in <a href="gitattributes.html">gitattributes[5]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---exit-code"> <a class="anchor" href="#Documentation/git-diff-files.txt---exit-code"></a>--exit-code </dt>
 <dd>
@@ -855,8 +855,8 @@ That is, it exits with 1 if there were differences and
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---ext-diff"> <a class="anchor" href="#Documentation/git-diff-files.txt---ext-diff"></a>--ext-diff </dt>
 <dd>
 <p>Allow an external diff helper to be executed. If you set an
-external diff driver with <a href="/git/docs/gitattributes.html">gitattributes[5]</a>, you need
-to use this option with <a href="/git/docs/git-log.html">git-log[1]</a> and friends.</p>
+external diff driver with <a href="gitattributes.html">gitattributes[5]</a>, you need
+to use this option with <a href="git-log.html">git-log[1]</a> and friends.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---no-ext-diff"> <a class="anchor" href="#Documentation/git-diff-files.txt---no-ext-diff"></a>--no-ext-diff </dt>
 <dd>
@@ -866,12 +866,12 @@ to use this option with <a href="/git/docs/git-log.html">git-log[1]</a> and frie
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---no-textconv"> <a class="anchor" href="#Documentation/git-diff-files.txt---no-textconv"></a>--no-textconv </dt>
 <dd>
 <p>Allow (or disallow) external text conversion filters to be run
-when comparing binary files. See <a href="/git/docs/gitattributes.html">gitattributes[5]</a> for
+when comparing binary files. See <a href="gitattributes.html">gitattributes[5]</a> for
 details. Because textconv filters are typically a one-way
 conversion, the resulting diff is suitable for human
 consumption, but cannot be applied. For this reason, textconv
-filters are enabled by default only for <a href="/git/docs/git-diff.html">git-diff[1]</a> and
-<a href="/git/docs/git-log.html">git-log[1]</a>, but not for <a href="/git/docs/git-format-patch.html">git-format-patch[1]</a> or
+filters are enabled by default only for <a href="git-diff.html">git-diff[1]</a> and
+<a href="git-log.html">git-log[1]</a>, but not for <a href="git-format-patch.html">git-format-patch[1]</a> or
 diff plumbing commands.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-diff-files.txt---ignore-submodulesltwhengt"> <a class="anchor" href="#Documentation/git-diff-files.txt---ignore-submodulesltwhengt"></a>--ignore-submodules[=&lt;when&gt;] </dt>
@@ -881,7 +881,7 @@ either "none", "untracked", "dirty" or "all", which is the default.
 Using "none" will consider the submodule modified when it either contains
 untracked or modified files or its HEAD differs from the commit recorded
 in the superproject and can be used to override any settings of the
-<em>ignore</em> option in <a href="/git/docs/git-config.html">git-config[1]</a> or <a href="/git/docs/gitmodules.html">gitmodules[5]</a>. When
+<em>ignore</em> option in <a href="git-config.html">git-config[1]</a> or <a href="gitmodules.html">gitmodules[5]</a>. When
 "untracked" is used submodules are not considered dirty when they only
 contain untracked content (but they are still scanned for modified
 content). Using "dirty" ignores all changes to the work tree of submodules,
@@ -917,7 +917,7 @@ experimental and could be removed in future.</p>
 </div>
 <div class="paragraph">
 <p>For more detailed explanation on these common options, see also
-<a href="/git/docs/gitdiffcore.html">gitdiffcore[7]</a>.</p>
+<a href="gitdiffcore.html">gitdiffcore[7]</a>.</p>
 </div>
 <div class="dlist">
 <dl>
@@ -1105,7 +1105,7 @@ is out of sync with the index.</p>
 <div class="paragraph">
 <p>Without the <code>-z</code> option, pathnames with "unusual" characters are
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>).  Using <code>-z</code> the filename is output
+(see <a href="git-config.html">git-config[1]</a>).  Using <code>-z</code> the filename is output
 verbatim and the line is terminated by a NUL byte.</p>
 </div>
 </div>
@@ -1175,16 +1175,16 @@ all parents.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Running
-<a href="/git/docs/git-diff.html">git-diff[1]</a>,
-<a href="/git/docs/git-log.html">git-log[1]</a>,
-<a href="/git/docs/git-show.html">git-show[1]</a>,
-<a href="/git/docs/git-diff-index.html">git-diff-index[1]</a>,
-<a href="/git/docs/git-diff-tree.html">git-diff-tree[1]</a>, or
-<a href="/git/docs/git-diff-files.html">git-diff-files[1]</a>
+<a href="git-diff.html">git-diff[1]</a>,
+<a href="git-log.html">git-log[1]</a>,
+<a href="git-show.html">git-show[1]</a>,
+<a href="git-diff-index.html">git-diff-index[1]</a>,
+<a href="git-diff-tree.html">git-diff-tree[1]</a>, or
+<a href="git-diff-files.html">git-diff-files[1]</a>
 with the <code>-p</code> option produces patch text.
 You can customize the creation of patch text via the
 <code>GIT_EXTERNAL_DIFF</code> and the <code>GIT_DIFF_OPTS</code> environment variables
-(see <a href="/git/docs/git.html">git[1]</a>), and the <code>diff</code> attribute (see <a href="/git/docs/gitattributes.html">gitattributes[5]</a>).</p>
+(see <a href="git.html">git[1]</a>), and the <code>diff</code> attribute (see <a href="gitattributes.html">gitattributes[5]</a>).</p>
 </div>
 <div class="paragraph">
 <p>What the -p option produces is slightly different from the traditional
@@ -1251,7 +1251,7 @@ separate lines indicate the old and the new mode.</p>
 <li>
 <p>Pathnames with "unusual" characters are quoted as explained for
 the configuration variable <code>core.quotePath</code> (see
-<a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+<a href="git-config.html">git-config[1]</a>).</p>
 </li>
 <li>
 <p>All the <code>file1</code> files in the output refer to files before the
@@ -1272,7 +1272,7 @@ rename to a</pre>
 <li>
 <p>Hunk headers mention the name of the function to which the hunk
 applies.  See "Defining a custom hunk-header" in
-<a href="/git/docs/gitattributes.html">gitattributes[5]</a> for details of how to tailor to this to
+<a href="gitattributes.html">gitattributes[5]</a> for details of how to tailor to this to
 specific languages.</p>
 </li>
 </ol>
@@ -1285,8 +1285,8 @@ specific languages.</p>
 <div class="paragraph">
 <p>Any diff-generating command can take the <code>-c</code> or <code>--cc</code> option to
 produce a <em>combined diff</em> when showing a merge. This is the default
-format when showing merges with <a href="/git/docs/git-diff.html">git-diff[1]</a> or
-<a href="/git/docs/git-show.html">git-show[1]</a>. Note also that you can give suitable
+format when showing merges with <a href="git-diff.html">git-diff[1]</a> or
+<a href="git-show.html">git-show[1]</a>. Note also that you can give suitable
 <code>--diff-merges</code> option to any of these commands to force generation of
 diffs in specific format.</p>
 </div>
@@ -1557,7 +1557,7 @@ the pathname, but if that is <code>NUL</code>, the record will show two paths.</
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

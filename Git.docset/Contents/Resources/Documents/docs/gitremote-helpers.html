@@ -1,4 +1,4 @@
-<div id="main"><title>gitremote-helpers[7]</title>
+<div id="main"><title>gitremote-helpers</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -216,6 +216,10 @@ them as a stream in fast-import format.</p>
 <p>Can guarantee that when a clone is requested, the received
 pack is self contained and is connected.</p>
 </dd>
+<dt class="hdlist1" id="Documentation/gitremote-helpers.txt-emgetem"> <a class="anchor" href="#Documentation/gitremote-helpers.txt-emgetem"></a><em>get</em> </dt>
+<dd>
+<p>Can use the <em>get</em> command to download a file from a given URI.</p>
+</dd>
 </dl>
 </div>
 <div class="paragraph">
@@ -286,18 +290,18 @@ helpers stdin.</p>
 <dd>
 <p>This modifies the <em>export</em> capability, instructing Git to dump the
 internal marks table to &lt;file&gt; when complete. For details,
-read up on <code>--export-marks=&lt;file&gt;</code> in <a href="/git/docs/git-fast-export.html">git-fast-export[1]</a>.</p>
+read up on <code>--export-marks=&lt;file&gt;</code> in <a href="git-fast-export.html">git-fast-export[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitremote-helpers.txt-emimport-marksemltfilegt"> <a class="anchor" href="#Documentation/gitremote-helpers.txt-emimport-marksemltfilegt"></a><em>import-marks</em> &lt;file&gt; </dt>
 <dd>
 <p>This modifies the <em>export</em> capability, instructing Git to load the
 marks specified in &lt;file&gt; before processing any input. For details,
-read up on <code>--import-marks=&lt;file&gt;</code> in <a href="/git/docs/git-fast-export.html">git-fast-export[1]</a>.</p>
+read up on <code>--import-marks=&lt;file&gt;</code> in <a href="git-fast-export.html">git-fast-export[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitremote-helpers.txt-emsigned-tagsem"> <a class="anchor" href="#Documentation/gitremote-helpers.txt-emsigned-tagsem"></a><em>signed-tags</em> </dt>
 <dd>
 <p>This modifies the <em>export</em> capability, instructing Git to pass
-<code>--signed-tags=verbatim</code> to <a href="/git/docs/git-fast-export.html">git-fast-export[1]</a>.  In the
+<code>--signed-tags=verbatim</code> to <a href="git-fast-export.html">git-fast-export[1]</a>.  In the
 absence of this capability, Git will use <code>--signed-tags=warn-strip</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitremote-helpers.txt-emobject-formatem"> <a class="anchor" href="#Documentation/gitremote-helpers.txt-emobject-formatem"></a><em>object-format</em> </dt>
@@ -521,6 +525,13 @@ pairs.  After the connection ends, the remote helper exits.</p>
 <p>Supported if the helper has the "stateless-connect" capability.</p>
 </div>
 </dd>
+<dt class="hdlist1" id="Documentation/gitremote-helpers.txt-emgetemlturigtltpathgt"> <a class="anchor" href="#Documentation/gitremote-helpers.txt-emgetemlturigtltpathgt"></a><em>get</em> &lt;uri&gt; &lt;path&gt; </dt>
+<dd>
+<p>Downloads the file from the given <code>&lt;uri&gt;</code> to the given <code>&lt;path&gt;</code>. If
+<code>&lt;path&gt;.temp</code> exists, then Git assumes that the <code>.temp</code> file is a
+partial download from a previous attempt and will resume the
+download from that position.</p>
+</dd>
 </dl>
 </div>
 <div class="paragraph">
@@ -700,16 +711,16 @@ the remote side using that algorithm.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-remote.html">git-remote[1]</a></p>
+<p><a href="git-remote.html">git-remote[1]</a></p>
 </div>
 <div class="paragraph">
-<p><a href="/git/docs/git-remote-ext.html">git-remote-ext[1]</a></p>
+<p><a href="git-remote-ext.html">git-remote-ext[1]</a></p>
 </div>
 <div class="paragraph">
-<p><a href="/git/docs/git-remote-fd.html">git-remote-fd[1]</a></p>
+<p><a href="git-remote-fd.html">git-remote-fd[1]</a></p>
 </div>
 <div class="paragraph">
-<p><a href="/git/docs/git-fast-import.html">git-fast-import[1]</a></p>
+<p><a href="git-fast-import.html">git-fast-import[1]</a></p>
 </div>
 </div>
 </div>
@@ -717,7 +728,7 @@ the remote side using that algorithm.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

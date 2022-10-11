@@ -1,4 +1,4 @@
-<div id="main"><title>git-receive-pack[1]</title>
+<div id="main"><title>receive-pack</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -26,7 +26,7 @@ information fed from the remote end.</p>
 <p>This command is usually not invoked directly by the end user.
 The UI for the protocol is on the <em>git send-pack</em> side, and the
 program pair is meant to be used to push updates to remote
-repository.  For pull operations, see <a href="/git/docs/git-fetch-pack.html">git-fetch-pack[1]</a>.</p>
+repository.  For pull operations, see <a href="git-fetch-pack.html">git-fetch-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The command allows for creation and fast-forwarding of sha1 refs
@@ -45,7 +45,7 @@ are not fast-forwards.</p>
 </div>
 <div class="paragraph">
 <p>A number of other receive.* config options are available to tweak
-its behavior, see <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+its behavior, see <a href="git-config.html">git-config[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -60,9 +60,9 @@ its behavior, see <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-receive-pack.txt---http-backend-info-refs"> <a class="anchor" href="#Documentation/git-receive-pack.txt---http-backend-info-refs"></a>--http-backend-info-refs </dt>
 <dd>
-<p>Used by <a href="/git/docs/git-http-backend.html">git-http-backend[1]</a> to serve up
+<p>Used by <a href="git-http-backend.html">git-http-backend[1]</a> to serve up
 <code>$GIT_URL/info/refs?service=git-receive-pack</code> requests. See
-<code>--http-backend-info-refs</code> in <a href="/git/docs/git-upload-pack.html">git-upload-pack[1]</a>.</p>
+<code>--http-backend-info-refs</code> in <a href="git-upload-pack.html">git-upload-pack[1]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -90,7 +90,7 @@ while refs to be deleted will have sha1-new equal to 0{40}, otherwise
 sha1-old and sha1-new should be valid objects in the repository.</p>
 </div>
 <div class="paragraph">
-<p>When accepting a signed push (see <a href="/git/docs/git-push.html">git-push[1]</a>), the signed
+<p>When accepting a signed push (see <a href="git-push.html">git-push[1]</a>), the signed
 push certificate is stored in a blob and an environment variable
 <code>GIT_PUSH_CERT</code> can be consulted for its object name.  See the
 description of <code>post-receive</code> hook for an example.  In addition, the
@@ -112,7 +112,7 @@ signed the push certificate.</p>
 <dd>
 <p>The status of GPG verification of the push certificate,
 using the same mnemonic as used in <code>%G?</code> format of <code>git log</code>
-family of commands (see <a href="/git/docs/git-log.html">git-log[1]</a>).</p>
+family of commands (see <a href="git-log.html">git-log[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-receive-pack.txt-codeGITPUSHCERTNONCEcode"> <a class="anchor" href="#Documentation/git-receive-pack.txt-codeGITPUSHCERTNONCEcode"></a><code>GIT_PUSH_CERT_NONCE</code> </dt>
 <dd>
@@ -160,7 +160,7 @@ starting time is different by this many seconds from the
 current session.  Only meaningful when
 <code>GIT_PUSH_CERT_NONCE_STATUS</code> says <code>SLOP</code>.
 Also read about <code>receive.certNonceSlop</code> variable in
-<a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+<a href="git-config.html">git-config[1]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -353,7 +353,7 @@ from within <code>pre-receive</code> are automatically rejected.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-send-pack.html">git-send-pack[1]</a>, <a href="/git/docs/gitnamespaces.html">gitnamespaces[7]</a></p>
+<p><a href="git-send-pack.html">git-send-pack[1]</a>, <a href="gitnamespaces.html">gitnamespaces[7]</a></p>
 </div>
 </div>
 </div>
@@ -361,7 +361,7 @@ from within <code>pre-receive</code> are automatically rejected.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

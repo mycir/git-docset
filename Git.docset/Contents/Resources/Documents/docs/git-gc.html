@@ -37,7 +37,7 @@ below for how to disable this behavior.</p>
 a repository without regularly running such porcelain commands, to do
 a one-off repository optimization, or e.g. to clean up a suboptimal
 mass-import. See the "PACKFILE OPTIMIZATION" section in
-<a href="/git/docs/git-fast-import.html">git-fast-import[1]</a> for more details on the import case.</p>
+<a href="git-fast-import.html">git-fast-import[1]</a> for more details on the import case.</p>
 </div>
 </div>
 </div>
@@ -110,9 +110,9 @@ option is used, <code>gc.bigPackThreshold</code> is ignored.</p>
 <h2 id="_aggressive"><a class="anchor" href="#_aggressive"></a>AGGRESSIVE</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When the <code>--aggressive</code> option is supplied, <a href="/git/docs/git-repack.html">git-repack[1]</a> will
+<p>When the <code>--aggressive</code> option is supplied, <a href="git-repack.html">git-repack[1]</a> will
 be invoked with the <code>-f</code> flag, which in turn will pass
-<code>--no-reuse-delta</code> to <a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>. This will throw
+<code>--no-reuse-delta</code> to <a href="git-pack-objects.html">git-pack-objects[1]</a>. This will throw
 away any existing deltas and re-compute them, at the expense of
 spending much more time on the repacking.</p>
 </div>
@@ -124,7 +124,7 @@ might pick a sub-optimal delta from a newer pack instead.</p>
 </div>
 <div class="paragraph">
 <p>Furthermore, supplying <code>--aggressive</code> will tweak the <code>--depth</code> and
-<code>--window</code> options passed to <a href="/git/docs/git-repack.html">git-repack[1]</a>. See the
+<code>--window</code> options passed to <a href="git-repack.html">git-repack[1]</a>. See the
 <code>gc.aggressiveDepth</code> and <code>gc.aggressiveWindow</code> settings below. By
 using a larger window size were more likely to find more optimal
 deltas.</p>
@@ -142,8 +142,9 @@ users and their repositories.</p>
 <h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The below documentation is the same as whats found in
-<a href="/git/docs/git-config.html">git-config[1]</a>:</p>
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
 </div>
 <div class="dlist">
 <dl>
@@ -155,7 +156,7 @@ to 50, which is the default for the <code>--depth</code> option when
 <code>--aggressive</code> isnt in use.</p>
 <div class="paragraph">
 <p>See the documentation for the <code>--depth</code> option in
-<a href="/git/docs/git-repack.html">git-repack[1]</a> for more details.</p>
+<a href="git-repack.html">git-repack[1]</a> for more details.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcaggressiveWindow"> <a class="anchor" href="#Documentation/git-gc.txt-gcaggressiveWindow"></a>gc.aggressiveWindow </dt>
@@ -166,7 +167,7 @@ to 250, which is a much more aggressive window size than
 the default <code>--window</code> of 10.</p>
 <div class="paragraph">
 <p>See the documentation for the <code>--window</code> option in
-<a href="/git/docs/git-repack.html">git-repack[1]</a> for more details.</p>
+<a href="git-repack.html">git-repack[1]</a> for more details.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcauto"> <a class="anchor" href="#Documentation/git-gc.txt-gcauto"></a>gc.auto </dt>
@@ -223,9 +224,9 @@ will also be excluded (this is the equivalent of running <code>git gc</code> wit
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcwriteCommitGraph"> <a class="anchor" href="#Documentation/git-gc.txt-gcwriteCommitGraph"></a>gc.writeCommitGraph </dt>
 <dd>
 <p>If true, then gc will rewrite the commit-graph file when
-<a href="/git/docs/git-gc.html">git-gc[1]</a> is run. When using <code>git gc --auto</code>
+<a href="git-gc.html">git-gc[1]</a> is run. When using <code>git gc --auto</code>
 the commit-graph will be updated if housekeeping is
-required. Default is true. See <a href="/git/docs/git-commit-graph.html">git-commit-graph[1]</a>
+required. Default is true. See <a href="git-commit-graph.html">git-commit-graph[1]</a>
 for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gclogExpiry"> <a class="anchor" href="#Documentation/git-gc.txt-gclogExpiry"></a>gc.logExpiry </dt>
@@ -248,7 +249,7 @@ boolean value.  The default is <code>true</code>.</p>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gccruftPacks"> <a class="anchor" href="#Documentation/git-gc.txt-gccruftPacks"></a>gc.cruftPacks </dt>
 <dd>
 <p>Store unreachable objects in a cruft pack (see
-<a href="/git/docs/git-repack.html">git-repack[1]</a>) instead of as loose objects. The default
+<a href="git-repack.html">git-repack[1]</a>) instead of as loose objects. The default
 is <code>false</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcpruneExpire"> <a class="anchor" href="#Documentation/git-gc.txt-gcpruneExpire"></a>gc.pruneExpire </dt>
@@ -261,7 +262,7 @@ used to disable this grace period and always prune unreachable
 objects immediately, or "never" may be used to suppress pruning.
 This feature helps prevent corruption when <em>git gc</em> runs
 concurrently with another process writing to the repository; see
-the "NOTES" section of <a href="/git/docs/git-gc.html">git-gc[1]</a>.</p>
+the "NOTES" section of <a href="git-gc.html">git-gc[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcworktreePruneExpire"> <a class="anchor" href="#Documentation/git-gc.txt-gcworktreePruneExpire"></a>gc.worktreePruneExpire </dt>
 <dd>
@@ -305,14 +306,14 @@ default is more aggressive than <code>gc.reflogExpire</code>.</p>
 <p>Records of conflicted merge you resolved earlier are
 kept for this many days when <em>git rerere gc</em> is run.
 You can also use more human-readable "1.month.ago", etc.
-The default is 60 days.  See <a href="/git/docs/git-rerere.html">git-rerere[1]</a>.</p>
+The default is 60 days.  See <a href="git-rerere.html">git-rerere[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-gc.txt-gcrerereUnresolved"> <a class="anchor" href="#Documentation/git-gc.txt-gcrerereUnresolved"></a>gc.rerereUnresolved </dt>
 <dd>
 <p>Records of conflicted merge you have not resolved are
 kept for this many days when <em>git rerere gc</em> is run.
 You can also use more human-readable "1.month.ago", etc.
-The default is 15 days.  See <a href="/git/docs/git-rerere.html">git-rerere[1]</a>.</p>
+The default is 15 days.  See <a href="git-rerere.html">git-rerere[1]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -367,7 +368,7 @@ seems to be low in practice).</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <em>git gc --auto</em> command will run the <em>pre-auto-gc</em> hook.  See
-<a href="/git/docs/githooks.html">githooks[5]</a> for more information.</p>
+<a href="githooks.html">githooks[5]</a> for more information.</p>
 </div>
 </div>
 </div>
@@ -375,10 +376,10 @@ seems to be low in practice).</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-prune.html">git-prune[1]</a>
-<a href="/git/docs/git-reflog.html">git-reflog[1]</a>
-<a href="/git/docs/git-repack.html">git-repack[1]</a>
-<a href="/git/docs/git-rerere.html">git-rerere[1]</a></p>
+<p><a href="git-prune.html">git-prune[1]</a>
+<a href="git-reflog.html">git-reflog[1]</a>
+<a href="git-repack.html">git-repack[1]</a>
+<a href="git-rerere.html">git-rerere[1]</a></p>
 </div>
 </div>
 </div>
@@ -386,7 +387,7 @@ seems to be low in practice).</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

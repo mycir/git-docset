@@ -59,7 +59,7 @@ if exists, for the current branch.</p>
 <dt class="hdlist1" id="Documentation/git-checkout.txt-emgitcheckoutem-b-Bltnew-branchgtltstart-pointgt"> <a class="anchor" href="#Documentation/git-checkout.txt-emgitcheckoutem-b-Bltnew-branchgtltstart-pointgt"></a><em>git checkout</em> -b|-B &lt;new-branch&gt; [&lt;start-point&gt;] </dt>
 <dd>
 <p>Specifying <code>-b</code> causes a new branch to be created as if
-<a href="/git/docs/git-branch.html">git-branch[1]</a> were called and then checked out.  In
+<a href="git-branch.html">git-branch[1]</a> were called and then checked out.  In
 this case you can use the <code>--track</code> or <code>--no-track</code> options,
 which will be passed to <em>git branch</em>.  As a convenience,
 <code>--track</code> without <code>-b</code> implies branch creation; see the
@@ -182,20 +182,20 @@ of it").</p>
 <dt class="hdlist1" id="Documentation/git-checkout.txt--bltnew-branchgt"> <a class="anchor" href="#Documentation/git-checkout.txt--bltnew-branchgt"></a>-b &lt;new-branch&gt; </dt>
 <dd>
 <p>Create a new branch named <code>&lt;new-branch&gt;</code> and start it at
-<code>&lt;start-point&gt;</code>; see <a href="/git/docs/git-branch.html">git-branch[1]</a> for details.</p>
+<code>&lt;start-point&gt;</code>; see <a href="git-branch.html">git-branch[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt--Bltnew-branchgt"> <a class="anchor" href="#Documentation/git-checkout.txt--Bltnew-branchgt"></a>-B &lt;new-branch&gt; </dt>
 <dd>
 <p>Creates the branch <code>&lt;new-branch&gt;</code> and start it at <code>&lt;start-point&gt;</code>;
 if it already exists, then reset it to <code>&lt;start-point&gt;</code>. This is
 equivalent to running "git branch" with "-f"; see
-<a href="/git/docs/git-branch.html">git-branch[1]</a> for details.</p>
+<a href="git-branch.html">git-branch[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt--t"> <a class="anchor" href="#Documentation/git-checkout.txt--t"></a>-t </dt>
 <dt class="hdlist1" id="Documentation/git-checkout.txt---trackdirectinherit"> <a class="anchor" href="#Documentation/git-checkout.txt---trackdirectinherit"></a>--track[=(direct|inherit)] </dt>
 <dd>
 <p>When creating a new branch, set up "upstream" configuration. See
-"--track" in <a href="/git/docs/git-branch.html">git-branch[1]</a> for details.</p>
+"--track" in <a href="git-branch.html">git-branch[1]</a> for details.</p>
 <div class="paragraph">
 <p>If no <code>-b</code> option is given, the name of the new branch will be
 derived from the remote-tracking branch, by looking at the local part of
@@ -232,7 +232,7 @@ unique across all remotes. Set it to
 e.g. <code>checkout.defaultRemote=origin</code> to always checkout remote
 branches from there if <code>&lt;branch&gt;</code> is ambiguous but exists on the
 <em>origin</em> remote. See also <code>checkout.defaultRemote</code> in
-<a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+<a href="git-config.html">git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p><code>--guess</code> is the default behavior. Use <code>--no-guess</code> to disable it.</p>
@@ -244,7 +244,7 @@ variable.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt--l"> <a class="anchor" href="#Documentation/git-checkout.txt--l"></a>-l </dt>
 <dd>
-<p>Create the new branchs reflog; see <a href="/git/docs/git-branch.html">git-branch[1]</a> for
+<p>Create the new branchs reflog; see <a href="git-branch.html">git-branch[1]</a> for
 details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt--d"> <a class="anchor" href="#Documentation/git-checkout.txt--d"></a>-d </dt>
@@ -334,7 +334,7 @@ working tree (and if a <code>&lt;tree-ish&gt;</code> was specified, the index).<
 <div class="paragraph">
 <p>This means that you can use <code>git checkout -p</code> to selectively discard
 edits from your current working tree. See the Interactive Mode
-section of <a href="/git/docs/git-add.html">git-add[1]</a> to learn how to operate the <code>--patch</code> mode.</p>
+section of <a href="git-add.html">git-add[1]</a> to learn how to operate the <code>--patch</code> mode.</p>
 </div>
 <div class="paragraph">
 <p>Note that this option uses the no overlay mode by default (see also
@@ -363,7 +363,7 @@ submodules according to the commit recorded in the superproject. If
 local modifications in a submodule would be overwritten the checkout
 will fail unless <code>-f</code> is used. If nothing (or <code>--no-recurse-submodules</code>)
 is used, submodules working trees will not be updated.
-Just like <a href="/git/docs/git-submodule.html">git-submodule[1]</a>, this will detach <code>HEAD</code> of the
+Just like <a href="git-submodule.html">git-submodule[1]</a>, this will detach <code>HEAD</code> of the
 submodule.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt---overlay"> <a class="anchor" href="#Documentation/git-checkout.txt---overlay"></a>--overlay </dt>
@@ -381,7 +381,7 @@ match <code>&lt;tree-ish&gt;</code> exactly.</p>
 <code>&lt;file&gt;</code> is exactly <code>-</code> then standard input is used. Pathspec
 elements are separated by LF or CR/LF. Pathspec elements can be
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
+(see <a href="git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
 global <code>--literal-pathspecs</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-checkout.txt---pathspec-file-nul"> <a class="anchor" href="#Documentation/git-checkout.txt---pathspec-file-nul"></a>--pathspec-file-nul </dt>
@@ -415,7 +415,7 @@ leave out at most one of <code>A</code> and <code>B</code>, in which case it def
 <dt class="hdlist1" id="Documentation/git-checkout.txt-ltstart-pointgt"> <a class="anchor" href="#Documentation/git-checkout.txt-ltstart-pointgt"></a>&lt;start-point&gt; </dt>
 <dd>
 <p>The name of a commit at which to start the new branch; see
-<a href="/git/docs/git-branch.html">git-branch[1]</a> for details. Defaults to <code>HEAD</code>.</p>
+<a href="git-branch.html">git-branch[1]</a> for details. Defaults to <code>HEAD</code>.</p>
 <div class="paragraph">
 <p>As a special case, you may use <code>"A...B"</code> as a shortcut for the
 merge base of <code>A</code> and <code>B</code> if there is exactly one merge base. You can
@@ -440,7 +440,7 @@ leave out at most one of <code>A</code> and <code>B</code>, in which case it def
 <dd>
 <p>Limits the paths affected by the operation.</p>
 <div class="paragraph">
-<p>For more details, see the <em>pathspec</em> entry in <a href="/git/docs/gitglossary.html">gitglossary[7]</a>.</p>
+<p>For more details, see the <em>pathspec</em> entry in <a href="gitglossary.html">gitglossary[7]</a>.</p>
 </div>
 </dd>
 </dl>
@@ -743,11 +743,76 @@ $ git add frotz</pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-checkoutdefaultRemote"> <a class="anchor" href="#Documentation/git-checkout.txt-checkoutdefaultRemote"></a>checkout.defaultRemote </dt>
+<dd>
+<p>When you run <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code> and only have one
+remote, it may implicitly fall back on checking out and
+tracking e.g. <code>origin/&lt;something&gt;</code>. This stops working as soon
+as you have more than one remote with a <code>&lt;something&gt;</code>
+reference. This setting allows for setting the name of a
+preferred remote that should always win when it comes to
+disambiguation. The typical use-case is to set this to
+<code>origin</code>.</p>
+<div class="paragraph">
+<p>Currently this is used by <a href="git-switch.html">git-switch[1]</a> and
+<a href="git-checkout.html">git-checkout[1]</a> when <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code>
+will checkout the <code>&lt;something&gt;</code> branch on another remote,
+and by <a href="git-worktree.html">git-worktree[1]</a> when <code>git worktree add</code> refers to a
+remote branch. This setting might be used for other checkout-like
+commands or functionality in the future.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-checkoutguess"> <a class="anchor" href="#Documentation/git-checkout.txt-checkoutguess"></a>checkout.guess </dt>
+<dd>
+<p>Provides the default value for the <code>--guess</code> or <code>--no-guess</code>
+option in <code>git checkout</code> and <code>git switch</code>. See
+<a href="git-switch.html">git-switch[1]</a> and <a href="git-checkout.html">git-checkout[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-checkoutworkers"> <a class="anchor" href="#Documentation/git-checkout.txt-checkoutworkers"></a>checkout.workers </dt>
+<dd>
+<p>The number of parallel workers to use when updating the working tree.
+The default is one, i.e. sequential execution. If set to a value less
+than one, Git will use as many workers as the number of logical cores
+available. This setting and <code>checkout.thresholdForParallelism</code> affect
+all commands that perform checkout. E.g. checkout, clone, reset,
+sparse-checkout, etc.</p>
+<div class="paragraph">
+<p>Note: parallel checkout usually delivers better performance for repositories
+located on SSDs or over NFS. For repositories on spinning disks and/or machines
+with a small number of cores, the default sequential checkout often performs
+better. The size and compression level of a repository might also influence how
+well the parallel version performs.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-checkout.txt-checkoutthresholdForParallelism"> <a class="anchor" href="#Documentation/git-checkout.txt-checkoutthresholdForParallelism"></a>checkout.thresholdForParallelism </dt>
+<dd>
+<p>When running parallel checkout with a small number of files, the cost
+of subprocess spawning and inter-process communication might outweigh
+the parallelization gains. This setting allows to define the minimum
+number of files for which parallel checkout should be attempted. The
+default is 100.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-switch.html">git-switch[1]</a>,
-<a href="/git/docs/git-restore.html">git-restore[1]</a></p>
+<p><a href="git-switch.html">git-switch[1]</a>,
+<a href="git-restore.html">git-restore[1]</a></p>
 </div>
 </div>
 </div>
@@ -755,7 +820,7 @@ $ git add frotz</pre>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

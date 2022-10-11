@@ -107,7 +107,7 @@ $ git switch &lt;new-branch&gt;</pre>
 <dd>
 <p>Switch to a commit for inspection and discardable
 experiments. See the "DETACHED HEAD" section in
-<a href="/git/docs/git-checkout.html">git-checkout[1]</a> for details.</p>
+<a href="git-checkout.html">git-checkout[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-switch.txt---guess"> <a class="anchor" href="#Documentation/git-switch.txt---guess"></a>--guess </dt>
 <dt class="hdlist1" id="Documentation/git-switch.txt---no-guess"> <a class="anchor" href="#Documentation/git-switch.txt---no-guess"></a>--no-guess </dt>
@@ -127,7 +127,7 @@ one for the purposes of disambiguation, even if the <code>&lt;branch&gt;</code> 
 unique across all remotes. Set it to e.g. <code>checkout.defaultRemote=origin</code>
 to always checkout remote branches from there if <code>&lt;branch&gt;</code> is
 ambiguous but exists on the <em>origin</em> remote. See also
-<code>checkout.defaultRemote</code> in <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+<code>checkout.defaultRemote</code> in <a href="git-config.html">git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p><code>--guess</code> is the default behavior. Use <code>--no-guess</code> to disable it.</p>
@@ -191,7 +191,7 @@ attached to a terminal, regardless of <code>--quiet</code>.</p>
 <dt class="hdlist1" id="Documentation/git-switch.txt---trackdirectinherit"> <a class="anchor" href="#Documentation/git-switch.txt---trackdirectinherit"></a>--track [direct|inherit] </dt>
 <dd>
 <p>When creating a new branch, set up "upstream" configuration.
-<code>-c</code> is implied. See <code>--track</code> in <a href="/git/docs/git-branch.html">git-branch[1]</a> for
+<code>-c</code> is implied. See <code>--track</code> in <a href="git-branch.html">git-branch[1]</a> for
 details.</p>
 <div class="paragraph">
 <p>If no <code>-c</code> option is given, the name of the new branch will be derived
@@ -229,7 +229,7 @@ more than one worktree.</p>
 active submodules according to the commit recorded in the
 superproject. If nothing (or <code>--no-recurse-submodules</code>) is
 used, submodules working trees will not be updated. Just
-like <a href="/git/docs/git-submodule.html">git-submodule[1]</a>, this will detach <code>HEAD</code> of the
+like <a href="git-submodule.html">git-submodule[1]</a>, this will detach <code>HEAD</code> of the
 submodules.</p>
 </dd>
 </dl>
@@ -334,11 +334,76 @@ always create a new name for it (without switching away):</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-switch.txt-checkoutdefaultRemote"> <a class="anchor" href="#Documentation/git-switch.txt-checkoutdefaultRemote"></a>checkout.defaultRemote </dt>
+<dd>
+<p>When you run <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code> and only have one
+remote, it may implicitly fall back on checking out and
+tracking e.g. <code>origin/&lt;something&gt;</code>. This stops working as soon
+as you have more than one remote with a <code>&lt;something&gt;</code>
+reference. This setting allows for setting the name of a
+preferred remote that should always win when it comes to
+disambiguation. The typical use-case is to set this to
+<code>origin</code>.</p>
+<div class="paragraph">
+<p>Currently this is used by <a href="git-switch.html">git-switch[1]</a> and
+<a href="git-checkout.html">git-checkout[1]</a> when <code>git checkout &lt;something&gt;</code>
+or <code>git switch &lt;something&gt;</code>
+will checkout the <code>&lt;something&gt;</code> branch on another remote,
+and by <a href="git-worktree.html">git-worktree[1]</a> when <code>git worktree add</code> refers to a
+remote branch. This setting might be used for other checkout-like
+commands or functionality in the future.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-switch.txt-checkoutguess"> <a class="anchor" href="#Documentation/git-switch.txt-checkoutguess"></a>checkout.guess </dt>
+<dd>
+<p>Provides the default value for the <code>--guess</code> or <code>--no-guess</code>
+option in <code>git checkout</code> and <code>git switch</code>. See
+<a href="git-switch.html">git-switch[1]</a> and <a href="git-checkout.html">git-checkout[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-switch.txt-checkoutworkers"> <a class="anchor" href="#Documentation/git-switch.txt-checkoutworkers"></a>checkout.workers </dt>
+<dd>
+<p>The number of parallel workers to use when updating the working tree.
+The default is one, i.e. sequential execution. If set to a value less
+than one, Git will use as many workers as the number of logical cores
+available. This setting and <code>checkout.thresholdForParallelism</code> affect
+all commands that perform checkout. E.g. checkout, clone, reset,
+sparse-checkout, etc.</p>
+<div class="paragraph">
+<p>Note: parallel checkout usually delivers better performance for repositories
+located on SSDs or over NFS. For repositories on spinning disks and/or machines
+with a small number of cores, the default sequential checkout often performs
+better. The size and compression level of a repository might also influence how
+well the parallel version performs.</p>
+</div>
+</dd>
+<dt class="hdlist1" id="Documentation/git-switch.txt-checkoutthresholdForParallelism"> <a class="anchor" href="#Documentation/git-switch.txt-checkoutthresholdForParallelism"></a>checkout.thresholdForParallelism </dt>
+<dd>
+<p>When running parallel checkout with a small number of files, the cost
+of subprocess spawning and inter-process communication might outweigh
+the parallelization gains. This setting allows to define the minimum
+number of files for which parallel checkout should be attempted. The
+default is 100.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-checkout.html">git-checkout[1]</a>,
-<a href="/git/docs/git-branch.html">git-branch[1]</a></p>
+<p><a href="git-checkout.html">git-checkout[1]</a>,
+<a href="git-branch.html">git-branch[1]</a></p>
 </div>
 </div>
 </div>
@@ -346,7 +411,7 @@ always create a new name for it (without switching away):</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

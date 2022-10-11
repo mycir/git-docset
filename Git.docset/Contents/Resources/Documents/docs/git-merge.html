@@ -120,7 +120,7 @@ set to <code>no</code> at the beginning of them.</p>
 <dt class="hdlist1" id="Documentation/git-merge.txt---cleanupltmodegt"> <a class="anchor" href="#Documentation/git-merge.txt---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>This option determines how the merge message will be cleaned up before
-committing. See <a href="/git/docs/git-commit.html">git-commit[1]</a> for more details. In addition, if
+committing. See <a href="git-commit.html">git-commit[1]</a> for more details. In addition, if
 the <em>&lt;mode&gt;</em> is given a value of <code>scissors</code>, scissors will be appended
 to <code>MERGE_MSG</code> before being passed on to the commit machinery in the
 case of a merge conflict.</p>
@@ -164,7 +164,7 @@ and earlier <code>--gpg-sign</code>.</p>
 <dd>
 <p>In addition to branch names, populate the log message with
 one-line descriptions from at most &lt;n&gt; actual commits that are being
-merged. See also <a href="/git/docs/git-fmt-merge-msg.html">git-fmt-merge-msg[1]</a>.</p>
+merged. See also <a href="git-fmt-merge-msg.html">git-fmt-merge-msg[1]</a>.</p>
 <div class="paragraph">
 <p>With --no-log do not list one-line descriptions from the
 actual commits being merged.</p>
@@ -221,7 +221,7 @@ option can be used to override --squash.</p>
 <dd>
 <p>By default, the pre-merge and commit-msg hooks are run.
 When <code>--no-verify</code> is given, these are bypassed.
-See also <a href="/git/docs/githooks.html">githooks[5]</a>.</p>
+See also <a href="githooks.html">githooks[5]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt--sltstrategygt"> <a class="anchor" href="#Documentation/git-merge.txt--sltstrategygt"></a>-s &lt;strategy&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-merge.txt---strategyltstrategygt"> <a class="anchor" href="#Documentation/git-merge.txt---strategyltstrategygt"></a>--strategy=&lt;strategy&gt; </dt>
@@ -323,8 +323,13 @@ will be appended to the specified message.</p>
 <dt class="hdlist1" id="Documentation/git-merge.txt---rerere-autoupdate"> <a class="anchor" href="#Documentation/git-merge.txt---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="Documentation/git-merge.txt---no-rerere-autoupdate"> <a class="anchor" href="#Documentation/git-merge.txt---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Allow the rerere mechanism to update the index with the
-result of auto-conflict resolution if possible.</p>
+<p>After the rerere mechanism reuses a recorded resolution on
+the current conflict to update the files in the working
+tree, allow it to also update the index with the result of
+resolution.  <code>--no-rerere-autoupdate</code> is a good way to
+double-check what <code>rerere</code> did and catch potential
+mismerges, before committing the result to the index with a
+separate <code>git add</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt---overwrite-ignore"> <a class="anchor" href="#Documentation/git-merge.txt---overwrite-ignore"></a>--overwrite-ignore </dt>
 <dt class="hdlist1" id="Documentation/git-merge.txt---no-overwrite-ignore"> <a class="anchor" href="#Documentation/git-merge.txt---no-overwrite-ignore"></a>--no-overwrite-ignore </dt>
@@ -389,7 +394,7 @@ of <code>git fetch</code> for merging are merged to the current branch.</p>
 <div class="paragraph">
 <p>Before applying outside changes, you should get your own work in
 good shape and committed locally, so it will not be clobbered if
-there are conflicts.  See also <a href="/git/docs/git-stash.html">git-stash[1]</a>.
+there are conflicts.  See also <a href="git-stash.html">git-stash[1]</a>.
 <em>git pull</em> and <em>git merge</em> will stop without doing anything when
 local uncommitted changes overlap with files that <em>git pull</em>/<em>git
 merge</em> may need to update.</p>
@@ -485,7 +490,7 @@ want to start over, you can recover with <code>git merge --abort</code>.</p>
 creates a merge commit even if a fast-forward merge is possible, and
 the commit message template is prepared with the tag message.
 Additionally, if the tag is signed, the signature check is reported
-as a comment in the message template. See also <a href="/git/docs/git-tag.html">git-tag[1]</a>.</p>
+as a comment in the message template. See also <a href="git-tag.html">git-tag[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>When you want to just integrate with the work leading to the commit
@@ -756,7 +761,7 @@ no <em>theirs</em> merge strategy to confuse this merge option with.</p>
 <p>Treats lines with the indicated type of whitespace change as
 unchanged for the sake of a three-way merge.  Whitespace
 changes mixed with other changes to a line are not ignored.
-See also <a href="/git/docs/git-diff.html">git-diff[1]</a> <code>-b</code>, <code>-w</code>,
+See also <a href="git-diff.html">git-diff[1]</a> <code>-b</code>, <code>-w</code>,
 <code>--ignore-space-at-eol</code>, and <code>--ignore-cr-at-eol</code>.</p>
 <div class="ulist">
 <ul>
@@ -781,7 +786,7 @@ of a file when resolving a three-way merge.  This option is
 meant to be used when merging branches with different clean
 filters or end-of-line normalization rules.  See "Merging
 branches with differing checkin/checkout attributes" in
-<a href="/git/docs/gitattributes.html">gitattributes[5]</a> for details.</p>
+<a href="gitattributes.html">gitattributes[5]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-no-renormalize"> <a class="anchor" href="#Documentation/git-merge.txt-no-renormalize"></a>no-renormalize </dt>
 <dd>
@@ -793,7 +798,7 @@ branches with differing checkin/checkout attributes" in
 <p>Turn on rename detection, optionally setting the similarity
 threshold.  This is the default. This overrides the
 <em>merge.renames</em> configuration variable.
-See also <a href="/git/docs/git-diff.html">git-diff[1]</a> <code>--find-renames</code>.</p>
+See also <a href="git-diff.html">git-diff[1]</a> <code>--find-renames</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-rename-thresholdltngt"> <a class="anchor" href="#Documentation/git-merge.txt-rename-thresholdltngt"></a>rename-threshold=&lt;n&gt; </dt>
 <dd>
@@ -840,7 +845,7 @@ above) that are potentially useful with the <em>recursive</em> strategy:</p>
 <p>Use a different diff algorithm while merging, which can help
 avoid mismerges that occur due to unimportant matching lines
 (such as braces from distinct functions).  See also
-<a href="/git/docs/git-diff.html">git-diff[1]</a> <code>--diff-algorithm</code>.  Note that <code>ort</code>
+<a href="git-diff.html">git-diff[1]</a> <code>--diff-algorithm</code>.  Note that <code>ort</code>
 specifically uses <code>diff-algorithm=histogram</code>, while <code>recursive</code>
 defaults to the <code>diff.algorithm</code> config setting.</p>
 </dd>
@@ -848,7 +853,7 @@ defaults to the <code>diff.algorithm</code> config setting.</p>
 <dd>
 <p>Turn off rename detection. This overrides the <code>merge.renames</code>
 configuration variable.
-See also <a href="/git/docs/git-diff.html">git-diff[1]</a> <code>--no-renames</code>.</p>
+See also <a href="git-diff.html">git-diff[1]</a> <code>--no-renames</code>.</p>
 </dd>
 </dl>
 </div>
@@ -903,6 +908,21 @@ substitutes the changed version instead.</p>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1" id="Documentation/git-merge.txt-branchltnamegtmergeOptions"> <a class="anchor" href="#Documentation/git-merge.txt-branchltnamegtmergeOptions"></a>branch.&lt;name&gt;.mergeOptions </dt>
+<dd>
+<p>Sets default options for merging into branch &lt;name&gt;. The syntax and
+supported options are the same as those of <em>git merge</em>, but option
+values containing whitespace characters are currently not supported.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Everything above this line in this section isnt included from the
+<a href="git-config.html">git-config[1]</a> documentation. The content that follows is the
+same as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeconflictStyle"> <a class="anchor" href="#Documentation/git-merge.txt-mergeconflictStyle"></a>merge.conflictStyle </dt>
 <dd>
 <p>Specify the style in which conflicted hunks are written out to
@@ -944,7 +964,7 @@ command line).</p>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeverifySignatures"> <a class="anchor" href="#Documentation/git-merge.txt-mergeverifySignatures"></a>merge.verifySignatures </dt>
 <dd>
 <p>If true, this is equivalent to the --verify-signatures command
-line option. See <a href="/git/docs/git-merge.html">git-merge[1]</a> for details.</p>
+line option. See <a href="git-merge.html">git-merge[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergebranchdesc"> <a class="anchor" href="#Documentation/git-merge.txt-mergebranchdesc"></a>merge.branchdesc </dt>
 <dd>
@@ -1011,7 +1031,7 @@ endings).  In such a repository, Git can convert the data
 recorded in commits to a canonical form before performing a
 merge to reduce unnecessary conflicts.  For more information,
 see section "Merging branches with differing checkin/checkout
-attributes" in <a href="/git/docs/gitattributes.html">gitattributes[5]</a>.</p>
+attributes" in <a href="gitattributes.html">gitattributes[5]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergestat"> <a class="anchor" href="#Documentation/git-merge.txt-mergestat"></a>merge.stat </dt>
 <dd>
@@ -1026,19 +1046,19 @@ ends.  This means that you can run merge on a dirty worktree.
 However, use with care: the final stash application after a
 successful merge might result in non-trivial conflicts.
 This option can be overridden by the <code>--no-autostash</code> and
-<code>--autostash</code> options of <a href="/git/docs/git-merge.html">git-merge[1]</a>.
+<code>--autostash</code> options of <a href="git-merge.html">git-merge[1]</a>.
 Defaults to false.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergetool"> <a class="anchor" href="#Documentation/git-merge.txt-mergetool"></a>merge.tool </dt>
 <dd>
-<p>Controls which merge tool is used by <a href="/git/docs/git-mergetool.html">git-mergetool[1]</a>.
+<p>Controls which merge tool is used by <a href="git-mergetool.html">git-mergetool[1]</a>.
 The list below shows the valid built-in values.
 Any other value is treated as a custom merge tool and requires
 that a corresponding mergetool.&lt;tool&gt;.cmd variable is defined.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeguitool"> <a class="anchor" href="#Documentation/git-merge.txt-mergeguitool"></a>merge.guitool </dt>
 <dd>
-<p>Controls which merge tool is used by <a href="/git/docs/git-mergetool.html">git-mergetool[1]</a> when the
+<p>Controls which merge tool is used by <a href="git-mergetool.html">git-mergetool[1]</a> when the
 -g/--gui flag is specified. The list below shows the valid built-in values.
 Any other value is treated as a custom merge tool and requires that a
 corresponding mergetool.&lt;guitool&gt;.cmd variable is defined.</p>
@@ -1125,24 +1145,18 @@ Can be overridden by the <code>GIT_MERGE_VERBOSITY</code> environment variable.<
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeltdrivergtname"> <a class="anchor" href="#Documentation/git-merge.txt-mergeltdrivergtname"></a>merge.&lt;driver&gt;.name </dt>
 <dd>
 <p>Defines a human-readable name for a custom low-level
-merge driver.  See <a href="/git/docs/gitattributes.html">gitattributes[5]</a> for details.</p>
+merge driver.  See <a href="gitattributes.html">gitattributes[5]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeltdrivergtdriver"> <a class="anchor" href="#Documentation/git-merge.txt-mergeltdrivergtdriver"></a>merge.&lt;driver&gt;.driver </dt>
 <dd>
 <p>Defines the command that implements a custom low-level
-merge driver.  See <a href="/git/docs/gitattributes.html">gitattributes[5]</a> for details.</p>
+merge driver.  See <a href="gitattributes.html">gitattributes[5]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-merge.txt-mergeltdrivergtrecursive"> <a class="anchor" href="#Documentation/git-merge.txt-mergeltdrivergtrecursive"></a>merge.&lt;driver&gt;.recursive </dt>
 <dd>
 <p>Names a low-level merge driver to be used when
 performing an internal merge between common ancestors.
-See <a href="/git/docs/gitattributes.html">gitattributes[5]</a> for details.</p>
-</dd>
-<dt class="hdlist1" id="Documentation/git-merge.txt-branchltnamegtmergeOptions"> <a class="anchor" href="#Documentation/git-merge.txt-branchltnamegtmergeOptions"></a>branch.&lt;name&gt;.mergeOptions </dt>
-<dd>
-<p>Sets default options for merging into branch &lt;name&gt;. The syntax and
-supported options are the same as those of <em>git merge</em>, but option
-values containing whitespace characters are currently not supported.</p>
+See <a href="gitattributes.html">gitattributes[5]</a> for details.</p>
 </dd>
 </dl>
 </div>
@@ -1152,12 +1166,12 @@ values containing whitespace characters are currently not supported.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-fmt-merge-msg.html">git-fmt-merge-msg[1]</a>, <a href="/git/docs/git-pull.html">git-pull[1]</a>,
-<a href="/git/docs/gitattributes.html">gitattributes[5]</a>,
-<a href="/git/docs/git-reset.html">git-reset[1]</a>,
-<a href="/git/docs/git-diff.html">git-diff[1]</a>, <a href="/git/docs/git-ls-files.html">git-ls-files[1]</a>,
-<a href="/git/docs/git-add.html">git-add[1]</a>, <a href="/git/docs/git-rm.html">git-rm[1]</a>,
-<a href="/git/docs/git-mergetool.html">git-mergetool[1]</a></p>
+<p><a href="git-fmt-merge-msg.html">git-fmt-merge-msg[1]</a>, <a href="git-pull.html">git-pull[1]</a>,
+<a href="gitattributes.html">gitattributes[5]</a>,
+<a href="git-reset.html">git-reset[1]</a>,
+<a href="git-diff.html">git-diff[1]</a>, <a href="git-ls-files.html">git-ls-files[1]</a>,
+<a href="git-add.html">git-add[1]</a>, <a href="git-rm.html">git-rm[1]</a>,
+<a href="git-mergetool.html">git-mergetool[1]</a></p>
 </div>
 </div>
 </div>
@@ -1165,7 +1179,7 @@ values containing whitespace characters are currently not supported.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

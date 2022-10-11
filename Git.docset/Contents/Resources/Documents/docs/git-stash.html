@@ -95,7 +95,7 @@ stash@{1}: On master: 9cc0589... Add git-stash</pre>
 </div>
 <div class="paragraph">
 <p>The command takes options applicable to the <em>git log</em>
-command to control what is shown and how. See <a href="/git/docs/git-log.html">git-log[1]</a>.</p>
+command to control what is shown and how. See <a href="git-log.html">git-log[1]</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-stash.txt-show-u--include-untracked--only-untrackedltdiff-optionsgtltstashgt"> <a class="anchor" href="#Documentation/git-stash.txt-show-u--include-untracked--only-untrackedltdiff-optionsgtltstashgt"></a>show [-u|--include-untracked|--only-untracked] [&lt;diff-options&gt;] [&lt;stash&gt;] </dt>
@@ -235,7 +235,7 @@ working tree to be stashed.  The stash entry is constructed such
 that its index state is the same as the index state of your
 repository, and its worktree contains only the changes you selected
 interactively.  The selected changes are then rolled back from your
-worktree. See the Interactive Mode section of <a href="/git/docs/git-add.html">git-add[1]</a>
+worktree. See the Interactive Mode section of <a href="git-add.html">git-add[1]</a>
 to learn how to operate the <code>--patch</code> mode.</p>
 </div>
 <div class="paragraph">
@@ -264,7 +264,7 @@ of current branch.</p>
 <code>&lt;file&gt;</code> is exactly <code>-</code> then standard input is used. Pathspec
 elements are separated by LF or CR/LF. Pathspec elements can be
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
+(see <a href="git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
 global <code>--literal-pathspecs</code>.</p>
 </div>
 </dd>
@@ -303,7 +303,7 @@ are then rolled back to the state in HEAD only for these files,
 too, leaving files that do not match the pathspec intact.</p>
 </div>
 <div class="paragraph">
-<p>For more details, see the <em>pathspec</em> entry in <a href="/git/docs/gitglossary.html">gitglossary[7]</a>.</p>
+<p>For more details, see the <em>pathspec</em> entry in <a href="gitglossary.html">gitglossary[7]</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-stash.txt-ltstashgt"> <a class="anchor" href="#Documentation/git-stash.txt-ltstashgt"></a>&lt;stash&gt; </dt>
@@ -461,14 +461,46 @@ xargs git log --merges --no-walk --grep=WIP</pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-stash.txt-stashshowIncludeUntracked"> <a class="anchor" href="#Documentation/git-stash.txt-stashshowIncludeUntracked"></a>stash.showIncludeUntracked </dt>
+<dd>
+<p>If this is set to true, the <code>git stash show</code> command will show
+the untracked files of a stash entry.  Defaults to false. See
+description of <em>show</em> command in <a href="git-stash.html">git-stash[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-stashshowPatch"> <a class="anchor" href="#Documentation/git-stash.txt-stashshowPatch"></a>stash.showPatch </dt>
+<dd>
+<p>If this is set to true, the <code>git stash show</code> command without an
+option will show the stash entry in patch form.  Defaults to false.
+See description of <em>show</em> command in <a href="git-stash.html">git-stash[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-stash.txt-stashshowStat"> <a class="anchor" href="#Documentation/git-stash.txt-stashshowStat"></a>stash.showStat </dt>
+<dd>
+<p>If this is set to true, the <code>git stash show</code> command without an
+option will show diffstat of the stash entry.  Defaults to true.
+See description of <em>show</em> command in <a href="git-stash.html">git-stash[1]</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-checkout.html">git-checkout[1]</a>,
-<a href="/git/docs/git-commit.html">git-commit[1]</a>,
-<a href="/git/docs/git-reflog.html">git-reflog[1]</a>,
-<a href="/git/docs/git-reset.html">git-reset[1]</a>,
-<a href="/git/docs/git-switch.html">git-switch[1]</a></p>
+<p><a href="git-checkout.html">git-checkout[1]</a>,
+<a href="git-commit.html">git-commit[1]</a>,
+<a href="git-reflog.html">git-reflog[1]</a>,
+<a href="git-reset.html">git-reset[1]</a>,
+<a href="git-switch.html">git-switch[1]</a></p>
 </div>
 </div>
 </div>
@@ -476,7 +508,7 @@ xargs git log --merges --no-walk --grep=WIP</pre>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>
