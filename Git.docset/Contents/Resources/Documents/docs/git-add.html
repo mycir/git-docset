@@ -56,7 +56,7 @@ globs before the shell) will be silently ignored.  The <em>git add</em> command 
 be used to add ignored files with the <code>-f</code> (force) option.</p>
 </div>
 <div class="paragraph">
-<p>Please see <a href="/git/docs/git-commit.html">git-commit[1]</a> for alternative ways to add content to a
+<p>Please see <a href="git-commit.html">git-commit[1]</a> for alternative ways to add content to a
 commit.</p>
 </div>
 </div>
@@ -81,7 +81,7 @@ to ignore removed files; use <code>--no-all</code> option if you want
 to add modified or new files but ignore removed ones.</p>
 <div class="paragraph">
 <p>For more details about the &lt;pathspec&gt; syntax, see the <em>pathspec</em> entry
-in <a href="/git/docs/gitglossary.html">gitglossary[7]</a>.</p>
+in <a href="gitglossary.html">gitglossary[7]</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-add.txt--n"> <a class="anchor" href="#Documentation/git-add.txt--n"></a>-n </dt>
@@ -106,7 +106,7 @@ be ignored.</p>
 Normally, <code>git add</code> refuses to update index entries whose paths do
 not fit within the sparse-checkout cone, since those files might
 be removed from the working tree without warning. See
-<a href="/git/docs/git-sparse-checkout.html">git-sparse-checkout[1]</a> for more details.</p>
+<a href="git-sparse-checkout.html">git-sparse-checkout[1]</a> for more details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-add.txt--i"> <a class="anchor" href="#Documentation/git-add.txt--i"></a>-i </dt>
 <dt class="hdlist1" id="Documentation/git-add.txt---interactive"> <a class="anchor" href="#Documentation/git-add.txt---interactive"></a>--interactive </dt>
@@ -243,7 +243,7 @@ unchanged.</p>
 <code>&lt;file&gt;</code> is exactly <code>-</code> then standard input is used. Pathspec
 elements are separated by LF or CR/LF. Pathspec elements can be
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
+(see <a href="git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
 global <code>--literal-pathspecs</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-add.txt---pathspec-file-nul"> <a class="anchor" href="#Documentation/git-add.txt---pathspec-file-nul"></a>--pathspec-file-nul </dt>
@@ -542,15 +542,44 @@ they will make the patch impossible to apply:</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-add.txt-addignoreErrors"> <a class="anchor" href="#Documentation/git-add.txt-addignoreErrors"></a>add.ignoreErrors </dt>
+<dt class="hdlist1" id="Documentation/git-add.txt-addignore-errorsdeprecated"> <a class="anchor" href="#Documentation/git-add.txt-addignore-errorsdeprecated"></a>add.ignore-errors (deprecated) </dt>
+<dd>
+<p>Tells <em>git add</em> to continue adding files when some files cannot be
+added due to indexing errors. Equivalent to the <code>--ignore-errors</code>
+option of <a href="git-add.html">git-add[1]</a>.  <code>add.ignore-errors</code> is deprecated,
+as it does not follow the usual naming convention for configuration
+variables.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-add.txt-addinteractiveuseBuiltin"> <a class="anchor" href="#Documentation/git-add.txt-addinteractiveuseBuiltin"></a>add.interactive.useBuiltin </dt>
+<dd>
+<p>Set to <code>false</code> to fall back to the original Perl implementation of
+the interactive version of <a href="git-add.html">git-add[1]</a> instead of the built-in
+version. Is <code>true</code> by default.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-status.html">git-status[1]</a>
-<a href="/git/docs/git-rm.html">git-rm[1]</a>
-<a href="/git/docs/git-reset.html">git-reset[1]</a>
-<a href="/git/docs/git-mv.html">git-mv[1]</a>
-<a href="/git/docs/git-commit.html">git-commit[1]</a>
-<a href="/git/docs/git-update-index.html">git-update-index[1]</a></p>
+<p><a href="git-status.html">git-status[1]</a>
+<a href="git-rm.html">git-rm[1]</a>
+<a href="git-reset.html">git-reset[1]</a>
+<a href="git-mv.html">git-mv[1]</a>
+<a href="git-commit.html">git-commit[1]</a>
+<a href="git-update-index.html">git-update-index[1]</a></p>
 </div>
 </div>
 </div>
@@ -558,7 +587,7 @@ they will make the patch impossible to apply:</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

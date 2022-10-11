@@ -16,7 +16,7 @@
 <em>git cat-file</em> (-t | -s) [--allow-unknown-type] &lt;object&gt;
 <em>git cat-file</em> (--batch | --batch-check | --batch-command) [--batch-all-objects]
 	     [--buffer] [--follow-symlinks] [--unordered]
-	     [--textconv | --filters]
+	     [--textconv | --filters] [-z]
 <em>git cat-file</em> (--textconv | --filters)
 	     [&lt;rev&gt;:&lt;path|tree-ish&gt; | --path=&lt;path|tree-ish&gt; &lt;rev&gt;]</pre>
 </div>
@@ -50,7 +50,7 @@ whitespace, so that the appropriate drivers can be determined.</p>
 <dd>
 <p>The name of the object to show.
 For a more complete list of ways to spell object names, see
-the "SPECIFYING REVISIONS" section in <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>.</p>
+the "SPECIFYING REVISIONS" section in <a href="gitrevisions.html">gitrevisions[7]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cat-file.txt--t"> <a class="anchor" href="#Documentation/git-cat-file.txt--t"></a>-t </dt>
 <dd>
@@ -80,6 +80,13 @@ for a type that can trivially be dereferenced from the given
 "tree" with <code>&lt;object&gt;</code> being a commit object that contains it,
 or to ask for a "blob" with <code>&lt;object&gt;</code> being a tag object that
 points at it.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-cat-file.txt---no-mailmap"> <a class="anchor" href="#Documentation/git-cat-file.txt---no-mailmap"></a>--[no-]mailmap </dt>
+<dt class="hdlist1" id="Documentation/git-cat-file.txt---no-use-mailmap"> <a class="anchor" href="#Documentation/git-cat-file.txt---no-use-mailmap"></a>--[no-]use-mailmap </dt>
+<dd>
+<p>Use mailmap file to map author, committer and tagger names
+and email addresses to canonical real names and email addresses.
+See <a href="git-shortlog.html">git-shortlog[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cat-file.txt---textconv"> <a class="anchor" href="#Documentation/git-cat-file.txt---textconv"></a>--textconv </dt>
 <dd>
@@ -164,7 +171,7 @@ any alternate object stores (not just reachable objects).
 Requires <code>--batch</code> or <code>--batch-check</code> be specified. By default,
 the objects are visited in order sorted by their hashes; see
 also <code>--unordered</code> below. Objects are presented as-is, without
-respecting the "replace" mechanism of <a href="/git/docs/git-replace.html">git-replace[1]</a>.</p>
+respecting the "replace" mechanism of <a href="git-replace.html">git-replace[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-cat-file.txt---buffer"> <a class="anchor" href="#Documentation/git-cat-file.txt---buffer"></a>--buffer </dt>
 <dd>
@@ -275,6 +282,12 @@ respectively print:</p>
 </div>
 </div>
 </dd>
+<dt class="hdlist1" id="Documentation/git-cat-file.txt--z"> <a class="anchor" href="#Documentation/git-cat-file.txt--z"></a>-z </dt>
+<dd>
+<p>Only meaningful with <code>--batch</code>, <code>--batch-check</code>, or
+<code>--batch-command</code>; input is NUL-delimited instead of
+newline-delimited.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -307,7 +320,7 @@ will be returned.</p>
 <p>If <code>--batch</code> or <code>--batch-check</code> is given, <code>cat-file</code> will read objects
 from stdin, one per line, and print information about them. By default,
 the whole line is considered as an object, as if it were fed to
-<a href="/git/docs/git-rev-parse.html">git-rev-parse[1]</a>.</p>
+<a href="git-rev-parse.html">git-rev-parse[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>When <code>--batch-command</code> is given, <code>cat-file</code> will read commands from stdin,
@@ -485,7 +498,7 @@ will be reported.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

@@ -1,5 +1,22 @@
-<div id="main"><title>wire protocol version 2</title>
-<div id="preamble">
+<div id="main"><title>gitprotocol-v2</title>
+<div class="sect1">
+<h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>gitprotocol-v2 - Git Wire Protocol, Version 2</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content">&lt;over-the-wire-protocol&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document presents a specification for a version 2 of Gits wire
@@ -46,8 +63,7 @@ commands be executed.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>All communication is done using packet-line framing, just as in v1.  See
-<code>Documentation/technical/pack-protocol.txt</code> and
-<code>Documentation/technical/protocol-common.txt</code> for more information.</p>
+<a href="gitprotocol-pack.html">gitprotocol-pack[5]</a> and <a href="gitprotocol-common.html">gitprotocol-common[5]</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>In protocol v2 these special packets will have the following semantics:</p>
@@ -75,7 +91,7 @@ response for stateless connections</p>
 <p>In general a client can request to speak protocol v2 by sending
 <code>version=2</code> through the respective side-channel for the transport being
 used which inevitably sets <code>GIT_PROTOCOL</code>.  More information can be
-found in <code>pack-protocol.txt</code> and <code>http-protocol.txt</code>, as well as the
+found in <a href="gitprotocol-pack.html">gitprotocol-pack[5]</a> and <a href="gitprotocol-http.html">gitprotocol-http[5]</a>, as well as the
 <code>GIT_PROTOCOL</code> definition in <code>git.txt</code>. In all cases the
 response from the server is the capability advertisement.</p>
 </div>
@@ -104,7 +120,7 @@ to pass.</p>
 <h3 id="_http_transport"><a class="anchor" href="#_http_transport"></a>HTTP Transport</h3>
 <div class="paragraph">
 <p>When using the http:// or https:// transport a client makes a "smart"
-info/refs request as described in <code>http-protocol.txt</code> and requests that
+info/refs request as described in <a href="gitprotocol-http.html">gitprotocol-http[5]</a> and requests that
 v2 be used by supplying "version=2" in the <code>Git-Protocol</code> header.</p>
 </div>
 <div class="literalblock">
@@ -132,7 +148,7 @@ S: &lt;capability-advertisement&gt;</pre>
 </div>
 <div class="paragraph">
 <p>Uses the <code>--http-backend-info-refs</code> option to
-<a href="/git/docs/git-upload-pack.html">git-upload-pack[1]</a>.</p>
+<a href="git-upload-pack.html">git-upload-pack[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The server may need to be configured to pass this headers contents via
@@ -749,8 +765,8 @@ the server as well.</p>
 <p>Session IDs should be unique to a given process. They must fit within a
 packet-line, and must not contain non-printable or whitespace characters. The
 current implementation uses trace2 session IDs (see
-<a href="/git/docs/api-trace2.html">api-trace2</a> for details), but this may change and users of
-the session ID should not rely on this fact.</p>
+<a href="api-trace2.html">api-trace2</a> for details), but this may change
+and users of the session ID should not rely on this fact.</p>
 </div>
 </div>
 <div class="sect2">
@@ -807,6 +823,14 @@ and associated requested information, each separated by a single space.</p>
 <pre>obj-info = obj-id SP obj-size</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

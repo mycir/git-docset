@@ -1,4 +1,4 @@
-<div id="main"><title>gitweb[1]</title>
+<div id="main"><title>gitweb</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -11,7 +11,7 @@
 <h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To get started with gitweb, run <a href="/git/docs/git-instaweb.html">git-instaweb[1]</a> from a Git repository.
+<p>To get started with gitweb, run <a href="git-instaweb.html">git-instaweb[1]</a> from a Git repository.
 This would configure and start your web server, and run web browser pointing to
 gitweb.</p>
 </div>
@@ -65,7 +65,7 @@ browsed using gitweb itself.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Various aspects of gitwebs behavior can be controlled through the configuration
-file <code>gitweb_config.perl</code> or <code>/etc/gitweb.conf</code>.  See the <a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>
+file <code>gitweb_config.perl</code> or <code>/etc/gitweb.conf</code>.  See the <a href="gitweb.conf.html">gitweb.conf[5]</a>
 for details.</p>
 </div>
 <div class="sect2">
@@ -173,7 +173,7 @@ list page (note that entries that do not point to correctly recognized Git
 repositories wont be displayed by gitweb).  Even if a project is not
 visible on projects list page, you can view it nevertheless by hand-crafting
 a gitweb URL.  By setting <code>$strict_export</code> configuration variable (see
-<a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>) to true value you can allow viewing only of
+<a href="gitweb.conf.html">gitweb.conf[5]</a>) to true value you can allow viewing only of
 repositories also shown on the overview page (i.e. only projects explicitly
 listed in projects list file will be accessible).</p>
 </div>
@@ -233,11 +233,11 @@ control which repositories are <strong>available</strong> as well.</p>
 <li>
 <p>You can configure gitweb to only list and allow viewing of the explicitly
 exported repositories, via <code>$export_ok</code> variable in gitweb config file; see
-<a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a> manpage.  If it evaluates to true, gitweb shows
+<a href="gitweb.conf.html">gitweb.conf[5]</a> manpage.  If it evaluates to true, gitweb shows
 repositories only if this file named by <code>$export_ok</code> exists in its object
 database (if directory has the magic file named <code>$export_ok</code>).</p>
 <div class="paragraph">
-<p>For example <a href="/git/docs/git-daemon.html">git-daemon[1]</a> by default (unless <code>--export-all</code> option
+<p>For example <a href="git-daemon.html">git-daemon[1]</a> by default (unless <code>--export-all</code> option
 is used) allows pulling only for those repositories that have
 <em>git-daemon-export-ok</em> file.  Adding</p>
 </div>
@@ -284,7 +284,7 @@ authorized to read the files:</p>
 <div class="paragraph">
 <p>You can configure individual repositories shown in gitweb by creating file
 in the <code>GIT_DIR</code> of Git repository, or by setting some repo configuration
-variable (in <code>GIT_DIR/config</code>, see <a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+variable (in <code>GIT_DIR/config</code>, see <a href="git-config.html">git-config[1]</a>).</p>
 </div>
 <div class="paragraph">
 <p>You can use the following files in repository:</p>
@@ -297,7 +297,7 @@ variable (in <code>GIT_DIR/config</code>, see <a href="/git/docs/git-config.html
 "summary" page inside <code>&lt;div&gt;</code> block element. You can use it for longer
 description of a project, to provide links (for example to projects
 homepage), etc. This is recognized only if XSS prevention is off
-(<code>$prevent_xss</code> is false, see <a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>); a way to include
+(<code>$prevent_xss</code> is false, see <a href="gitweb.conf.html">gitweb.conf[5]</a>); a way to include
 a README safely when XSS prevention is on may be worked out in the
 future.</p>
 </dd>
@@ -305,7 +305,7 @@ future.</p>
 <dd>
 <p>Short (shortened to <code>$projects_list_description_width</code> in the projects
 list page, which is 25 characters by default; see
-<a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>) single line description of a project (of a
+<a href="gitweb.conf.html">gitweb.conf[5]</a>) single line description of a project (of a
 repository).  Plain text file; HTML will be escaped.  By default set to</p>
 <div class="listingblock">
 <div class="content">
@@ -328,7 +328,7 @@ configuration variable absent), uncategorized projects are put in the
 precedence.</p>
 <div class="paragraph">
 <p>The configuration variables <code>$projects_list_group_categories</code> and
-<code>$project_list_default_category</code> are described in <a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a></p>
+<code>$project_list_default_category</code> are described in <a href="gitweb.conf.html">gitweb.conf[5]</a></p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/gitweb.txt-cloneurlormultiple-valuedcodegitweburlcode"> <a class="anchor" href="#Documentation/gitweb.txt-cloneurlormultiple-valuedcodegitweburlcode"></a>cloneurl (or multiple-valued <code>gitweb.url</code>) </dt>
@@ -340,7 +340,7 @@ takes precedence.</p>
 <div class="paragraph">
 <p>This is per-repository enhancement / version of global prefix-based
 <code>@git_base_url_list</code> gitweb configuration variable (see
-<a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>).</p>
+<a href="gitweb.conf.html">gitweb.conf[5]</a>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/gitweb.txt-gitwebowner"> <a class="anchor" href="#Documentation/gitweb.txt-gitwebowner"></a>gitweb.owner </dt>
@@ -359,7 +359,7 @@ value from this file for given repository.</p>
 <dt class="hdlist1" id="Documentation/gitweb.txt-variouscodegitwebcodeconfigvariablesinconfig"> <a class="anchor" href="#Documentation/gitweb.txt-variouscodegitwebcodeconfigvariablesinconfig"></a>various <code>gitweb.*</code> config variables (in config) </dt>
 <dd>
 <p>Read description of <code>%feature</code> hash for detailed list, and descriptions.
-See also "Configuring gitweb features" section in <a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a></p>
+See also "Configuring gitweb features" section in <a href="gitweb.conf.html">gitweb.conf[5]</a></p>
 </dd>
 </dl>
 </div>
@@ -497,7 +497,7 @@ action shows changeset for given commit.</p>
 <dt class="hdlist1" id="Documentation/gitweb.txt-patch"> <a class="anchor" href="#Documentation/gitweb.txt-patch"></a>patch </dt>
 <dd>
 <p>Returns the commit in plain text mail format, suitable for applying with
-<a href="/git/docs/git-am.html">git-am[1]</a>.</p>
+<a href="git-am.html">git-am[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitweb.txt-tag"> <a class="anchor" href="#Documentation/gitweb.txt-tag"></a>tag </dt>
 <dd>
@@ -671,7 +671,7 @@ repositories, you can configure Apache like this:</p>
 <p>The above configuration expects your public repositories to live under
 <code>/pub/git</code> and will serve them as <code>http://git.domain.org/dir-under-pub-git</code>,
 both as clonable Git URL and as browseable gitweb interface.  If you then
-start your <a href="/git/docs/git-daemon.html">git-daemon[1]</a> with <code>--base-path=/pub/git --export-all</code>
+start your <a href="git-daemon.html">git-daemon[1]</a> with <code>--base-path=/pub/git --export-all</code>
 then you can even use the <code>git://</code> URL with exactly the same path.</p>
 </div>
 <div class="paragraph">
@@ -680,7 +680,7 @@ named file (i.e. in this example <code>/etc/gitweb.conf</code>) as a configurati
 gitweb.  You dont really need it in above example; it is required only if
 your configuration file is in different place than built-in (during
 compiling gitweb) <em>gitweb_config.perl</em> or <code>/etc/gitweb.conf</code>.  See
-<a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a> for details, especially information about precedence
+<a href="gitweb.conf.html">gitweb.conf[5]</a> for details, especially information about precedence
 rules.</p>
 </div>
 <div class="paragraph">
@@ -911,7 +911,7 @@ a named ref (branch, tag) starting with <code>git/</code>, then paths such as</p
 <h2 id="_bugs"><a class="anchor" href="#_bugs"></a>BUGS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Please report any bugs or feature requests to <a href="/gitmailto:git@vger.kernel.org.html">git@vger.kernel.org</a>,
+<p>Please report any bugs or feature requests to <a href="mailto:git@vger.kernel.org.html">git@vger.kernel.org</a>,
 putting "gitweb" in the subject of email.</p>
 </div>
 </div>
@@ -920,7 +920,7 @@ putting "gitweb" in the subject of email.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/gitweb.conf.html">gitweb.conf[5]</a>, <a href="/git/docs/git-instaweb.html">git-instaweb[1]</a></p>
+<p><a href="gitweb.conf.html">gitweb.conf[5]</a>, <a href="git-instaweb.html">git-instaweb[1]</a></p>
 </div>
 <div class="paragraph">
 <p><code>gitweb/README</code>, <code>gitweb/INSTALL</code></p>
@@ -931,7 +931,7 @@ putting "gitweb" in the subject of email.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

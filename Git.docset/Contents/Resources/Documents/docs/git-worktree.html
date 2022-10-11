@@ -37,7 +37,7 @@ The working tree, along with this metadata, is called a "worktree".</p>
 </div>
 <div class="paragraph">
 <p>This new worktree is called a "linked worktree" as opposed to the "main
-worktree" prepared by <a href="/git/docs/git-init.html">git-init[1]</a> or <a href="/git/docs/git-clone.html">git-clone[1]</a>.
+worktree" prepared by <a href="git-init.html">git-init[1]</a> or <a href="git-clone.html">git-clone[1]</a>.
 A repository has one main worktree (if its not a bare repository) and
 zero or more linked worktrees. When you are done with a linked worktree,
 remove it with <code>git worktree remove</code>.</p>
@@ -59,7 +59,7 @@ at the same commit as the current branch.</p>
 <p>If a working tree is deleted without using <code>git worktree remove</code>, then
 its associated administrative files, which reside in the repository
 (see "DETAILS" below), will eventually be removed automatically (see
-<code>gc.worktreePruneExpire</code> in <a href="/git/docs/git-config.html">git-config[1]</a>), or you can run
+<code>gc.worktreePruneExpire</code> in <a href="git-config.html">git-config[1]</a>), or you can run
 <code>git worktree prune</code> in the main or any linked worktree to clean up any
 stale administrative files.</p>
 </div>
@@ -102,7 +102,7 @@ unique across all remotes. Set it to
 e.g. <code>checkout.defaultRemote=origin</code> to always checkout remote
 branches from there if <code>&lt;branch&gt;</code> is ambiguous but exists on the
 <code>origin</code> remote. See also <code>checkout.defaultRemote</code> in
-<a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+<a href="git-config.html">git-config[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>If <code>&lt;commit-ish&gt;</code> is omitted and neither <code>-b</code> nor <code>-B</code> nor <code>--detach</code> used,
@@ -220,14 +220,14 @@ exists. <code>-B</code> overrides this safeguard, resetting <code>&lt;new-branch
 <dt class="hdlist1" id="Documentation/git-worktree.txt---detach"> <a class="anchor" href="#Documentation/git-worktree.txt---detach"></a>--detach </dt>
 <dd>
 <p>With <code>add</code>, detach <code>HEAD</code> in the new worktree. See "DETACHED HEAD"
-in <a href="/git/docs/git-checkout.html">git-checkout[1]</a>.</p>
+in <a href="git-checkout.html">git-checkout[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-worktree.txt---no-checkout"> <a class="anchor" href="#Documentation/git-worktree.txt---no-checkout"></a>--[no-]checkout </dt>
 <dd>
 <p>By default, <code>add</code> checks out <code>&lt;commit-ish&gt;</code>, however, <code>--no-checkout</code> can
 be used to suppress checkout in order to make customizations,
 such as configuring sparse-checkout. See "Sparse checkout"
-in <a href="/git/docs/git-read-tree.html">git-read-tree[1]</a>.</p>
+in <a href="git-read-tree.html">git-read-tree[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-worktree.txt---no-guess-remote"> <a class="anchor" href="#Documentation/git-worktree.txt---no-guess-remote"></a>--[no-]guess-remote </dt>
 <dd>
@@ -246,7 +246,7 @@ the remote-tracking branch as "upstream" from the new branch.</p>
 <p>When creating a new branch, if <code>&lt;commit-ish&gt;</code> is a branch,
 mark it as "upstream" from the new branch.  This is the
 default if <code>&lt;commit-ish&gt;</code> is a remote-tracking branch.  See
-<code>--track</code> in <a href="/git/docs/git-branch.html">git-branch[1]</a> for details.</p>
+<code>--track</code> in <a href="git-branch.html">git-branch[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-worktree.txt---lock"> <a class="anchor" href="#Documentation/git-worktree.txt---lock"></a>--lock </dt>
 <dd>
@@ -345,7 +345,7 @@ resolve to the same value as the main worktrees <code>HEAD</code> and
 </div>
 <div class="paragraph">
 <p>To access refs, its best not to look inside <code>$GIT_DIR</code> directly. Instead
-use commands such as <a href="/git/docs/git-rev-parse.html">git-rev-parse[1]</a> or <a href="/git/docs/git-update-ref.html">git-update-ref[1]</a>
+use commands such as <a href="git-rev-parse.html">git-rev-parse[1]</a> or <a href="git-update-ref.html">git-update-ref[1]</a>
 which will handle refs correctly.</p>
 </div>
 </div>
@@ -397,7 +397,7 @@ always use sparse checkout for all worktrees.</p>
 </div>
 <div class="paragraph">
 <p>See the documentation of <code>extensions.worktreeConfig</code> in
-<a href="/git/docs/git-config.html">git-config[1]</a> for more details.</p>
+<a href="git-config.html">git-config[1]</a> for more details.</p>
 </div>
 </div>
 </div>
@@ -433,7 +433,7 @@ since refs are shared across all worktrees, except <code>refs/bisect</code> and
 <code>refs/worktree</code>.</p>
 </div>
 <div class="paragraph">
-<p>See <a href="/git/docs/gitrepository-layout.html">gitrepository-layout[5]</a> for more information. The rule of
+<p>See <a href="gitrepository-layout.html">gitrepository-layout[5]</a> for more information. The rule of
 thumb is do not make any assumption about whether a path belongs to
 <code>$GIT_DIR</code> or <code>$GIT_COMMON_DIR</code> when you need to directly access something
 inside <code>$GIT_DIR</code>. Use <code>git rev-parse --git-path</code> to get the final path.</p>
@@ -457,7 +457,7 @@ plain text. For example, if a linked worktrees <code>.git</code> file points
 to <code>/path/main/.git/worktrees/test-next</code> then a file named
 <code>/path/main/.git/worktrees/test-next/locked</code> will prevent the
 <code>test-next</code> entry from being pruned.  See
-<a href="/git/docs/gitrepository-layout.html">gitrepository-layout[5]</a> for details.</p>
+<a href="gitrepository-layout.html">gitrepository-layout[5]</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>When <code>extensions.worktreeConfig</code> is enabled, the config file
@@ -568,7 +568,7 @@ prunable gitdir file points to non-existent location</pre>
 <div class="paragraph">
 <p>Unless <code>-z</code> is used any "unusual" characters in the lock reason such as newlines
 are escaped and the entire reason is quoted as explained for the
-configuration variable <code>core.quotePath</code> (see <a href="/git/docs/git-config.html">git-config[1]</a>).
+configuration variable <code>core.quotePath</code> (see <a href="git-config.html">git-config[1]</a>).
 For Example:</p>
 </div>
 <div class="listingblock">
@@ -588,7 +588,7 @@ locked "reason\nwhy is locked"
 <div class="paragraph">
 <p>You are in the middle of a refactoring session and your boss comes in and
 demands that you fix something immediately. You might typically use
-<a href="/git/docs/git-stash.html">git-stash[1]</a> to store your changes away temporarily, however, your
+<a href="git-stash.html">git-stash[1]</a> to store your changes away temporarily, however, your
 working tree is in such a state of disarray (with new, moved, and removed
 files, and other bits and pieces strewn around) that you dont want to risk
 disturbing any of it. Instead, you create a temporary linked worktree to
@@ -621,7 +621,7 @@ checkouts of a superproject.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

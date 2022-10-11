@@ -99,7 +99,7 @@ other Git command that makes any existing commit unreferenced) in the
 source repository, some objects may become unreferenced (or dangling).
 These objects may be removed by normal Git operations (such as <code>git commit</code>)
 which automatically call <code>git maintenance run --auto</code>. (See
-<a href="/git/docs/git-maintenance.html">git-maintenance[1]</a>.) If these objects are removed and were referenced
+<a href="git-maintenance.html">git-maintenance[1]</a>.) If these objects are removed and were referenced
 by the cloned repository, then the cloned repository will become corrupt.</p>
 </div>
 <div class="paragraph">
@@ -199,7 +199,7 @@ configuration variables are created.</p>
 <dd>
 <p>Employ a sparse-checkout, with only files in the toplevel
 directory initially being present.  The
-<a href="/git/docs/git-sparse-checkout.html">git-sparse-checkout[1]</a> command can be used to grow the
+<a href="git-sparse-checkout.html">git-sparse-checkout[1]</a> command can be used to grow the
 working directory as needed.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-clone.txt---filterltfilter-specgt"> <a class="anchor" href="#Documentation/git-clone.txt---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
@@ -211,7 +211,7 @@ the partial clone filter. For example, <code>--filter=blob:none</code> will
 filter out all blobs (file contents) until needed by Git. Also,
 <code>--filter=blob:limit=&lt;size&gt;</code> will filter out all blobs of size
 at least <code>&lt;size&gt;</code>. For more details on filter specifications, see
-the <code>--filter</code> option in <a href="/git/docs/git-rev-list.html">git-rev-list[1]</a>.</p>
+the <code>--filter</code> option in <a href="git-rev-list.html">git-rev-list[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-clone.txt---also-filter-submodules"> <a class="anchor" href="#Documentation/git-clone.txt---also-filter-submodules"></a>--also-filter-submodules </dt>
 <dd>
@@ -255,7 +255,7 @@ run on the other end.</p>
 <dt class="hdlist1" id="Documentation/git-clone.txt---templatelttemplate-directorygt"> <a class="anchor" href="#Documentation/git-clone.txt---templatelttemplate-directorygt"></a>--template=&lt;template-directory&gt; </dt>
 <dd>
 <p>Specify the directory from which templates will be used;
-(See the "TEMPLATE DIRECTORY" section of <a href="/git/docs/git-init.html">git-init[1]</a>.)</p>
+(See the "TEMPLATE DIRECTORY" section of <a href="git-init.html">git-init[1]</a>.)</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-clone.txt--cltkeygtltvaluegt"> <a class="anchor" href="#Documentation/git-clone.txt--cltkeygtltvaluegt"></a>-c &lt;key&gt;=&lt;value&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-clone.txt---configltkeygtltvaluegt"> <a class="anchor" href="#Documentation/git-clone.txt---configltkeygtltvaluegt"></a>--config &lt;key&gt;=&lt;value&gt; </dt>
@@ -264,7 +264,7 @@ run on the other end.</p>
 this takes effect immediately after the repository is
 initialized, but before the remote history is fetched or any
 files checked out.  The key is in the same format as expected by
-<a href="/git/docs/git-config.html">git-config[1]</a> (e.g., <code>core.eol=true</code>). If multiple
+<a href="git-config.html">git-config[1]</a> (e.g., <code>core.eol=true</code>). If multiple
 values are given for the same key, each value will be written to
 the config file. This makes it safe, for example, to add
 additional fetch refspecs to the origin remote.</p>
@@ -311,7 +311,7 @@ branch is created.</p>
 <code>remote.&lt;remote&gt;.tagOpt=--no-tags</code> in the config, ensuring
 that future <code>git pull</code> and <code>git fetch</code> operations wont follow
 any tags. Subsequent explicit tag fetches will still work,
-(see <a href="/git/docs/git-fetch.html">git-fetch[1]</a>).</p>
+(see <a href="git-fetch.html">git-fetch[1]</a>).</p>
 <div class="paragraph">
 <p>Can be used in conjunction with <code>--single-branch</code> to clone and
 maintain a branch with no references other than a single cloned
@@ -375,6 +375,14 @@ part of the source repository is used if no directory is
 explicitly given (<code>repo</code> for <code>/path/to/repo.git</code> and <code>foo</code>
 for <code>host.xz:foo/.git</code>).  Cloning into an existing directory
 is only allowed if the directory is empty.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-clone.txt---bundle-urilturigt"> <a class="anchor" href="#Documentation/git-clone.txt---bundle-urilturigt"></a>--bundle-uri=&lt;uri&gt; </dt>
+<dd>
+<p>Before fetching from the remote, fetch a bundle from the given
+<code>&lt;uri&gt;</code> and unbundle the data into the local repository. The refs
+in the bundle will be stored under the hidden <code>refs/bundle/*</code>
+namespace. This option is incompatible with <code>--depth</code>,
+<code>--shallow-since</code>, and <code>--shallow-exclude</code>.</p>
 </dd>
 </dl>
 </div>
@@ -470,7 +478,7 @@ syntaxes may be used:</p>
 </div>
 <div class="paragraph">
 <p><em>git clone</em>, <em>git fetch</em> and <em>git pull</em>, but not <em>git push</em>, will also
-accept a suitable bundle file. See <a href="/git/docs/git-bundle.html">git-bundle[1]</a>.</p>
+accept a suitable bundle file. See <a href="git-bundle.html">git-bundle[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>When Git doesnt know how to handle a certain transport protocol, it
@@ -488,7 +496,7 @@ may be used:</p>
 <div class="paragraph">
 <p>where &lt;address&gt; may be a path, a server and path, or an arbitrary
 URL-like string recognized by the specific remote helper being
-invoked. See <a href="/git/docs/gitremote-helpers.html">gitremote-helpers[7]</a> for details.</p>
+invoked. See <a href="gitremote-helpers.html">gitremote-helpers[7]</a> for details.</p>
 </div>
 <div class="paragraph">
 <p>If there are a large number of similarly-named remote repositories and
@@ -591,10 +599,51 @@ $ cd my-linux</pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-clone.txt-inittemplateDir"> <a class="anchor" href="#Documentation/git-clone.txt-inittemplateDir"></a>init.templateDir </dt>
+<dd>
+<p>Specify the directory from which templates will be copied.
+(See the "TEMPLATE DIRECTORY" section of <a href="git-init.html">git-init[1]</a>.)</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-clone.txt-initdefaultBranch"> <a class="anchor" href="#Documentation/git-clone.txt-initdefaultBranch"></a>init.defaultBranch </dt>
+<dd>
+<p>Allows overriding the default branch name e.g. when initializing
+a new repository.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-clone.txt-clonedefaultRemoteName"> <a class="anchor" href="#Documentation/git-clone.txt-clonedefaultRemoteName"></a>clone.defaultRemoteName </dt>
+<dd>
+<p>The name of the remote to create when cloning a repository.  Defaults to
+<code>origin</code>, and can be overridden by passing the <code>--origin</code> command-line
+option to <a href="git-clone.html">git-clone[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-clone.txt-clonerejectShallow"> <a class="anchor" href="#Documentation/git-clone.txt-clonerejectShallow"></a>clone.rejectShallow </dt>
+<dd>
+<p>Reject to clone a repository if it is a shallow one, can be overridden by
+passing option <code>--reject-shallow</code> in command line. See <a href="git-clone.html">git-clone[1]</a></p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-clone.txt-clonefilterSubmodules"> <a class="anchor" href="#Documentation/git-clone.txt-clonefilterSubmodules"></a>clone.filterSubmodules </dt>
+<dd>
+<p>If a partial clone filter is provided (see <code>--filter</code> in
+<a href="git-rev-list.html">git-rev-list[1]</a>) and <code>--recurse-submodules</code> is used, also apply
+the filter to submodules.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

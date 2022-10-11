@@ -1,18 +1,41 @@
-<div id="main"><title>the bundle-format
-documentation</title>
-<div id="preamble">
+<div id="main"><title>gitformat-bundle</title>
+<div class="sect1">
+<h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Git bundle format is a format that represents both refs and Git objects.</p>
+<p>gitformat-bundle - The bundle file format</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_format"><a class="anchor" href="#_format"></a>Format</h2>
+<h2 id="_synopsis"><a class="anchor" href="#_synopsis"></a>SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content">*.bundle
+*.bdl</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description"><a class="anchor" href="#_description"></a>DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Git bundle format is a format that represents both refs and Git
+objects. A bundle is a header in a format similar to
+<a href="git-show-ref.html">git-show-ref[1]</a> followed by a pack in *.pack format.</p>
+</div>
+<div class="paragraph">
+<p>The format is created and read by the <a href="git-bundle.html">git-bundle[1]</a> command,
+and supported by e.g. <a href="git-fetch.html">git-fetch[1]</a> and <a href="git-clone.html">git-clone[1]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_format"><a class="anchor" href="#_format"></a>FORMAT</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We will use ABNF notation to define the Git bundle format. See
-protocol-common.txt for the details.</p>
+<a href="gitprotocol-common.html">gitprotocol-common[5]</a> for the details.</p>
 </div>
 <div class="paragraph">
 <p>A v2 bundle looks like this:</p>
@@ -50,7 +73,7 @@ pack         = ... ; packfile</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_semantics"><a class="anchor" href="#_semantics"></a>Semantics</h2>
+<h2 id="_semantics"><a class="anchor" href="#_semantics"></a>SEMANTICS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A Git bundle consists of several parts.</p>
@@ -97,7 +120,7 @@ and the Git bundle v2 format cannot represent a shallow clone repository.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_capabilities"><a class="anchor" href="#_capabilities"></a>Capabilities</h2>
+<h2 id="_capabilities"><a class="anchor" href="#_capabilities"></a>CAPABILITIES</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Because there is no opportunity for negotiation, unknown capabilities cause <em>git
@@ -111,10 +134,18 @@ values as the <code>extensions.objectFormat</code> configuration value.</p>
 </li>
 <li>
 <p><code>filter</code> specifies an object filter as in the <code>--filter</code> option in
-<a href="/git/docs/git-rev-list.html">git-rev-list[1]</a>. The resulting pack-file must be marked as a
+<a href="git-rev-list.html">git-rev-list[1]</a>. The resulting pack-file must be marked as a
 <code>.promisor</code> pack-file after it is unbundled.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

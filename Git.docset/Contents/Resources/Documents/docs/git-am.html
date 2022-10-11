@@ -50,20 +50,20 @@ If you supply directories, they will be treated as Maildirs.</p>
 <dd>
 <p>Add a <code>Signed-off-by</code> trailer to the commit message, using
 the committer identity of yourself.
-See the signoff option in <a href="/git/docs/git-commit.html">git-commit[1]</a> for more information.</p>
+See the signoff option in <a href="git-commit.html">git-commit[1]</a> for more information.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt--k"> <a class="anchor" href="#Documentation/git-am.txt--k"></a>-k </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---keep"> <a class="anchor" href="#Documentation/git-am.txt---keep"></a>--keep </dt>
 <dd>
-<p>Pass <code>-k</code> flag to <em>git mailinfo</em> (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).</p>
+<p>Pass <code>-k</code> flag to <em>git mailinfo</em> (see <a href="git-mailinfo.html">git-mailinfo[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---keep-non-patch"> <a class="anchor" href="#Documentation/git-am.txt---keep-non-patch"></a>--keep-non-patch </dt>
 <dd>
-<p>Pass <code>-b</code> flag to <em>git mailinfo</em> (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).</p>
+<p>Pass <code>-b</code> flag to <em>git mailinfo</em> (see <a href="git-mailinfo.html">git-mailinfo[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---no-keep-cr"> <a class="anchor" href="#Documentation/git-am.txt---no-keep-cr"></a>--[no-]keep-cr </dt>
 <dd>
-<p>With <code>--keep-cr</code>, call <em>git mailsplit</em> (see <a href="/git/docs/git-mailsplit.html">git-mailsplit[1]</a>)
+<p>With <code>--keep-cr</code>, call <em>git mailsplit</em> (see <a href="git-mailsplit.html">git-mailsplit[1]</a>)
 with the same option, to prevent it from stripping CR at the end of
 lines. <code>am.keepcr</code> configuration variable can be used to specify the
 default behaviour.  <code>--no-keep-cr</code> is useful to override <code>am.keepcr</code>.</p>
@@ -72,16 +72,16 @@ default behaviour.  <code>--no-keep-cr</code> is useful to override <code>am.kee
 <dt class="hdlist1" id="Documentation/git-am.txt---scissors"> <a class="anchor" href="#Documentation/git-am.txt---scissors"></a>--scissors </dt>
 <dd>
 <p>Remove everything in body before a scissors line (see
-<a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>). Can be activated by default using
+<a href="git-mailinfo.html">git-mailinfo[1]</a>). Can be activated by default using
 the <code>mailinfo.scissors</code> configuration variable.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---no-scissors"> <a class="anchor" href="#Documentation/git-am.txt---no-scissors"></a>--no-scissors </dt>
 <dd>
-<p>Ignore scissors lines (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).</p>
+<p>Ignore scissors lines (see <a href="git-mailinfo.html">git-mailinfo[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---quoted-crltactiongt"> <a class="anchor" href="#Documentation/git-am.txt---quoted-crltactiongt"></a>--quoted-cr=&lt;action&gt; </dt>
 <dd>
-<p>This flag will be passed down to <em>git mailinfo</em> (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).</p>
+<p>This flag will be passed down to <em>git mailinfo</em> (see <a href="git-mailinfo.html">git-mailinfo[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---emptystopdropkeep"> <a class="anchor" href="#Documentation/git-am.txt---emptystopdropkeep"></a>--empty=(stop|drop|keep) </dt>
 <dd>
@@ -95,7 +95,7 @@ recording the contents of the e-mail message as its log.</p>
 <dt class="hdlist1" id="Documentation/git-am.txt--m"> <a class="anchor" href="#Documentation/git-am.txt--m"></a>-m </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---message-id"> <a class="anchor" href="#Documentation/git-am.txt---message-id"></a>--message-id </dt>
 <dd>
-<p>Pass the <code>-m</code> flag to <em>git mailinfo</em> (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>),
+<p>Pass the <code>-m</code> flag to <em>git mailinfo</em> (see <a href="git-mailinfo.html">git-mailinfo[1]</a>),
 so that the Message-ID header is added to the commit message.
 The <code>am.messageid</code> configuration variable can be used to specify
 the default behaviour.</p>
@@ -113,7 +113,7 @@ the default behaviour.</p>
 <dt class="hdlist1" id="Documentation/git-am.txt--u"> <a class="anchor" href="#Documentation/git-am.txt--u"></a>-u </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---utf8"> <a class="anchor" href="#Documentation/git-am.txt---utf8"></a>--utf8 </dt>
 <dd>
-<p>Pass <code>-u</code> flag to <em>git mailinfo</em> (see <a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).
+<p>Pass <code>-u</code> flag to <em>git mailinfo</em> (see <a href="git-mailinfo.html">git-mailinfo[1]</a>).
 The proposed commit log message taken from the e-mail
 is re-coded into UTF-8 encoding (configuration variable
 <code>i18n.commitEncoding</code> can be used to specify projects
@@ -126,7 +126,7 @@ default.   You can use <code>--no-utf8</code> to override this.</p>
 <dt class="hdlist1" id="Documentation/git-am.txt---no-utf8"> <a class="anchor" href="#Documentation/git-am.txt---no-utf8"></a>--no-utf8 </dt>
 <dd>
 <p>Pass <code>-n</code> flag to <em>git mailinfo</em> (see
-<a href="/git/docs/git-mailinfo.html">git-mailinfo[1]</a>).</p>
+<a href="git-mailinfo.html">git-mailinfo[1]</a>).</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt--3"> <a class="anchor" href="#Documentation/git-am.txt--3"></a>-3 </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---3way"> <a class="anchor" href="#Documentation/git-am.txt---3way"></a>--3way </dt>
@@ -137,13 +137,18 @@ default.   You can use <code>--no-utf8</code> to override this.</p>
 it is supposed to apply to and we have those blobs
 available locally. <code>--no-3way</code> can be used to override
 am.threeWay configuration variable. For more information,
-see am.threeWay in <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+see am.threeWay in <a href="git-config.html">git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---rerere-autoupdate"> <a class="anchor" href="#Documentation/git-am.txt---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---no-rerere-autoupdate"> <a class="anchor" href="#Documentation/git-am.txt---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Allow the rerere mechanism to update the index with the
-result of auto-conflict resolution if possible.</p>
+<p>After the rerere mechanism reuses a recorded resolution on
+the current conflict to update the files in the working
+tree, allow it to also update the index with the result of
+resolution.  <code>--no-rerere-autoupdate</code> is a good way to
+double-check what <code>rerere</code> did and catch potential
+mismerges, before committing the result to the index with a
+separate <code>git add</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-am.txt---ignore-space-change"> <a class="anchor" href="#Documentation/git-am.txt---ignore-space-change"></a>--ignore-space-change </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---ignore-whitespace"> <a class="anchor" href="#Documentation/git-am.txt---ignore-whitespace"></a>--ignore-whitespace </dt>
@@ -155,7 +160,7 @@ result of auto-conflict resolution if possible.</p>
 <dt class="hdlist1" id="Documentation/git-am.txt---includeltpathgt"> <a class="anchor" href="#Documentation/git-am.txt---includeltpathgt"></a>--include=&lt;path&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-am.txt---reject"> <a class="anchor" href="#Documentation/git-am.txt---reject"></a>--reject </dt>
 <dd>
-<p>These flags are passed to the <em>git apply</em> (see <a href="/git/docs/git-apply.html">git-apply[1]</a>)
+<p>These flags are passed to the <em>git apply</em> (see <a href="git-apply.html">git-apply[1]</a>)
 program that applies
 the patch.</p>
 </dd>
@@ -330,8 +335,39 @@ errors in the "From:" lines).</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This command can run <code>applypatch-msg</code>, <code>pre-applypatch</code>,
-and <code>post-applypatch</code> hooks.  See <a href="/git/docs/githooks.html">githooks[5]</a> for more
+and <code>post-applypatch</code> hooks.  See <a href="githooks.html">githooks[5]</a> for more
 information.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-am.txt-amkeepcr"> <a class="anchor" href="#Documentation/git-am.txt-amkeepcr"></a>am.keepcr </dt>
+<dd>
+<p>If true, git-am will call git-mailsplit for patches in mbox format
+with parameter <code>--keep-cr</code>. In this case git-mailsplit will
+not remove <code>\r</code> from lines ending with <code>\r\n</code>. Can be overridden
+by giving <code>--no-keep-cr</code> from the command line.
+See <a href="git-am.html">git-am[1]</a>, <a href="git-mailsplit.html">git-mailsplit[1]</a>.</p>
+</dd>
+<dt class="hdlist1" id="Documentation/git-am.txt-amthreeWay"> <a class="anchor" href="#Documentation/git-am.txt-amthreeWay"></a>am.threeWay </dt>
+<dd>
+<p>By default, <code>git am</code> will fail if the patch does not apply cleanly. When
+set to true, this setting tells <code>git am</code> to fall back on 3-way merge if
+the patch records the identity of blobs it is supposed to apply to and
+we have those blobs available locally (equivalent to giving the <code>--3way</code>
+option from the command line). Defaults to <code>false</code>.
+See <a href="git-am.html">git-am[1]</a>.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -339,7 +375,7 @@ information.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-apply.html">git-apply[1]</a>.</p>
+<p><a href="git-apply.html">git-apply[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -347,7 +383,7 @@ information.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

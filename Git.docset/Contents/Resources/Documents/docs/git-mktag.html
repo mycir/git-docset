@@ -1,4 +1,4 @@
-<div id="main"><title>git-mktag[1]</title>
+<div id="main"><title>mktag</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -23,7 +23,7 @@
 output is the new tags &lt;object&gt; identifier.</p>
 </div>
 <div class="paragraph">
-<p>This command is mostly equivalent to <a href="/git/docs/git-hash-object.html">git-hash-object[1]</a>
+<p>This command is mostly equivalent to <a href="git-hash-object.html">git-hash-object[1]</a>
 invoked with <code>-t tag -w --stdin</code>. I.e. both of these will create and
 write a tag found in <code>my-tag</code>:</p>
 </div>
@@ -35,16 +35,16 @@ git hash-object -t tag -w --stdin &lt;my-tag</pre>
 </div>
 <div class="paragraph">
 <p>The difference is that mktag will die before writing the tag if the
-tag doesnt pass a <a href="/git/docs/git-fsck.html">git-fsck[1]</a> check.</p>
+tag doesnt pass a <a href="git-fsck.html">git-fsck[1]</a> check.</p>
 </div>
 <div class="paragraph">
-<p>The "fsck" check done mktag is stricter than what <a href="/git/docs/git-fsck.html">git-fsck[1]</a>
+<p>The "fsck" check done mktag is stricter than what <a href="git-fsck.html">git-fsck[1]</a>
 would run by default in that all <code>fsck.&lt;msg-id&gt;</code> messages are promoted
 from warnings to errors (so e.g. a missing "tagger" line is an error).</p>
 </div>
 <div class="paragraph">
 <p>Extra headers in the object are also an error under mktag, but ignored
-by <a href="/git/docs/git-fsck.html">git-fsck[1]</a>. This extra check can be turned off by setting
+by <a href="git-fsck.html">git-fsck[1]</a>. This extra check can be turned off by setting
 the appropriate <code>fsck.&lt;msg-id&gt;</code> varible:</p>
 </div>
 <div class="literalblock">
@@ -62,7 +62,7 @@ the appropriate <code>fsck.&lt;msg-id&gt;</code> varible:</p>
 <dt class="hdlist1" id="Documentation/git-mktag.txt---strict"> <a class="anchor" href="#Documentation/git-mktag.txt---strict"></a>--strict </dt>
 <dd>
 <p>By default mktag turns on the equivalent of
-<a href="/git/docs/git-fsck.html">git-fsck[1]</a> <code>--strict</code> mode. Use <code>--no-strict</code> to
+<a href="git-fsck.html">git-fsck[1]</a> <code>--strict</code> mode. Use <code>--no-strict</code> to
 disable it.</p>
 </dd>
 </dl>
@@ -97,7 +97,7 @@ care about, but that can be verified with gpg.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

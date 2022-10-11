@@ -77,7 +77,7 @@ attribute.</p>
 </div>
 <div class="paragraph">
 <p>The rules by which the pattern matches paths are the same as in
-<code>.gitignore</code> files (see <a href="/git/docs/gitignore.html">gitignore[5]</a>), with a few exceptions:</p>
+<code>.gitignore</code> files (see <a href="gitignore.html">gitignore[5]</a>), with a few exceptions:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -116,7 +116,7 @@ Attributes which should be version-controlled and distributed to other
 repositories (i.e., attributes of interest to all users) should go into
 <code>.gitattributes</code> files. Attributes that should affect all repositories
 for a single user should be placed in a file specified by the
-<code>core.attributesFile</code> configuration option (see <a href="/git/docs/git-config.html">git-config[1]</a>).
+<code>core.attributesFile</code> configuration option (see <a href="git-config.html">git-config[1]</a>).
 Its default value is $XDG_CONFIG_HOME/git/attributes. If $XDG_CONFIG_HOME
 is either not set or empty, $HOME/.config/git/attributes is used instead.
 Attributes for all users on a system should be placed in the
@@ -157,7 +157,7 @@ directory, use the <code>eol</code> attribute for a single file and the
 <code>core.eol</code> configuration variable for all text files.
 Note that setting <code>core.autocrlf</code> to <code>true</code> or <code>input</code> overrides
 <code>core.eol</code> (see the definitions of those options in
-<a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+<a href="git-config.html">git-config[1]</a>).</p>
 </div>
 <div class="dlist">
 <dl>
@@ -410,7 +410,7 @@ That operation will fail and cause an error.</p>
 conversion might not be UTF-8 round trip safe. If you suspect your
 encoding to not be round trip safe, then add it to
 <code>core.checkRoundtripEncoding</code> to make Git check the round trip
-encoding (see <a href="/git/docs/git-config.html">git-config[1]</a>). SHIFT-JIS (Japanese character
+encoding (see <a href="git-config.html">git-config[1]</a>). SHIFT-JIS (Japanese character
 set) is known to have round trip issues with UTF-8 and is checked by
 default.</p>
 </li>
@@ -793,7 +793,7 @@ packet:          git&lt; 0000  # empty list, keep "status=success" unchanged!</p
 <code>contrib/long-running-filter/example.pl</code> located in the Git
 core repository. If you develop your own long running filter
 process then the <code>GIT_TRACE_PACKET</code> environment variables can be
-very helpful for debugging (see <a href="/git/docs/git.html">git[1]</a>).</p>
+very helpful for debugging (see <a href="git.html">git[1]</a>).</p>
 </div>
 <div class="paragraph">
 <p>Please note that you cannot use an existing <code>filter.&lt;driver&gt;.clean</code>
@@ -908,7 +908,7 @@ wrong place to talk about it.  However</p>
 attribute set to <code>jcdiff</code>, it calls the command you specified
 with the above configuration, i.e. <code>j-c-diff</code>, with 7
 parameters, just like <code>GIT_EXTERNAL_DIFF</code> program is called.
-See <a href="/git/docs/git.html">git[1]</a> for details.</p>
+See <a href="git.html">git[1]</a> for details.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1377,7 +1377,7 @@ results in a conflict.</p>
 <div class="paragraph">
 <p>The <code>core.whitespace</code> configuration variable allows you to define what
 <em>diff</em> and <em>apply</em> should consider whitespace errors for all paths in
-the project (See <a href="/git/docs/git-config.html">git-config[1]</a>).  This attribute gives you finer
+the project (See <a href="git-config.html">git-config[1]</a>).  This attribute gives you finer
 control per path.</p>
 </div>
 <div class="dlist">
@@ -1422,9 +1422,9 @@ archive files.</p>
 <p>If the attribute <code>export-subst</code> is set for a file then Git will expand
 several placeholders when adding this file to an archive.  The
 expansion depends on the availability of a commit ID, i.e., if
-<a href="/git/docs/git-archive.html">git-archive[1]</a> has been given a tree instead of a commit or a
+<a href="git-archive.html">git-archive[1]</a> has been given a tree instead of a commit or a
 tag then no replacement will be done.  The placeholders are the same
-as those for the option <code>--pretty=format:</code> of <a href="/git/docs/git-log.html">git-log[1]</a>,
+as those for the option <code>--pretty=format:</code> of <a href="git-log.html">git-log[1]</a>,
 except that they need to be wrapped like this: <code>$Format:PLACEHOLDERS$</code>
 in the file.  E.g. the string <code>$Format:%H$</code> will be replaced by the
 commit hash.  However, only one <code>%(describe)</code> placeholder is expanded
@@ -1448,15 +1448,15 @@ attribute <code>delta</code> set to false.</p>
 <h4 id="_encoding"><a class="anchor" href="#_encoding"></a><code>encoding</code></h4>
 <div class="paragraph">
 <p>The value of this attribute specifies the character encoding that should
-be used by GUI tools (e.g. <a href="/git/docs/gitk.html">gitk[1]</a> and <a href="/git/docs/git-gui.html">git-gui[1]</a>) to
+be used by GUI tools (e.g. <a href="gitk.html">gitk[1]</a> and <a href="git-gui.html">git-gui[1]</a>) to
 display the contents of the relevant file. Note that due to performance
-considerations <a href="/git/docs/gitk.html">gitk[1]</a> does not use this attribute unless you
+considerations <a href="gitk.html">gitk[1]</a> does not use this attribute unless you
 manually enable per-file encodings in its options.</p>
 </div>
 <div class="paragraph">
 <p>If this attribute is not set or has an invalid value, the value of the
 <code>gui.encoding</code> configuration variable is used instead
-(See <a href="/git/docs/git-config.html">git-config[1]</a>).</p>
+(See <a href="git-config.html">git-config[1]</a>).</p>
 </div>
 </div>
 </div>
@@ -1588,7 +1588,7 @@ frotz	unspecified</pre>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-check-attr.html">git-check-attr[1]</a>.</p>
+<p><a href="git-check-attr.html">git-check-attr[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -1596,7 +1596,7 @@ frotz	unspecified</pre>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

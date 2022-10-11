@@ -1,4 +1,4 @@
-<div id="main"><title>git-send-pack[1]</title>
+<div id="main"><title>send-pack</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -23,7 +23,7 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>Usually you would want to use <em>git push</em>, which is a
-higher-level wrapper of this command, instead. See <a href="/git/docs/git-push.html">git-push[1]</a>.</p>
+higher-level wrapper of this command, instead. See <a href="git-push.html">git-push[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Invokes <em>git-receive-pack</em> on a possibly remote repository, and
@@ -101,14 +101,14 @@ attempted.  If <code>true</code> or <code>--signed</code>, the push will fail if
 server does not support signed pushes.  If set to <code>if-asked</code>,
 sign if and only if the server supports signed pushes.  The push
 will also fail if the actual call to <code>gpg --sign</code> fails.  See
-<a href="/git/docs/git-receive-pack.html">git-receive-pack[1]</a> for the details on the receiving end.</p>
+<a href="git-receive-pack.html">git-receive-pack[1]</a> for the details on the receiving end.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-pack.txt---push-optionltstringgt"> <a class="anchor" href="#Documentation/git-send-pack.txt---push-optionltstringgt"></a>--push-option=&lt;string&gt; </dt>
 <dd>
 <p>Pass the specified string as a push option for consumption by
 hooks on the server side.  If the server doesnt support push
-options, error out.  See <a href="/git/docs/git-push.html">git-push[1]</a> and
-<a href="/git/docs/githooks.html">githooks[5]</a> for details.</p>
+options, error out.  See <a href="git-push.html">git-push[1]</a> and
+<a href="githooks.html">githooks[5]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-send-pack.txt-lthostgt"> <a class="anchor" href="#Documentation/git-send-pack.txt-lthostgt"></a>&lt;host&gt; </dt>
 <dd>
@@ -158,7 +158,7 @@ pushed is determined by finding a match that matches the source
 side, and where it is pushed is determined by using the
 destination side. The rules used to match a ref are the same
 rules used by <em>git rev-parse</em> to resolve a symbolic ref
-name. See <a href="/git/docs/git-rev-parse.html">git-rev-parse[1]</a>.</p>
+name. See <a href="git-rev-parse.html">git-rev-parse[1]</a>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -207,7 +207,7 @@ to disable the fast-forward check only on that ref.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

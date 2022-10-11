@@ -1,4 +1,4 @@
-<div id="main"><title>git-pack-objects[1]</title>
+<div id="main"><title>pack-objects</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -298,7 +298,7 @@ option only makes sense in conjunction with --stdout.</p>
 <p>Note: A thin pack violates the packed archive format by omitting
 required objects and is thus unusable by Git without making it
 self-contained. Use <code>git index-pack --fix-thin</code>
-(see <a href="/git/docs/git-index-pack.html">git-index-pack[1]</a>) to restore the self-contained property.</p>
+(see <a href="git-index-pack.html">git-index-pack[1]</a>) to restore the self-contained property.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-pack-objects.txt---shallow"> <a class="anchor" href="#Documentation/git-pack-objects.txt---shallow"></a>--shallow </dt>
@@ -319,10 +319,10 @@ compactness.  Depending on the average delta chain
 length, this option typically shrinks the resulting
 packfile by 3-5 per-cent.</p>
 <div class="paragraph">
-<p>Note: Porcelain commands such as <code>git gc</code> (see <a href="/git/docs/git-gc.html">git-gc[1]</a>),
-<code>git repack</code> (see <a href="/git/docs/git-repack.html">git-repack[1]</a>) pass this option by default
+<p>Note: Porcelain commands such as <code>git gc</code> (see <a href="git-gc.html">git-gc[1]</a>),
+<code>git repack</code> (see <a href="git-repack.html">git-repack[1]</a>) pass this option by default
 in modern Git when they put objects in your repository into pack files.
-So does <code>git bundle</code> (see <a href="/git/docs/git-bundle.html">git-bundle[1]</a>) when it creates a bundle.</p>
+So does <code>git bundle</code> (see <a href="git-bundle.html">git-bundle[1]</a>) when it creates a bundle.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-pack-objects.txt---threadsltngt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---threadsltngt"></a>--threads=&lt;n&gt; </dt>
@@ -350,7 +350,7 @@ nevertheless.</p>
 <dt class="hdlist1" id="Documentation/git-pack-objects.txt---filterltfilter-specgt"> <a class="anchor" href="#Documentation/git-pack-objects.txt---filterltfilter-specgt"></a>--filter=&lt;filter-spec&gt; </dt>
 <dd>
 <p>Requires <code>--stdout</code>.  Omits certain objects (usually blobs) from
-the resulting packfile.  See <a href="/git/docs/git-rev-list.html">git-rev-list[1]</a> for valid
+the resulting packfile.  See <a href="git-rev-list.html">git-rev-list[1]</a> for valid
 <code>&lt;filter-spec&gt;</code> forms.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-pack-objects.txt---no-filter"> <a class="anchor" href="#Documentation/git-pack-objects.txt---no-filter"></a>--no-filter </dt>
@@ -525,7 +525,7 @@ over user-wide config, and so forth).</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Various configuration variables affect packing, see
-<a href="/git/docs/git-config.html">git-config[1]</a> (search for "pack" and "delta").</p>
+<a href="git-config.html">git-config[1]</a> (search for "pack" and "delta").</p>
 </div>
 <div class="paragraph">
 <p>Notably, delta compression is not used on objects larger than the
@@ -538,9 +538,9 @@ attribute <code>delta</code> set to false.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-rev-list.html">git-rev-list[1]</a>
-<a href="/git/docs/git-repack.html">git-repack[1]</a>
-<a href="/git/docs/git-prune-packed.html">git-prune-packed[1]</a></p>
+<p><a href="git-rev-list.html">git-rev-list[1]</a>
+<a href="git-repack.html">git-repack[1]</a>
+<a href="git-prune-packed.html">git-prune-packed[1]</a></p>
 </div>
 </div>
 </div>
@@ -548,7 +548,7 @@ attribute <code>delta</code> set to false.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

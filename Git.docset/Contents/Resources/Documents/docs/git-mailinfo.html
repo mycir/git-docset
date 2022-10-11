@@ -1,4 +1,4 @@
-<div id="main"><title>git-mailinfo[1]</title>
+<div id="main"><title>mailinfo</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -26,7 +26,7 @@ writes the commit log message in &lt;msg&gt; file, and the patches in
 &lt;patch&gt; file.  The author name, e-mail and e-mail subject are
 written out to the standard output to be used by <em>git am</em>
 to create a commit.  It is usually not necessary to use this
-command directly.  See <a href="/git/docs/git-am.html">git-am[1]</a> instead.</p>
+command directly.  See <a href="git-am.html">git-am[1]</a> instead.</p>
 </div>
 </div>
 </div>
@@ -167,10 +167,32 @@ except the title line which comes from e-mail Subject.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-mailinfo.txt-mailinfoscissors"> <a class="anchor" href="#Documentation/git-mailinfo.txt-mailinfoscissors"></a>mailinfo.scissors </dt>
+<dd>
+<p>If true, makes <a href="git-mailinfo.html">git-mailinfo[1]</a> (and therefore
+<a href="git-am.html">git-am[1]</a>) act by default as if the --scissors option
+was provided on the command-line. When active, this features
+removes everything from the message body before a scissors
+line (i.e. consisting mainly of "&gt;8", "8&lt;" and "-").</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

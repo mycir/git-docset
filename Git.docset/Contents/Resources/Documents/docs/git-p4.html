@@ -1,4 +1,4 @@
-<div id="main"><title>git-p4[1]</title>
+<div id="main"><title>p4</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -279,7 +279,7 @@ $ git p4 unshelve 12345
 <dl>
 <dt class="hdlist1" id="Documentation/git-p4.txt---git-dirltdirgt"> <a class="anchor" href="#Documentation/git-p4.txt---git-dirltdirgt"></a>--git-dir &lt;dir&gt; </dt>
 <dd>
-<p>Set the <code>GIT_DIR</code> environment variable.  See <a href="/git/docs/git.html">git[1]</a>.</p>
+<p>Set the <code>GIT_DIR</code> environment variable.  See <a href="git.html">git[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt--v"> <a class="anchor" href="#Documentation/git-p4.txt--v"></a>-v </dt>
 <dt class="hdlist1" id="Documentation/git-p4.txt---verbose"> <a class="anchor" href="#Documentation/git-p4.txt---verbose"></a>--verbose </dt>
@@ -350,7 +350,7 @@ associated with new changelists. Deprecated.</p>
 <dd>
 <p>By default, p4 branches are stored in <em>refs/remotes/p4/</em>,
 where they will be treated as remote-tracking branches by
-<a href="/git/docs/git-branch.html">git-branch[1]</a> and other commands.  This option instead
+<a href="git-branch.html">git-branch[1]</a> and other commands.  This option instead
 puts p4 branches in <em>refs/heads/p4/</em>.  Note that future
 sync operations must specify <code>--import-local</code> as well so that
 they can find the p4 branches in refs/heads.</p>
@@ -410,7 +410,7 @@ directory.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt---bare"> <a class="anchor" href="#Documentation/git-p4.txt---bare"></a>--bare </dt>
 <dd>
-<p>Perform a bare clone.  See <a href="/git/docs/git-clone.html">git-clone[1]</a>.</p>
+<p>Perform a bare clone.  See <a href="git-clone.html">git-clone[1]</a>.</p>
 </dd>
 </dl>
 </div>
@@ -430,7 +430,7 @@ from <code>HEAD</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt--M"> <a class="anchor" href="#Documentation/git-p4.txt--M"></a>-M </dt>
 <dd>
-<p>Detect renames.  See <a href="/git/docs/git-diff.html">git-diff[1]</a>.  Renames will be
+<p>Detect renames.  See <a href="git-diff.html">git-diff[1]</a>.  Renames will be
 represented in p4 using explicit <em>move</em> operations.  There
 is no corresponding option to detect copies, but there are
 variables for both moves and copies.</p>
@@ -736,7 +736,7 @@ git p4 clone --detect-branches //depot@all .</pre>
 <div class="paragraph">
 <p>The fast-import mechanism used by <em>git p4</em> creates one pack file for
 each invocation of <em>git p4 sync</em>.  Normally, Git garbage compression
-(<a href="/git/docs/git-gc.html">git-gc[1]</a>) automatically compresses these to fewer pack files,
+(<a href="git-gc.html">git-gc[1]</a>) automatically compresses these to fewer pack files,
 but explicit invocation of <em>git repack -adf</em> may improve performance.</p>
 </div>
 </div>
@@ -952,17 +952,17 @@ multiple P4 user can be defined.</p>
 <dl>
 <dt class="hdlist1" id="Documentation/git-p4.txt-git-p4detectRenames"> <a class="anchor" href="#Documentation/git-p4.txt-git-p4detectRenames"></a>git-p4.detectRenames </dt>
 <dd>
-<p>Detect renames.  See <a href="/git/docs/git-diff.html">git-diff[1]</a>.  This can be true,
+<p>Detect renames.  See <a href="git-diff.html">git-diff[1]</a>.  This can be true,
 false, or a score as expected by <em>git diff -M</em>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt-git-p4detectCopies"> <a class="anchor" href="#Documentation/git-p4.txt-git-p4detectCopies"></a>git-p4.detectCopies </dt>
 <dd>
-<p>Detect copies.  See <a href="/git/docs/git-diff.html">git-diff[1]</a>.  This can be true,
+<p>Detect copies.  See <a href="git-diff.html">git-diff[1]</a>.  This can be true,
 false, or a score as expected by <em>git diff -C</em>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt-git-p4detectCopiesHarder"> <a class="anchor" href="#Documentation/git-p4.txt-git-p4detectCopiesHarder"></a>git-p4.detectCopiesHarder </dt>
 <dd>
-<p>Detect copies harder.  See <a href="/git/docs/git-diff.html">git-diff[1]</a>.  A boolean.</p>
+<p>Detect copies harder.  See <a href="git-diff.html">git-diff[1]</a>.  A boolean.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-p4.txt-git-p4preserveUser"> <a class="anchor" href="#Documentation/git-p4.txt-git-p4preserveUser"></a>git-p4.preserveUser </dt>
 <dd>
@@ -1066,7 +1066,7 @@ changes are new.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

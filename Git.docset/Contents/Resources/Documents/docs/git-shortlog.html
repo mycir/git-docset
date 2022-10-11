@@ -60,7 +60,7 @@ of author alphabetic order.</p>
 <p>Instead of the commit subject, use some other information to
 describe each commit.  <em>&lt;format&gt;</em> can be any string accepted
 by the <code>--format</code> option of <em>git log</em>, such as <em>* [%h] %s</em>.
-(See the "PRETTY FORMATS" section of <a href="/git/docs/git-log.html">git-log[1]</a>.)</p>
+(See the "PRETTY FORMATS" section of <a href="git-log.html">git-log[1]</a>.)</p>
 <div class="literalblock">
 <div class="content">
 <pre>Each pretty-printed commit will be rewrapped before it is shown.</pre>
@@ -83,7 +83,7 @@ specified, the default is <code>author</code>. <code>&lt;type&gt;</code> is one 
 </li>
 <li>
 <p><code>trailer:&lt;field&gt;</code>, the <code>&lt;field&gt;</code> is interpreted as a case-insensitive
-commit message trailer (see <a href="/git/docs/git-interpret-trailers.html">git-interpret-trailers[1]</a>). For
+commit message trailer (see <a href="git-interpret-trailers.html">git-interpret-trailers[1]</a>). For
 example, if your project uses <code>Reviewed-by</code> trailers, you might want
 to see who has been reviewing with
 <code>git shortlog -ns --group=trailer:reviewed-by</code>.</p>
@@ -135,7 +135,7 @@ whole history leading to the current commit).  <code>origin..HEAD</code>
 specifies all the commits reachable from the current commit
 (i.e. <code>HEAD</code>), but not from <code>origin</code>. For a complete list of
 ways to spell &lt;revision-range&gt;, see the "Specifying Ranges"
-section of <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>.</p>
+section of <a href="gitrevisions.html">gitrevisions[7]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-shortlog.txt---ltpathgt82308203"> <a class="anchor" href="#Documentation/git-shortlog.txt---ltpathgt82308203"></a>[--] &lt;path&gt; </dt>
 <dd>
@@ -379,13 +379,13 @@ repositories were listed on the command line. An alternate
 repository is any repository whose object directory is specified
 in <code>objects/info/alternates</code>.  The set of included objects may
 be modified by <code>core.alternateRefsCommand</code>, etc. See
-<a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+<a href="git-config.html">git-config[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-shortlog.txt---single-worktree"> <a class="anchor" href="#Documentation/git-shortlog.txt---single-worktree"></a>--single-worktree </dt>
 <dd>
 <p>By default, all working trees will be examined by the
 following options when there are more than one (see
-<a href="/git/docs/git-worktree.html">git-worktree[1]</a>): <code>--all</code>, <code>--reflog</code> and
+<a href="git-worktree.html">git-worktree[1]</a>): <code>--all</code>, <code>--reflog</code> and
 <code>--indexed-objects</code>.
 This option forces them to examine the current working tree
 only.</p>
@@ -494,7 +494,7 @@ the timestamp in the format requested by <code>--date</code>.</p>
 <p>Under <code>--pretty=oneline</code>, the commit message is
 prefixed with this information on the same line.
 This option cannot be combined with <code>--reverse</code>.
-See also <a href="/git/docs/git-reflog.html">git-reflog[1]</a>.</p>
+See also <a href="git-reflog.html">git-reflog[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Under <code>--pretty=reference</code>, this information will not be shown at all.</p>
@@ -577,13 +577,15 @@ meaningful history.</p>
 merges from the resulting history, as there are no selected
 commits contributing to this merge.</p>
 </dd>
-<dt class="hdlist1" id="Documentation/git-shortlog.txt---ancestry-path"> <a class="anchor" href="#Documentation/git-shortlog.txt---ancestry-path"></a>--ancestry-path </dt>
+<dt class="hdlist1" id="Documentation/git-shortlog.txt---ancestry-pathltcommitgt"> <a class="anchor" href="#Documentation/git-shortlog.txt---ancestry-pathltcommitgt"></a>--ancestry-path[=&lt;commit&gt;] </dt>
 <dd>
 <p>When given a range of commits to display (e.g. <em>commit1..commit2</em>
-or <em>commit2 ^commit1</em>), only display commits that exist
-directly on the ancestry chain between the <em>commit1</em> and
-<em>commit2</em>, i.e. commits that are both descendants of <em>commit1</em>,
-and ancestors of <em>commit2</em>.</p>
+or <em>commit2 ^commit1</em>), only display commits in that range
+that are ancestors of &lt;commit&gt;, descendants of &lt;commit&gt;, or
+&lt;commit&gt; itself.  If no commit is specified, use <em>commit1</em> (the
+excluded part of the range) as &lt;commit&gt;.  Can be passed multiple
+times; if so, a commit is included if it is any of the commits
+given or if it is an ancestor or descendant of one of them.</p>
 </dd>
 </dl>
 </div>
@@ -829,12 +831,11 @@ parent and is TREESAME.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1" id="Documentation/git-shortlog.txt---ancestry-path-1"> <a class="anchor" href="#Documentation/git-shortlog.txt---ancestry-path-1"></a>--ancestry-path </dt>
+<dt class="hdlist1" id="Documentation/git-shortlog.txt---ancestry-pathltcommitgt-1"> <a class="anchor" href="#Documentation/git-shortlog.txt---ancestry-pathltcommitgt-1"></a>--ancestry-path[=&lt;commit&gt;] </dt>
 <dd>
-<p>Limit the displayed commits to those directly on the ancestry
-chain between the from and to commits in the given commit
-range. I.e. only display commits that are ancestor of the to
-commit and descendants of the from commit.</p>
+<p>Limit the displayed commits to those which are an ancestor of
+&lt;commit&gt;, or which are a descendant of &lt;commit&gt;, or are &lt;commit&gt;
+itself.</p>
 <div class="paragraph">
 <p>As an example use case, consider the following commit history:</p>
 </div>
@@ -869,6 +870,34 @@ option does. Applied to the <em>D..M</em> range, it results in:</p>
 		  G---H---I---J
 			       \
 				L--M</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can also use <code>--ancestry-path=D</code> instead of <code>--ancestry-path</code> which
+means the same thing when applied to the <em>D..M</em> range but is just more
+explicit.</p>
+</div>
+<div class="paragraph">
+<p>If we instead are interested in a given topic within this range, and all
+commits affected by that topic, we may only want to view the subset of
+<code>D..M</code> which contain that topic in their ancestry path.  So, using
+<code>--ancestry-path=H D..M</code> for example would result in:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>		E
+		 \
+		  G---H---I---J
+			       \
+				L--M</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Whereas <code>--ancestry-path=K D..M</code> would result in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>		K---------------L--M</pre>
 </div>
 </div>
 </dd>
@@ -937,7 +966,7 @@ merge commits <code>O</code> and <code>P</code>. With parent rewriting, the resu
 not actually contribute a change to <code>file.txt</code>. They only merged a topic
 that was based on an older version of <code>file.txt</code>. This is a common
 issue in repositories using a workflow where many contributors work in
-parallel and merge their topic branches along a single trunk: manu
+parallel and merge their topic branches along a single trunk: many
 unrelated merges appear in the <code>--full-history</code> results.</p>
 </div>
 <div class="paragraph">
@@ -1044,7 +1073,7 @@ commits are marked as TREESAME (subject to be simplified away).</p>
 <h2 id="_mapping_authors"><a class="anchor" href="#_mapping_authors"></a>MAPPING AUTHORS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See <a href="/git/docs/gitmailmap.html">gitmailmap[5]</a>.</p>
+<p>See <a href="gitmailmap.html">gitmailmap[5]</a>.</p>
 </div>
 <div class="paragraph">
 <p>Note that if <code>git shortlog</code> is run outside of a repository (to process
@@ -1057,7 +1086,7 @@ the current directory.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

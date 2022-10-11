@@ -38,7 +38,7 @@ useful in various Git commands, to specify the old value of a
 reference. For example, <code>HEAD@{2}</code> means "where HEAD used to be two
 moves ago", <code>master@{one.week.ago}</code> means "where master used to point
 to one week ago in this local repository", and so on. See
-<a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> for more details.</p>
+<a href="gitrevisions.html">gitrevisions[7]</a> for more details.</p>
 </div>
 <div class="paragraph">
 <p>This command manages the information recorded in the reflogs.</p>
@@ -49,14 +49,14 @@ any subcommands) shows the log of the reference provided in the
 command-line (or <code>HEAD</code>, by default). The reflog covers all recent
 actions, and in addition the <code>HEAD</code> reflog records branch switching.
 <code>git reflog show</code> is an alias for <code>git log -g --abbrev-commit
---pretty=oneline</code>; see <a href="/git/docs/git-log.html">git-log[1]</a> for more information.</p>
+--pretty=oneline</code>; see <a href="git-log.html">git-log[1]</a> for more information.</p>
 </div>
 <div class="paragraph">
 <p>The "expire" subcommand prunes older reflog entries. Entries older
 than <code>expire</code> time, or entries older than <code>expire-unreachable</code> time
 and not reachable from the current tip, are removed from the reflog.
 This is typically not used directly by end usersinstead, see
-<a href="/git/docs/git-gc.html">git-gc[1]</a>.</p>
+<a href="git-gc.html">git-gc[1]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The "delete" subcommand deletes single entries from the reflog. Its
@@ -166,7 +166,7 @@ used with <code>expire</code>.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

@@ -1,0 +1,99 @@
+<div id="main"><title>scalar</title>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scalar is a repository management tool that optimizes Git for use in large
+repositories. It accomplishes this by helping users to take advantage of
+advanced performance features in Git. Unlike most other Git built-in commands,
+Scalar is not executed as a subcommand of <em>git</em>; rather, it is built as a
+separate executable containing its own series of subcommands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a>Background</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scalar was originally designed as an add-on to Git and implemented as a .NET
+Core application. It was created based on the learnings from the VFS for Git
+project (another application aimed at improving the experience of working with
+large repositories). As part of its initial implementation, Scalar relied on
+custom features in the Microsoft fork of Git that have since been integrated
+into core Git:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>partial clone,</p>
+</li>
+<li>
+<p>commit graphs,</p>
+</li>
+<li>
+<p>multi-pack index,</p>
+</li>
+<li>
+<p>sparse checkout (cone mode),</p>
+</li>
+<li>
+<p>scheduled background maintenance,</p>
+</li>
+<li>
+<p>etc</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With the requisite Git functionality in place and a desire to bring the benefits
+of Scalar to the larger Git community, the Scalar application itself was ported
+from C# to C and integrated upstream.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_features"><a class="anchor" href="#_features"></a>Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scalar is comprised of two major pieces of functionality: automatically
+configuring built-in Git performance features and managing repository
+enlistments.</p>
+</div>
+<div class="paragraph">
+<p>The Git performance features configured by Scalar (see "Background" for
+examples) confer substantial performance benefits to large repositories, but are
+either too experimental to enable for all of Git yet, or only benefit large
+repositories. As new features are introduced, Scalar should be updated
+accordingly to incorporate them. This will prevent the tool from becoming stale
+while also providing a path for more easily bringing features to the appropriate
+users.</p>
+</div>
+<div class="paragraph">
+<p>Enlistments are how Scalar knows which repositories on a users system should
+utilize Scalar-configured features. This allows it to update performance
+settings when new ones are added to the tool, as well as centrally manage
+repository maintenance. The enlistment structure - a root directory with a
+<code>src/</code> subdirectory containing the cloned repository itself - is designed to
+encourage users to route build outputs outside of the repository to avoid the
+performance-limiting overhead of ignoring those files in Git.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design"><a class="anchor" href="#_design"></a>Design</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Scalar is implemented in C and interacts with Git via a mix of child process
+invocations of Git and direct usage of <code>libgit.a</code>. Internally, it is structured
+much like other built-ins with subcommands (e.g., <code>git stash</code>), containing a
+<code>cmd_&lt;subcommand&gt;()</code> function for each subcommand, routed through a <code>cmd_main()</code>
+function. Most options are unique to each subcommand, with <code>scalar</code> respecting
+some "global" <code>git</code> options (e.g., <code>-c</code> and <code>-C</code>).</p>
+</div>
+<div class="paragraph">
+<p>Because <code>scalar</code> is not invoked as a Git subcommand (like <code>git scalar</code>), it is
+built and installed as its own executable in the <code>bin/</code> directory, alongside
+<code>git</code>, <code>git-gui</code>, etc.</p>
+</div>
+</div>
+</div>
+</div>

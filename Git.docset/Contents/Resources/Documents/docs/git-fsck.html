@@ -120,7 +120,7 @@ its object name.</p>
 <dd>
 <p>When displaying names of reachable objects, in addition to the
 SHA-1 also display a name that describes <strong>how</strong> they are reachable,
-compatible with <a href="/git/docs/git-rev-parse.html">git-rev-parse[1]</a>, e.g.
+compatible with <a href="git-rev-parse.html">git-rev-parse[1]</a>, e.g.
 <code>HEAD@{1234567890}~25^2:src/</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-fsck.txt---no-progress"> <a class="anchor" href="#Documentation/git-fsck.txt---no-progress"></a>--[no-]progress </dt>
@@ -138,6 +138,11 @@ directed to a terminal.</p>
 <div class="sect1">
 <h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1" id="Documentation/git-fsck.txt-fsckltmsg-idgt"> <a class="anchor" href="#Documentation/git-fsck.txt-fsckltmsg-idgt"></a>fsck.&lt;msg-id&gt; </dt>
@@ -148,7 +153,7 @@ wouldnt be sent over the wire if <code>transfer.fsckObjects</code> was
 set. This feature is intended to support working with legacy
 repositories containing such data.</p>
 <div class="paragraph">
-<p>Setting <code>fsck.&lt;msg-id&gt;</code> will be picked up by <a href="/git/docs/git-fsck.html">git-fsck[1]</a>, but
+<p>Setting <code>fsck.&lt;msg-id&gt;</code> will be picked up by <a href="git-fsck.html">git-fsck[1]</a>, but
 to accept pushes of such data set <code>receive.fsck.&lt;msg-id&gt;</code> instead, or
 to clone or fetch it set <code>fetch.fsck.&lt;msg-id&gt;</code>.</p>
 </div>
@@ -242,7 +247,7 @@ the hopes that somebody else has the object you have corrupted).</p>
 </div>
 <div class="paragraph">
 <p>If core.commitGraph is true, the commit-graph file will also be inspected
-using <em>git commit-graph verify</em>. See <a href="/git/docs/git-commit-graph.html">git-commit-graph[1]</a>.</p>
+using <em>git commit-graph verify</em>. See <a href="git-commit-graph.html">git-commit-graph[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -305,7 +310,7 @@ This indicates a serious data integrity problem.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

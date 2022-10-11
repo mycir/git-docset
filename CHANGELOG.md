@@ -8,7 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.0] - WIP
 ### Changed
-- Better analysis of page links for doc type
+- Parse git.html in preference to Git Reference
+- Document type now derived from git.html section headings
+- Strip 'git-' from command names
 - Docs added to DB after all docs downloaded
 ### Fixed
 - Unwanted aliases 

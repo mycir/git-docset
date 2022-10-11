@@ -42,8 +42,8 @@ the working tree or the current branch.)</p>
 </div>
 <div class="paragraph">
 <p>After running <code>git reset &lt;pathspec&gt;</code> to update the index entry, you can
-use <a href="/git/docs/git-restore.html">git-restore[1]</a> to check the contents out of the index to
-the working tree. Alternatively, using <a href="/git/docs/git-restore.html">git-restore[1]</a>
+use <a href="git-restore.html">git-restore[1]</a> to check the contents out of the index to
+the working tree. Alternatively, using <a href="git-restore.html">git-restore[1]</a>
 and specifying a commit with <code>--source</code>, you
 can copy the contents of a path out of a commit to the index and to the
 working tree in one go.</p>
@@ -57,7 +57,7 @@ in reverse to the index.</p>
 <div class="paragraph">
 <p>This means that <code>git reset -p</code> is the opposite of <code>git add -p</code>, i.e.
 you can use it to selectively reset hunks. See the Interactive Mode
-section of <a href="/git/docs/git-add.html">git-add[1]</a> to learn how to operate the <code>--patch</code> mode.</p>
+section of <a href="git-add.html">git-add[1]</a> to learn how to operate the <code>--patch</code> mode.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt-emgitresetemltmodegtltcommitgt"> <a class="anchor" href="#Documentation/git-reset.txt-emgitresetemltmodegtltcommitgt"></a><em>git reset</em> [&lt;mode&gt;] [&lt;commit&gt;] </dt>
@@ -84,7 +84,7 @@ are preserved but not marked for commit) and reports what has not
 been updated. This is the default action.</p>
 <div class="paragraph">
 <p>If <code>-N</code> is specified, removed paths are marked as intent-to-add (see
-<a href="/git/docs/git-add.html">git-add[1]</a>).</p>
+<a href="git-add.html">git-add[1]</a>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt---hard"> <a class="anchor" href="#Documentation/git-reset.txt---hard"></a>--hard </dt>
@@ -128,7 +128,7 @@ the submodules' HEAD to be detached at that commit.</p>
 </dl>
 </div>
 <div class="paragraph">
-<p>See "Reset, restore and revert" in <a href="/git/docs/git.html">git[1]</a> for the differences
+<p>See "Reset, restore and revert" in <a href="git.html">git[1]</a> for the differences
 between the three commands.</p>
 </div>
 </div>
@@ -154,7 +154,7 @@ between the three commands.</p>
 <code>&lt;file&gt;</code> is exactly <code>-</code> then standard input is used. Pathspec
 elements are separated by LF or CR/LF. Pathspec elements can be
 quoted as explained for the configuration variable <code>core.quotePath</code>
-(see <a href="/git/docs/git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
+(see <a href="git-config.html">git-config[1]</a>). See also <code>--pathspec-file-nul</code> and
 global <code>--literal-pathspecs</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt---pathspec-file-nul"> <a class="anchor" href="#Documentation/git-reset.txt---pathspec-file-nul"></a>--pathspec-file-nul </dt>
@@ -171,7 +171,7 @@ literally (including newlines and quotes).</p>
 <dd>
 <p>Limits the paths affected by the operation.</p>
 <div class="paragraph">
-<p>For more details, see the <em>pathspec</em> entry in <a href="/git/docs/gitglossary.html">gitglossary[7]</a>.</p>
+<p>For more details, see the <em>pathspec</em> entry in <a href="gitglossary.html">gitglossary[7]</a>.</p>
 </div>
 </dd>
 </dl>
@@ -247,7 +247,7 @@ edit the message further, you can give <code>-C</code> option instead.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>See also the <code>--amend</code> option to <a href="/git/docs/git-commit.html">git-commit[1]</a>.</p>
+<p>See also the <code>--amend</code> option to <a href="git-commit.html">git-commit[1]</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt-Undoacommitmakingitatopicbranch"> <a class="anchor" href="#Documentation/git-reset.txt-Undoacommitmakingitatopicbranch"></a>Undo a commit, making it a topic branch </dt>
@@ -290,7 +290,7 @@ $ git reset --hard HEAD~3   <b class="conum">(1)</b></pre>
 <p>The last three commits (<code>HEAD</code>, <code>HEAD^</code>, and <code>HEAD~2</code>) were bad
 and you do not want to ever see them again.  Do <strong>not</strong> do this if
 you have already given these commits to somebody else.  (See the
-"RECOVERING FROM UPSTREAM REBASE" section in <a href="/git/docs/git-rebase.html">git-rebase[1]</a>
+"RECOVERING FROM UPSTREAM REBASE" section in <a href="git-rebase.html">git-rebase[1]</a>
 for the implications of doing so.)</p>
 </li>
 </ol>
@@ -405,7 +405,7 @@ WIP files as uncommitted.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>See also <a href="/git/docs/git-stash.html">git-stash[1]</a>.</p>
+<p>See also <a href="git-stash.html">git-stash[1]</a>.</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-reset.txt-Resetasinglefileintheindex"> <a class="anchor" href="#Documentation/git-reset.txt-Resetasinglefileintheindex"></a>Reset a single file in the index </dt>
@@ -523,7 +523,7 @@ pre-populate the commit message from the original message that you started
 with in the first commit. This is helpful to avoid retyping it. The
 <code>HEAD@{1}</code> is a special notation for the commit that <code>HEAD</code> used to be at
 prior to the original reset commit (1 change ago).
-See <a href="/git/docs/git-reflog.html">git-reflog[1]</a> for more details. You may also use any other
+See <a href="git-reflog.html">git-reflog[1]</a> for more details. You may also use any other
 valid commit reference.</p>
 </li>
 <li>
@@ -696,7 +696,7 @@ entries:</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

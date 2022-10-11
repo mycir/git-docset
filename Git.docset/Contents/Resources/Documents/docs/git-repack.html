@@ -1,4 +1,4 @@
-<div id="main"><title>git-repack[1]</title>
+<div id="main"><title>repack</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -70,7 +70,7 @@ This option prevents unreachable objects from being immediately
 deleted by way of being left in the old pack and then
 removed.  Instead, the loose unreachable objects
 will be pruned according to normal expiry rules
-with the next <em>git gc</em> invocation. See <a href="/git/docs/git-gc.html">git-gc[1]</a>.</p>
+with the next <em>git gc</em> invocation. See <a href="git-gc.html">git-gc[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--d"> <a class="anchor" href="#Documentation/git-repack.txt--d"></a>-d </dt>
 <dd>
@@ -84,7 +84,7 @@ loose object files.</p>
 <p>Same as <code>-a</code>, unless <code>-d</code> is used. Then any unreachable objects
 are packed into a separate cruft pack. Unreachable objects can
 be pruned using the normal expiry rules with the next <code>git gc</code>
-invocation (see <a href="/git/docs/git-gc.html">git-gc[1]</a>). Incompatible with <code>-k</code>.</p>
+invocation (see <a href="git-gc.html">git-gc[1]</a>). Incompatible with <code>-k</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt---cruft-expirationltapproxidategt"> <a class="anchor" href="#Documentation/git-repack.txt---cruft-expirationltapproxidategt"></a>--cruft-expiration=&lt;approxidate&gt; </dt>
 <dd>
@@ -95,23 +95,23 @@ Only useful with <code>--cruft -d</code>.</p>
 <dt class="hdlist1" id="Documentation/git-repack.txt--l"> <a class="anchor" href="#Documentation/git-repack.txt--l"></a>-l </dt>
 <dd>
 <p>Pass the <code>--local</code> option to <em>git pack-objects</em>. See
-<a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+<a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--f"> <a class="anchor" href="#Documentation/git-repack.txt--f"></a>-f </dt>
 <dd>
 <p>Pass the <code>--no-reuse-delta</code> option to <code>git-pack-objects</code>, see
-<a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+<a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--F"> <a class="anchor" href="#Documentation/git-repack.txt--F"></a>-F </dt>
 <dd>
 <p>Pass the <code>--no-reuse-object</code> option to <code>git-pack-objects</code>, see
-<a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+<a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--q"> <a class="anchor" href="#Documentation/git-repack.txt--q"></a>-q </dt>
 <dt class="hdlist1" id="Documentation/git-repack.txt---quiet"> <a class="anchor" href="#Documentation/git-repack.txt---quiet"></a>--quiet </dt>
 <dd>
 <p>Show no progress over the standard error stream and pass the <code>-q</code>
-option to <em>git pack-objects</em>. See <a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+option to <em>git pack-objects</em>. See <a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--n"> <a class="anchor" href="#Documentation/git-repack.txt--n"></a>-n </dt>
 <dd>
@@ -119,7 +119,7 @@ option to <em>git pack-objects</em>. See <a href="/git/docs/git-pack-objects.htm
 <em>git update-server-info</em>.  This option skips
 updating local catalog files needed to publish
 this repository (or a direct copy of it)
-over HTTP or FTP.  See <a href="/git/docs/git-update-server-info.html">git-update-server-info[1]</a>.</p>
+over HTTP or FTP.  See <a href="git-update-server-info.html">git-update-server-info[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt---windowltngt"> <a class="anchor" href="#Documentation/git-repack.txt---windowltngt"></a>--window=&lt;n&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-repack.txt---depthltngt"> <a class="anchor" href="#Documentation/git-repack.txt---depthltngt"></a>--depth=&lt;n&gt; </dt>
@@ -152,7 +152,7 @@ size can be suffixed with "k", "m", or "g".
 <code>--window-memory=0</code> makes memory usage unlimited.  The default
 is taken from the <code>pack.windowMemory</code> configuration variable.
 Note that the actual memory usage will be the limit multiplied
-by the number of threads used by <a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+by the number of threads used by <a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt---max-pack-sizeltngt"> <a class="anchor" href="#Documentation/git-repack.txt---max-pack-sizeltngt"></a>--max-pack-size=&lt;n&gt; </dt>
 <dd>
@@ -212,7 +212,7 @@ be packed (and their loose counterparts removed).</p>
 <dt class="hdlist1" id="Documentation/git-repack.txt---delta-islands"> <a class="anchor" href="#Documentation/git-repack.txt---delta-islands"></a>--delta-islands </dt>
 <dd>
 <p>Pass the <code>--delta-islands</code> option to <code>git-pack-objects</code>, see
-<a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>.</p>
+<a href="git-pack-objects.html">git-pack-objects[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--gltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt--gltfactorgt"></a>-g=&lt;factor&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-repack.txt---geometricltfactorgt"> <a class="anchor" href="#Documentation/git-repack.txt---geometricltfactorgt"></a>--geometric=&lt;factor&gt; </dt>
@@ -243,13 +243,13 @@ option to <code>git repack</code>.</p>
 <div class="paragraph">
 <p>When writing a multi-pack bitmap, <code>git repack</code> selects the largest resulting
 pack as the preferred pack for object selection by the MIDX (see
-<a href="/git/docs/git-multi-pack-index.html">git-multi-pack-index[1]</a>).</p>
+<a href="git-multi-pack-index.html">git-multi-pack-index[1]</a>).</p>
 </div>
 </dd>
 <dt class="hdlist1" id="Documentation/git-repack.txt--m"> <a class="anchor" href="#Documentation/git-repack.txt--m"></a>-m </dt>
 <dt class="hdlist1" id="Documentation/git-repack.txt---write-midx"> <a class="anchor" href="#Documentation/git-repack.txt---write-midx"></a>--write-midx </dt>
 <dd>
-<p>Write a multi-pack index (see <a href="/git/docs/git-multi-pack-index.html">git-multi-pack-index[1]</a>)
+<p>Write a multi-pack index (see <a href="git-multi-pack-index.html">git-multi-pack-index[1]</a>)
 containing the non-redundant packs.</p>
 </dd>
 </dl>
@@ -261,7 +261,7 @@ containing the non-redundant packs.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Various configuration variables affect packing, see
-<a href="/git/docs/git-config.html">git-config[1]</a> (search for "pack" and "delta").</p>
+<a href="git-config.html">git-config[1]</a> (search for "pack" and "delta").</p>
 </div>
 <div class="paragraph">
 <p>By default, the command passes <code>--delta-base-offset</code> option to
@@ -285,8 +285,8 @@ attribute <code>delta</code> set to false.</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-pack-objects.html">git-pack-objects[1]</a>
-<a href="/git/docs/git-prune-packed.html">git-prune-packed[1]</a></p>
+<p><a href="git-pack-objects.html">git-pack-objects[1]</a>
+<a href="git-prune-packed.html">git-prune-packed[1]</a></p>
 </div>
 </div>
 </div>
@@ -294,7 +294,7 @@ attribute <code>delta</code> set to false.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

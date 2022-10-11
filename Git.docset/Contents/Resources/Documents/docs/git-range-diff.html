@@ -14,7 +14,8 @@
 <pre class="content"><em>git range-diff</em> [--color=[&lt;when&gt;]] [--no-color] [&lt;diff-options&gt;]
 	[--no-dual-color] [--creation-factor=&lt;factor&gt;]
 	[--left-only | --right-only]
-	( &lt;range1&gt; &lt;range2&gt; | &lt;rev1&gt;&lt;rev2&gt; | &lt;base&gt; &lt;rev1&gt; &lt;rev2&gt; )</pre>
+	( &lt;range1&gt; &lt;range2&gt; | &lt;rev1&gt;&lt;rev2&gt; | &lt;base&gt; &lt;rev1&gt; &lt;rev2&gt; )
+	[[--] &lt;path&gt;]</pre>
 </div>
 </div>
 </div>
@@ -24,6 +25,10 @@
 <div class="paragraph">
 <p>This command shows the differences between two versions of a patch
 series, or more generally, two commit ranges (ignoring merge commits).</p>
+</div>
+<div class="paragraph">
+<p>In the presence of <code>&lt;path&gt;</code> arguments, these commit ranges are limited
+accordingly.</p>
 </div>
 <div class="paragraph">
 <p>To that end, it first finds pairs of commits from both commit ranges
@@ -45,7 +50,7 @@ all of their ancestors have been shown.</p>
 <li>
 <p><code>&lt;range1&gt; &lt;range2&gt;</code>: Either commit range can be of the form
 <code>&lt;base&gt;..&lt;rev&gt;</code>, <code>&lt;rev&gt;^!</code> or <code>&lt;rev&gt;^-&lt;n&gt;</code>. See <code>SPECIFYING RANGES</code>
-in <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a> for more details.</p>
+in <a href="gitrevisions.html">gitrevisions[7]</a> for more details.</p>
 </li>
 <li>
 <p><code>&lt;rev1&gt;...&lt;rev2&gt;</code>. This is equivalent to
@@ -107,7 +112,7 @@ needed.</p>
 <dt class="hdlist1" id="Documentation/git-range-diff.txt---no-notesltrefgt"> <a class="anchor" href="#Documentation/git-range-diff.txt---no-notesltrefgt"></a>--[no-]notes[=&lt;ref&gt;] </dt>
 <dd>
 <p>This flag is passed to the <code>git log</code> program
-(see <a href="/git/docs/git-log.html">git-log[1]</a>) that generates the patches.</p>
+(see <a href="git-log.html">git-log[1]</a>) that generates the patches.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-range-diff.txt-ltrange1gtltrange2gt"> <a class="anchor" href="#Documentation/git-range-diff.txt-ltrange1gtltrange2gt"></a>&lt;range1&gt; &lt;range2&gt; </dt>
 <dd>
@@ -130,7 +135,7 @@ show the differences introduced by the rebase.</p>
 </div>
 <div class="paragraph">
 <p><code>git range-diff</code> also accepts the regular diff options (see
-<a href="/git/docs/git-diff.html">git-diff[1]</a>), most notably the <code>--color=[&lt;when&gt;]</code> and
+<a href="git-diff.html">git-diff[1]</a>), most notably the <code>--color=[&lt;when&gt;]</code> and
 <code>--no-color</code> options. These options are used when generating the "diff
 between patches", i.e. to compare the author, commit message and diff of
 corresponding old/new commits. There is currently no means to tweak most of the
@@ -146,8 +151,8 @@ diff options passed to <code>git log</code> when generating those patches.</p>
 intended to be human-readable porcelain output, not something that can
 be used across versions of Git to get a textually stable <code>range-diff</code>
 (as opposed to something like the <code>--stable</code> option to
-<a href="/git/docs/git-patch-id.html">git-patch-id[1]</a>). Theres also no equivalent of
-<a href="/git/docs/git-apply.html">git-apply[1]</a> for <code>range-diff</code>, the output is not intended to
+<a href="git-patch-id.html">git-patch-id[1]</a>). Theres also no equivalent of
+<a href="git-apply.html">git-apply[1]</a> for <code>range-diff</code>, the output is not intended to
 be machine-readable.</p>
 </div>
 <div class="paragraph">
@@ -166,7 +171,7 @@ output which summarizes how the diffstat changed).</p>
 <div class="paragraph">
 <p>This command uses the <code>diff.color.*</code> and <code>pager.range-diff</code> settings
 (the latter is on by default).
-See <a href="/git/docs/git-config.html">git-config[1]</a>.</p>
+See <a href="git-config.html">git-config[1]</a>.</p>
 </div>
 </div>
 </div>
@@ -353,7 +358,7 @@ found in this case will look like this:</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-log.html">git-log[1]</a></p>
+<p><a href="git-log.html">git-log[1]</a></p>
 </div>
 </div>
 </div>
@@ -361,7 +366,7 @@ found in this case will look like this:</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

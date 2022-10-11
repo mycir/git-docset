@@ -29,14 +29,14 @@ from the HEAD commit).</p>
 <p>Note: <em>git revert</em> is used to record some new commits to reverse the
 effect of some earlier commits (often only a faulty one).  If you want to
 throw away all uncommitted changes in your working directory, you
-should see <a href="/git/docs/git-reset.html">git-reset[1]</a>, particularly the <code>--hard</code> option.  If
+should see <a href="git-reset.html">git-reset[1]</a>, particularly the <code>--hard</code> option.  If
 you want to extract specific files as they were in another commit, you
-should see <a href="/git/docs/git-restore.html">git-restore[1]</a>, specifically the <code>--source</code>
+should see <a href="git-restore.html">git-restore[1]</a>, specifically the <code>--source</code>
 option. Take care with these alternatives as
 both will discard uncommitted changes in your working directory.</p>
 </div>
 <div class="paragraph">
-<p>See "Reset, restore and revert" in <a href="/git/docs/git.html">git[1]</a> for the differences
+<p>See "Reset, restore and revert" in <a href="git.html">git[1]</a> for the differences
 between the three commands.</p>
 </div>
 </div>
@@ -50,9 +50,9 @@ between the three commands.</p>
 <dd>
 <p>Commits to revert.
 For a more complete list of ways to spell commit names, see
-<a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>.
+<a href="gitrevisions.html">gitrevisions[7]</a>.
 Sets of commits can also be given but no traversal is done by
-default, see <a href="/git/docs/git-rev-list.html">git-rev-list[1]</a> and its <code>--no-walk</code>
+default, see <a href="git-rev-list.html">git-rev-list[1]</a> and its <code>--no-walk</code>
 option.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-revert.txt--e"> <a class="anchor" href="#Documentation/git-revert.txt--e"></a>-e </dt>
@@ -77,7 +77,7 @@ changes introduced by commits that are not ancestors of the previously
 reverted merge.  This may or may not be what you want.</p>
 </div>
 <div class="paragraph">
-<p>See the <a href="/git/docs/howto/revert-a-faulty-merge.html">revert-a-faulty-merge How-To</a> for
+<p>See the <a href="howto/revert-a-faulty-merge.html">revert-a-faulty-merge How-To</a> for
 more details.</p>
 </div>
 </dd>
@@ -89,7 +89,7 @@ message editor.</p>
 <dt class="hdlist1" id="Documentation/git-revert.txt---cleanupltmodegt"> <a class="anchor" href="#Documentation/git-revert.txt---cleanupltmodegt"></a>--cleanup=&lt;mode&gt; </dt>
 <dd>
 <p>This option determines how the commit message will be cleaned up before
-being passed on to the commit machinery. See <a href="/git/docs/git-commit.html">git-commit[1]</a> for more
+being passed on to the commit machinery. See <a href="git-commit.html">git-commit[1]</a> for more
 details. In particular, if the <em>&lt;mode&gt;</em> is given a value of <code>scissors</code>,
 scissors will be appended to <code>MERGE_MSG</code> before being passed on in the case
 of a conflict.</p>
@@ -124,32 +124,37 @@ earlier <code>--gpg-sign</code>.</p>
 <dt class="hdlist1" id="Documentation/git-revert.txt---signoff"> <a class="anchor" href="#Documentation/git-revert.txt---signoff"></a>--signoff </dt>
 <dd>
 <p>Add a <code>Signed-off-by</code> trailer at the end of the commit message.
-See the signoff option in <a href="/git/docs/git-commit.html">git-commit[1]</a> for more information.</p>
+See the signoff option in <a href="git-commit.html">git-commit[1]</a> for more information.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-revert.txt---strategyltstrategygt"> <a class="anchor" href="#Documentation/git-revert.txt---strategyltstrategygt"></a>--strategy=&lt;strategy&gt; </dt>
 <dd>
 <p>Use the given merge strategy.  Should only be used once.
-See the MERGE STRATEGIES section in <a href="/git/docs/git-merge.html">git-merge[1]</a>
+See the MERGE STRATEGIES section in <a href="git-merge.html">git-merge[1]</a>
 for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-revert.txt--Xltoptiongt"> <a class="anchor" href="#Documentation/git-revert.txt--Xltoptiongt"></a>-X&lt;option&gt; </dt>
 <dt class="hdlist1" id="Documentation/git-revert.txt---strategy-optionltoptiongt"> <a class="anchor" href="#Documentation/git-revert.txt---strategy-optionltoptiongt"></a>--strategy-option=&lt;option&gt; </dt>
 <dd>
 <p>Pass the merge strategy-specific option through to the
-merge strategy.  See <a href="/git/docs/git-merge.html">git-merge[1]</a> for details.</p>
+merge strategy.  See <a href="git-merge.html">git-merge[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-revert.txt---rerere-autoupdate"> <a class="anchor" href="#Documentation/git-revert.txt---rerere-autoupdate"></a>--rerere-autoupdate </dt>
 <dt class="hdlist1" id="Documentation/git-revert.txt---no-rerere-autoupdate"> <a class="anchor" href="#Documentation/git-revert.txt---no-rerere-autoupdate"></a>--no-rerere-autoupdate </dt>
 <dd>
-<p>Allow the rerere mechanism to update the index with the
-result of auto-conflict resolution if possible.</p>
+<p>After the rerere mechanism reuses a recorded resolution on
+the current conflict to update the files in the working
+tree, allow it to also update the index with the result of
+resolution.  <code>--no-rerere-autoupdate</code> is a good way to
+double-check what <code>rerere</code> did and catch potential
+mismerges, before committing the result to the index with a
+separate <code>git add</code>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/git-revert.txt---reference"> <a class="anchor" href="#Documentation/git-revert.txt---reference"></a>--reference </dt>
 <dd>
 <p>Instead of starting the body of the log message with "This
 reverts &lt;full object name of the commit being reverted&gt;.",
 refer to the commit using "--pretty=reference" format
-(cf. <a href="/git/docs/git-log.html">git-log[1]</a>).  The <code>revert.reference</code>
+(cf. <a href="git-log.html">git-log[1]</a>).  The <code>revert.reference</code>
 configuration variable can be used to enable this option by
 default.</p>
 </dd>
@@ -210,10 +215,29 @@ index.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything below this line in this section is selectively included
+from the <a href="git-config.html">git-config[1]</a> documentation. The content is the same
+as whats found there:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1" id="Documentation/git-revert.txt-revertreference"> <a class="anchor" href="#Documentation/git-revert.txt-revertreference"></a>revert.reference </dt>
+<dd>
+<p>Setting this variable to true makes <code>git revert</code> behave
+as if the <code>--reference</code> option is given.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/git-cherry-pick.html">git-cherry-pick[1]</a></p>
+<p><a href="git-cherry-pick.html">git-cherry-pick[1]</a></p>
 </div>
 </div>
 </div>
@@ -221,7 +245,7 @@ index.</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>

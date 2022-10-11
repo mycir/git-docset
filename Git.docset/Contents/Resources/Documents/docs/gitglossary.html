@@ -1,4 +1,4 @@
-<div id="main"><title>Glossary</title>
+<div id="main"><title>gitglossary</title>
 <div class="sect1">
 <h2 id="_name"><a class="anchor" href="#_name"></a>NAME</h2>
 <div class="sectionbody">
@@ -202,7 +202,7 @@ revision as the branch you are merging. This will happen frequently on a
 branchs <a href="#def_head_ref">head ref</a> from a remote
 <a href="#def_repository">repository</a>, to find out which objects are
 missing from the local <a href="#def_object_database">object database</a>,
-and to get them, too.  See also <a href="/git/docs/git-fetch.html">git-fetch[1]</a>.</p>
+and to get them, too.  See also <a href="git-fetch.html">git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddeffilesystemafilesystem"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddeffilesystemafilesystem"></a><a id="def_file_system"></a>file system </dt>
 <dd>
@@ -228,7 +228,7 @@ is different from what was recorded when the commit was
 created. Configured via the <code>.git/info/grafts</code> file.</p>
 <div class="paragraph">
 <p>Note that the grafts mechanism is outdated and can lead to problems
-transferring objects between repositories; see <a href="/git/docs/git-replace.html">git-replace[1]</a>
+transferring objects between repositories; see <a href="git-replace.html">git-replace[1]</a>
 for a more flexible and robust system to do the same thing.</p>
 </div>
 </dd>
@@ -241,7 +241,7 @@ for a more flexible and robust system to do the same thing.</p>
 <p>A <a href="#def_ref">named reference</a> to the <a href="#def_commit">commit</a> at the tip of a
 <a href="#def_branch">branch</a>.  Heads are stored in a file in
 <code>$GIT_DIR/refs/heads/</code> directory, except when using packed refs. (See
-<a href="/git/docs/git-pack-refs.html">git-pack-refs[1]</a>.)</p>
+<a href="git-pack-refs.html">git-pack-refs[1]</a>.)</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefHEADaHEAD"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefHEADaHEAD"></a><a id="def_HEAD"></a>HEAD </dt>
 <dd>
@@ -500,7 +500,7 @@ matches "<code>a/b</code>", "<code>a/x/b</code>", "<code>a/x/y/b</code>" and so 
 requirements", all of which must be met in order for the
 path to be considered a match; this is in addition to the
 usual non-magic pathspec pattern matching.
-See <a href="/git/docs/gitattributes.html">gitattributes[5]</a>.</p>
+See <a href="gitattributes.html">gitattributes[5]</a>.</p>
 <div class="paragraph">
 <p>Each of the attribute requirements for the path takes one of
 these forms:</p>
@@ -553,7 +553,7 @@ parents.</p>
 routines that help select changes that add or delete a given text
 string. With the <code>--pickaxe-all</code> option, it can be used to view the full
 <a href="#def_changeset">changeset</a> that introduced or removed, say, a
-particular line of text. See <a href="/git/docs/git-diff.html">git-diff[1]</a>.</p>
+particular line of text. See <a href="git-diff.html">git-diff[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefplumbingaplumbing"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefplumbingaplumbing"></a><a id="def_plumbing"></a>plumbing </dt>
 <dd>
@@ -593,7 +593,7 @@ MERGE_HEAD</code> will work.</p>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefpullapull"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefpullapull"></a><a id="def_pull"></a>pull </dt>
 <dd>
 <p>Pulling a <a href="#def_branch">branch</a> means to <a href="#def_fetch">fetch</a> it and
-<a href="#def_merge">merge</a> it.  See also <a href="/git/docs/git-pull.html">git-pull[1]</a>.</p>
+<a href="#def_merge">merge</a> it.  See also <a href="git-pull.html">git-pull[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefpushapush"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefpushapush"></a><a id="def_push"></a>push </dt>
 <dd>
@@ -631,7 +631,7 @@ to the result.</p>
 that points to an <a href="#def_object_name">object name</a> or another
 ref (the latter is called a <a href="#def_symref">symbolic ref</a>).
 For convenience, a ref can sometimes be abbreviated when used
-as an argument to a Git command; see <a href="/git/docs/gitrevisions.html">gitrevisions[7]</a>
+as an argument to a Git command; see <a href="gitrevisions.html">gitrevisions[7]</a>
 for details.
 Refs are stored in the <a href="#def_repository">repository</a>.</p>
 <div class="paragraph">
@@ -649,7 +649,7 @@ The most notable example is <code>HEAD</code>.</p>
 <p>A reflog shows the local "history" of a ref.  In other words,
 it can tell you what the 3rd last revision in <em>this</em> repository
 was, and what was the current state in <em>this</em> repository,
-yesterday 9:14pm.  See <a href="/git/docs/git-reflog.html">git-reflog[1]</a> for details.</p>
+yesterday 9:14pm.  See <a href="git-reflog.html">git-reflog[1]</a> for details.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefrefspecarefspec"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefrefspecarefspec"></a><a id="def_refspec"></a>refspec </dt>
 <dd>
@@ -720,8 +720,8 @@ parents, even though they are recorded in the <a href="#def_commit_object">commi
 object</a>). This is sometimes useful when you are interested only in the
 recent history of a project even though the real history recorded in the
 upstream is much larger. A shallow repository
-is created by giving the <code>--depth</code> option to <a href="/git/docs/git-clone.html">git-clone[1]</a>, and
-its history can be later deepened with <a href="/git/docs/git-fetch.html">git-fetch[1]</a>.</p>
+is created by giving the <code>--depth</code> option to <a href="git-clone.html">git-clone[1]</a>, and
+its history can be later deepened with <a href="git-fetch.html">git-fetch[1]</a>.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddefstashastashentry"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddefstashastashentry"></a><a id="def_stash"></a>stash entry </dt>
 <dd>
@@ -747,7 +747,7 @@ copies of) commit objects of the contained submodules.</p>
 id itself, it is of the format <em>ref: refs/some/thing</em> and when
 referenced, it recursively dereferences to this reference.
 <em><a href="#def_HEAD">HEAD</a></em> is a prime example of a symref. Symbolic
-references are manipulated with the <a href="/git/docs/git-symbolic-ref.html">git-symbolic-ref[1]</a>
+references are manipulated with the <a href="git-symbolic-ref.html">git-symbolic-ref[1]</a>
 command.</p>
 </dd>
 <dt class="hdlist1" id="Documentation/gitglossary.txt-aiddeftagatag"> <a class="anchor" href="#Documentation/gitglossary.txt-aiddeftagatag"></a><a id="def_tag"></a>tag </dt>
@@ -844,11 +844,11 @@ per-worktree refs and per-worktree configuration file).</p>
 <h2 id="_see_also"><a class="anchor" href="#_see_also"></a>SEE ALSO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="/git/docs/gittutorial.html">gittutorial[7]</a>,
-<a href="/git/docs/gittutorial-2.html">gittutorial-2[7]</a>,
-<a href="/git/docs/gitcvs-migration.html">gitcvs-migration[7]</a>,
-<a href="/git/docs/giteveryday.html">giteveryday[7]</a>,
-<a href="/git/docs/user-manual.html">The Git Users Manual</a></p>
+<p><a href="gittutorial.html">gittutorial[7]</a>,
+<a href="gittutorial-2.html">gittutorial-2[7]</a>,
+<a href="gitcvs-migration.html">gitcvs-migration[7]</a>,
+<a href="giteveryday.html">giteveryday[7]</a>,
+<a href="user-manual.html">The Git Users Manual</a></p>
 </div>
 </div>
 </div>
@@ -856,7 +856,7 @@ per-worktree refs and per-worktree configuration file).</p>
 <h2 id="_git"><a class="anchor" href="#_git"></a>GIT</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Part of the <a href="/git/docs/git.html">git[1]</a> suite</p>
+<p>Part of the <a href="git.html">git[1]</a> suite</p>
 </div>
 </div>
 </div>
