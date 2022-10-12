@@ -21,14 +21,14 @@ def initialise():
     global cur
     global sections
     docset_name = "Git.docset"
-    output = docset_name + "/Contents/Resources/Documents"
+    output = f"{docset_name}/Contents/Resources/Documents"
     root_url = "http://git-scm.com/docs"
     parser = "html.parser"
-    docpath = output + "/"
+    docpath = f"{output}/"
     if not os.path.exists(docpath):
         os.makedirs(docpath)
     copy("Git-Icon-1788C.png", f"{docset_name}/icon.png")
-    db = sqlite3.connect(docset_name + "/Contents/Resources/docSet.dsidx")
+    db = sqlite3.connect(f"{docset_name}/Contents/Resources/docSet.dsidx")
     cur = db.cursor()
     try:
         cur.execute("DROP TABLE searchIndex;")
@@ -73,12 +73,12 @@ def get_git(url):
         for list in lists:
             links = list.findAll("a", {"class": False, "href": True})
             for link in links:
-                path = link["href"].lstrip("./")
+                path = link["href"].lstrip("/")
                 if path.startswith("docs/git-"):
                     name = path.split("-", 1)[1]
                 else:
                     name = path.replace("docs/", "")
-                sections.update({path + ".html": (name, types[s[0]])})
+                sections.update({f"{path}.html": (name, types[s[0]])})
     fix_links(doc_soup)
     folder = os.path.join(output, "docs")
     os.makedirs(folder, exist_ok=True)
@@ -109,14 +109,9 @@ def get_index(url):
 
 def update_db(sections):
     for path, (name, type) in sections.items():
-        if type == "":
-            if name[0].isupper():
-                type = "Guide"
-            else:
-                type = "Unknown"
         cur.execute(
-            "INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)",
-            (name, type, path),
+            "INSERT OR IGNORE INTO searchIndex(name,type,path) VALUES (?,?,?)",
+            (name, type, path)
         )
         print("DB add >> name: %s, path: %s" % (name, path))
 
@@ -127,16 +122,15 @@ def add_docs(start, end):
     for path, (name, _) in dict(
         itertools.islice(sections.items(), start, end)
     ).items():
-        # create subdir
         folder = os.path.join(output)
         for i in range(0, len(path.split("/")) - 1):
-            folder += "/" + path.split("/")[i]
+            folder += f"/{path.split(f'/')[i]}"
         if not os.path.exists(folder):
             os.makedirs(folder)
         if "#" not in path:
             try:
                 page_id = path.split("/")[-1]
-                url = root_url + "/" + page_id
+                url = f"{root_url}/{page_id}"
                 print(f"Downloading document: {page_id} - {name}")
                 page = requests.get(url).text
                 soup = bs(page, parser)
@@ -154,8 +148,7 @@ def add_docs(start, end):
                     f.write(str(doc_soup))
                 print("Success")
             except Exception as e:
-                print("Failed")
-                print("{}: {}".format(type(e).__name__, e))
+                print(f"Failed\n{type(e).__name__}: {e}")
     start = end + 1
     end = len(sections) - 1
     if end > start_prev:
@@ -167,16 +160,8 @@ def fix_links(doc_soup, index=False):
     for link in doc_soup.findAll("a", {"href": True}):
         if link.attrs and not link["href"].startswith("http"):
             if "#" not in link.attrs["href"]:
-                if link.text.endswith("[1]"):
-                    type = "Command"
-                elif link.text.endswith("[5]"):
-                    type = "File"
-                elif link.text.endswith("[7]"):
-                    type = "Guide"
-                else:
-                    type = ""
-                path_noext = link["href"].lstrip("./")
-                path = path_noext + ".html"
+                path_noext = link["href"].lstrip("/")
+                path = f"{path_noext}.html"
                 if index:
                     link["href"] = path
                 else:
@@ -185,6 +170,17 @@ def fix_links(doc_soup, index=False):
                             name = path_noext.split("-", 1)[1]
                         else:
                             name = path_noext.replace("docs/", "")
+                        if link.text.endswith("[1]"):
+                            type = "Command"
+                        elif link.text.endswith("[5]"):
+                            type = "File"
+                        elif (
+                            link.text.endswith("[7]")
+                            or link.text[0].isupper()
+                        ):
+                            type = "Guide"
+                        else:
+                            type = "Unknown"
                         sections.update({path: (name, type)})
                     link["href"] = path.replace("docs/", "")
             else:
@@ -219,13 +215,13 @@ def add_info_plist():
         "</dict>\n"
         "</plist>\n".format(name.lower(), name, name.lower())
     )
-    with open(docset_name + "/Contents/Info.plist", "w") as f:
+    with open(f"{docset_name}/Contents/Info.plist", "w") as f:
         f.write(info)
 
 
 if __name__ == "__main__":
     initialise()
-    get_git(root_url + "/git")
+    get_git(f"{root_url}/git")
     get_index(root_url)
     add_docs(2, len(sections) - 1)
     add_info_plist()
