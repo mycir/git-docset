@@ -1,10 +1,8 @@
-## Dash docset of Git commands
+## Git Docset
 
 [Git commands reference](http://git-scm.com/docs) docset for [Dash](https://kapeli.com/dash) or [Zeal](https://zealdocs.org/).
 
-Forked from [git-dash](https://github.com/iamaziz/git-dash).
-
-Changes: Ported to Python 3, updated for js driven links, more sections.
+Originally a fork of [git-dash](https://github.com/iamaziz/git-dash) but reworked and expanded in Python 3.
 
 #### Screenshot
 ![Screenshot](./screenshot.png)
