@@ -6,13 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## [0.3.0] - WIP
+## [0.3.0] - 2022-10-14
 ### Changed
-- Parse git.html in preference to Git Reference
+- Parse git.html in preference to Git Reference aka index.html
 - Document type now derived from git.html section headings
 - Strip 'git-' from command names
 - Docs added to DB after all docs downloaded
 ### Fixed
+- Various corrections, see misc_fixes()
 - Unwanted aliases 
   
 ## [0.2.0] - 2022-09-25

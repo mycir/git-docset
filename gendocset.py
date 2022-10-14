@@ -50,36 +50,44 @@ def get_git(url):
     page = requests.get(url).text
     soup = bs(page, parser)
     title = soup.find("title")
-    doc_soup = soup.find(id="main")
-    doc_soup.insert(0, title)
-    sects = [
-        "_high_level_commands",
-        "_low_level_commands",
-        "_guides",
-        "_interfaces",
-    ]
-    types = ["Command", "Command", "Guide", "Interface"]
-    headings = doc_soup.findAll(
-        "h2",
-        {
-            "id": re.compile(
-                f"{sects[0]}|{sects[1]}|{sects[2]}|{sects[3]}",
-                flags=re.IGNORECASE,
-            )
-        },
+    soup = soup.find(id="main")
+    soup.insert(0, title)
+    files = {"gitattributes", "gitignore", "gitmailmap", "gitmodules"}
+    sects = {
+        "_high_level_commands": "Command",
+        "_low_level_commands": "Command",
+        "_guides": "Guide",
+        "_repository_command_and_file_interfaces": "Interface",
+        "_file_formats_protocols_and_other_developer_interfaces": None,
+    }
+    pattern = str(list(sects.keys()))[3:-3].replace("', '", "|")
+    headings = soup.findAll(
+        "h2", {"id": re.compile(pattern, flags=re.IGNORECASE)}
     )
-    for s in enumerate(sects):
-        lists = headings[s[0]].parent.findAll("div", attrs={"class": "dlist"})
-        for list in lists:
-            links = list.findAll("a", {"class": False, "href": True})
+    types = list(sects.values())
+    for i in range(0, len(sects)):
+        dlists = headings[i].parent.findAll("div", attrs={"class": "dlist"})
+        for dlist in dlists:
+            links = dlist.findAll("a", {"class": False, "href": True})
             for link in links:
                 path = link["href"].lstrip("/")
                 if path.startswith("docs/git-"):
                     name = path.split("-", 1)[1]
                 else:
                     name = path.replace("docs/", "")
-                sections.update({f"{path}.html": (name, types[s[0]])})
-    fix_links(doc_soup)
+                type = types[i]
+                if type == "Interface":
+                    if name in files:
+                        type = "File"
+                    elif name == "githooks":
+                        type = "Hook"
+                elif type is None:
+                    if name.startswith("gitformat"):
+                        type = "File"
+                    elif name.startswith("gitprotocol"):
+                        type = "Protocol"
+                sections.update({f"{path}.html": (name, type)})
+    fix_links(soup)
     folder = os.path.join(output, "docs")
     os.makedirs(folder, exist_ok=True)
     with open(
@@ -88,32 +96,23 @@ def get_git(url):
         encoding="iso-8859-1",
         errors="ignore",
     ) as f:
-        f.write(str(doc_soup))
+        f.write(str(soup))
 
 
 def get_index(url):
     page = requests.get(url).text
     soup = bs(page, parser)
     title = soup.find("title")
-    doc_soup = soup.find(id="main")
-    doc_soup.insert(0, title)
-    fix_links(doc_soup, index=True)
+    soup = soup.find(id="main")
+    soup.insert(0, title)
+    fix_links(soup, index=True)
     with open(
         os.path.join(output, "index.html"),
         "w",
         encoding="iso-8859-1",
         errors="ignore",
     ) as f:
-        f.write(str(doc_soup))
-
-
-def update_db(sections):
-    for path, (name, type) in sections.items():
-        cur.execute(
-            "INSERT OR IGNORE INTO searchIndex(name,type,path) VALUES (?,?,?)",
-            (name, type, path)
-        )
-        print("DB add >> name: %s, path: %s" % (name, path))
+        f.write(str(soup))
 
 
 def add_docs(start, end):
@@ -128,70 +127,149 @@ def add_docs(start, end):
         if not os.path.exists(folder):
             os.makedirs(folder)
         if "#" not in path:
-            try:
-                page_id = path.split("/")[-1]
-                url = f"{root_url}/{page_id}"
-                print(f"Downloading document: {page_id} - {name}")
-                page = requests.get(url).text
-                soup = bs(page, parser)
-                doc_soup = soup.find(id="main")
-                title_tag = soup.new_tag("title")
-                title_tag.append(name)
-                doc_soup.insert(0, title_tag)
-                doc_soup = fix_links(doc_soup)
-                with open(
-                    os.path.join(folder, page_id),
-                    "w",
-                    encoding="iso-8859-1",
-                    errors="ignore",
-                ) as f:
-                    f.write(str(doc_soup))
-                print("Success")
-            except Exception as e:
-                print(f"Failed\n{type(e).__name__}: {e}")
+            page_id = path.split("/")[-1]
+            get_doc(page_id, fixlinks=True)
     start = end + 1
     end = len(sections) - 1
     if end > start_prev:
         add_docs(start, end)
 
 
-def fix_links(doc_soup, index=False):
+def get_doc(
+    page,
+    url="http://git-scm.com/docs",
+    ext="",
+    type="",
+    txt2html=False,
+    fixlinks=False,
+    update=False,
+):
     global sections
-    for link in doc_soup.findAll("a", {"href": True}):
-        if link.attrs and not link["href"].startswith("http"):
-            if "#" not in link.attrs["href"]:
-                path_noext = link["href"].lstrip("/")
-                path = f"{path_noext}.html"
-                if index:
-                    link["href"] = path
+    print(f"Downloading document: {page}")
+    response = requests.get(f"{url}/{page}", stream=True)
+    if response.status_code != 200:
+        print(f"HTTP error: {response.status_code}")
+        return
+    if txt2html:
+        doc = (
+            f"<html><body><pre><title>{page.split('.')[0]}"
+            f"</title>{response.text}</pre></body></html>"
+        )
+        page = page.split(".")[0]
+    else:
+        soup = bs(response.text, parser)
+        title_tag = soup.new_tag("title")
+        title_tag.append(page.split(".")[0])
+        soup = soup.find(id="main")
+        soup.insert(0, title_tag)
+        if fixlinks:
+            soup = fix_links(soup)
+        doc = str(soup)
+    with open(
+        os.path.join(output, f"docs/{page}{ext}"),
+        "w",
+        encoding="iso-8859-1",
+        errors="ignore",
+    ) as f:
+        f.write(doc)
+        print("Success")
+    if update:
+        sections.update({f"docs/{page}{ext}": (page.rsplit("/")[0], type)})
+
+
+def fix_links(soup, index=False):
+    global sections
+    for link in soup.findAll("a", {"href": True}):
+        if link.attrs:
+            p = re.compile("^http|mailto")
+            if not re.match(p, link["href"]):
+                if "#" not in link.attrs["href"]:
+                    path_noext = link["href"].lstrip("/")
+                    path = f"{path_noext}.html"
+                    if index:
+                        link["href"] = path
+                    else:
+                        if path not in sections:
+                            if path_noext.startswith("docs/git-"):
+                                name = path_noext.split("-", 1)[1]
+                            else:
+                                name = path_noext.replace("docs/", "")
+                            if link.text.endswith("[1]"):
+                                type = "Command"
+                            elif link.text.endswith("[5]"):
+                                type = "File"
+                            elif (
+                                link.text.endswith("[7]")
+                                or link.text[0].isupper()
+                            ):
+                                type = "Guide"
+                            else:
+                                type = "Unknown"
+                            sections.update({path: (name, type)})
+                        link["href"] = path.replace("docs/", "")
                 else:
-                    if path not in sections:
-                        if path_noext.startswith("docs/git-"):
-                            name = path_noext.split("-", 1)[1]
-                        else:
-                            name = path_noext.replace("docs/", "")
-                        if link.text.endswith("[1]"):
-                            type = "Command"
-                        elif link.text.endswith("[5]"):
-                            type = "File"
-                        elif (
-                            link.text.endswith("[7]")
-                            or link.text[0].isupper()
-                        ):
-                            type = "Guide"
-                        else:
-                            type = "Unknown"
-                        sections.update({path: (name, type)})
-                    link["href"] = path.replace("docs/", "")
-            else:
-                link_parts = link["href"].split("#")
-                if index:
-                    ext = ".html"
-                else:
-                    ext = ""
-                if link_parts[0] != "":
-                    link["href"] = f"{link_parts[0][1:]}{ext}#{link_parts[1]}"
-    return doc_soup
+                    link_parts = link["href"].split("#")
+                    if index:
+                        ext = ".html"
+                    else:
+                        ext = ""
+                    if link_parts[0] != "":
+                        link[
+                            "href"
+                        ] = f"{link_parts[0][1:]}{ext}#{link_parts[1]}"
+    return soup
+
+
+def misc_fixes():
+    global sections
+    pages = {
+        "api-simple-ipc",
+        "api-merge",
+        "api-error-handling",
+        "api-parse-options",
+    }
+    for page in pages:
+        get_doc(
+            page, type="Interface", ext=".html", fixlinks=False, update=True
+        )
+    url = "https://api.github.com/repos/git/git/contents/Documentation/howto"
+    dir = eval(requests.get(url, stream=True).content.decode("utf-8"))
+    url = "https://raw.githubusercontent.com/git/git/master/Documentation/howto"
+    for entry in dir:
+        get_doc(
+            f"{entry['name']}",
+            url,
+            type="Guide",
+            ext=".html",
+            txt2html=True,
+            update=True,
+        )
+    sections.update(
+        {"docs/git.html#_environment_variables": ("Variables", "Environment")}
+    )
+    deletions = [
+        "docs/api-index.html",
+        "docs/howto/update-hook-example.html",
+        "docs/howto/setup-git-server-over-http.html",
+        "docs/howto/revert-a-faulty-merge.html",
+        "docs/howto-index.html",
+    ]
+    for path in deletions:
+        try:
+            sections.pop(path)
+        except (KeyError):
+            pass
+    sections.update({"docs/partial-clone.html": ("partial-clone", "Interface")})
+    sections.update({"docs/gitglossary.html": ("Git Glossary", "Glossary")})
+
+
+def update_db(sections):
+    for path, (name, type) in sections.items():
+        cur.execute(
+            "INSERT OR IGNORE INTO searchIndex(name,type,path) VALUES (?,?,?)",
+            (name, type, path),
+        )
+        print("DB add >> name: %s, path: %s" % (name, path))
 
 
 def add_info_plist():
@@ -224,7 +302,8 @@ if __name__ == "__main__":
     get_git(f"{root_url}/git")
     get_index(root_url)
     add_docs(2, len(sections) - 1)
-    add_info_plist()
+    misc_fixes()
     update_db(sections)
+    add_info_plist()
     db.commit()
     db.close()
