@@ -244,9 +244,10 @@ def misc_fixes():
             txt2html=True,
             update=True,
         )
-    sections.update(
-        {"docs/git.html#_environment_variables": ("Variables", "Environment")}
-    )
+    try:
+        os.rmdir(os.path.join(output, "docs/howto"))
+    except (OSError):
+        pass
     deletions = [
         "docs/api-index.html",
         "docs/howto/update-hook-example.html",
@@ -259,6 +260,9 @@ def misc_fixes():
             sections.pop(path)
         except (KeyError):
             pass
+    sections.update(
+        {"docs/git.html#_environment_variables": ("Variables", "Environment")}
+    )
     sections.update({"docs/partial-clone.html": ("partial-clone", "Interface")})
     sections.update({"docs/gitglossary.html": ("Git Glossary", "Glossary")})
 
