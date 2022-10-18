@@ -175,11 +175,11 @@ def get_doc(
         print(f"HTTP error: {response.status_code}")
         return
     if txt2html:
+        page = page.split(".")[0]
         doc = (
-            f"<html><body><pre><title>{page.split('.')[0]}"
+            f"<html><body><pre><title>{page}"
             f"</title>{response.text}</pre></body></html>"
         )
-        page = page.split(".")[0]
     else:
         soup = bs(response.text, parser)
         title_tag = soup.new_tag("title")
@@ -206,7 +206,7 @@ def fix_links(soup, index=False, updatesections=True):
     global sections
     for link in soup.findAll("a", {"href": True}):
         if link.attrs:
-            p = re.compile("^http|mailto")
+            p = re.compile("^(http|mailto)")
             if not re.match(p, link["href"]):
                 if "#" not in link.attrs["href"]:
                     path_noext = re.split(f"(^/|/{lang})", link["href"])[2]
