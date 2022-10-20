@@ -157,7 +157,7 @@ def get_doc(
     page_id,
     url="http://git-scm.com/docs",
     ignorelang=False,
-    split=True,
+    strip_ext=True,
     txt2html=False,
     fixlinks=False,
     updatesections=False,
@@ -174,7 +174,7 @@ def get_doc(
     if response.status_code != 200:
         print(f"HTTP error: {response.status_code}")
         return
-    if split:
+    if strip_ext:
         page_id = page_id.split(".")[0]
     if txt2html:
         doc = (
@@ -278,7 +278,7 @@ def misc_fixes():
     get_doc(
         "gitweb.conf",
         ignorelang=True,
-        split=False,
+        strip_ext=False,
         fixlinks=True,
         type="File",
     )
