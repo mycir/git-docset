@@ -104,7 +104,7 @@ def get_git(url):
         page = requests.get(f"{url}/{lang}").text
         soup = bs(page, parser)
         soup = soup.find(id="main")
-        fix_links(soup, updatesections=False)
+        fix_links(soup, update_sections=False)
     soup.insert(0, title)
     folder = os.path.join(output, "docs")
     os.makedirs(folder, exist_ok=True)
@@ -156,17 +156,17 @@ def add_docs(start, end):
 def get_doc(
     page_id,
     url="http://git-scm.com/docs",
-    ignorelang=False,
+    ignore_lang=False,
     strip_ext=True,
     txt2html=False,
     fixlinks=False,
-    updatesections=False,
+    update_sections=False,
     type="",
 ):
     global lang
     global sections
     print(f"Downloading document: {page_id}")
-    if ignorelang or lang == "en":
+    if ignore_lang or lang == "en":
         suffix = ""
     else:
         suffix = f"/{lang}"
@@ -198,11 +198,11 @@ def get_doc(
     ) as f:
         f.write(doc)
         print("Success")
-    if updatesections:
+    if update_sections:
         sections.update({f"docs/{page_id}.html": (page_id, type)})
 
 
-def fix_links(soup, index=False, updatesections=True):
+def fix_links(soup, index=False, update_sections=True):
     global lang
     global sections
     for link in soup.findAll("a", {"href": True}):
@@ -231,7 +231,7 @@ def fix_links(soup, index=False, updatesections=True):
                                 type = "Guide"
                             else:
                                 type = "Unknown"
-                            if updatesections:
+                            if update_sections:
                                 sections.update({path: (name, type)})
                         link["href"] = path.replace("docs/", "")
                 else:
@@ -251,18 +251,27 @@ def misc_fixes():
     global lang
     global sections
     page_ids = {
-        "api-simple-ipc",
-        "api-merge",
-        "api-error-handling",
-        "api-parse-options",
+        "api-simple-ipc": "Interface",
+        "api-merge": "Interface",
+        "api-error-handling": "Interface",
+        "api-parse-options": "Interface",
+        "partial-clone": "Guide"
     }
-    for page_id in page_ids:
+    for page_id, doc_type in page_ids.items():
         get_doc(
             page_id,
             fixlinks=False,
-            updatesections=True,
-            type="Interface",
+            update_sections=True,
+            type=doc_type,
         )
+    get_doc(
+        "gitweb.conf",
+        ignore_lang=True,
+        strip_ext=False,
+        fixlinks=True,
+        update_sections=True,
+        type="File",
+    )
     url = "https://api.github.com/repos/git/git/contents/Documentation/howto"
     dir = json.loads(requests.get(url).content.decode())
     url = "https://raw.githubusercontent.com/git/git/master/Documentation/howto"
@@ -270,24 +279,11 @@ def misc_fixes():
         get_doc(
             entry["name"],
             url,
-            ignorelang=True,
+            ignore_lang=True,
             txt2html=True,
-            updatesections=True,
+            update_sections=True,
             type="Guide",
         )
-    get_doc(
-        "gitweb.conf",
-        ignorelang=True,
-        strip_ext=False,
-        fixlinks=True,
-        type="File",
-    )
-    get_doc(
-        "gitweb",
-        fixlinks=True,
-        type="Interface",
-    )
-    sections.update({"docs/gitweb.html": ("gitweb", "Interface")})
     try:
         os.rmdir(os.path.join(output, "docs/howto"))
     except (OSError):
@@ -328,8 +324,8 @@ def misc_fixes():
     sections.update(
         {f"docs/git.html#{jump_variables}": ("Variables", "Environment")}
     )
-    sections.update({"docs/partial-clone.html": ("partial-clone", "Interface")})
     sections.update({"docs/gitglossary.html": ("Git Glossary", "Glossary")})
+    sections.update({"docs/gitweb.html": ("gitweb", "Interface")})
 
 
 def update_db(sections):
