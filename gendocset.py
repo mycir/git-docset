@@ -3,6 +3,7 @@
     http://git-scm.com/docs
 """
 import itertools
+import json
 import os
 import re
 import sqlite3
@@ -63,6 +64,7 @@ def get_git(url):
     # the preferred language version
     page = requests.get(url).text
     soup = bs(page, parser)
+    title = soup.find("title")
     soup = soup.find(id="main")
     files = {"gitattributes", "gitignore", "gitmailmap", "gitmodules"}
     sects = {
@@ -73,9 +75,7 @@ def get_git(url):
         "_file_formats_protocols_and_other_developer_interfaces": None,
     }
     pattern = str(list(sects.keys()))[3:-3].replace("', '", "|")
-    headings = soup.findAll(
-        "h2", {"id": re.compile(pattern, flags=re.IGNORECASE)}
-    )
+    headings = soup.findAll("h2", {"id": re.compile(pattern)})
     types = list(sects.values())
     for i in range(0, len(sects)):
         dlists = headings[i].parent.findAll("div", attrs={"class": "dlist"})
@@ -103,10 +103,9 @@ def get_git(url):
     if lang != "en":
         page = requests.get(f"{url}/{lang}").text
         soup = bs(page, parser)
-        title = soup.find("title")
         soup = soup.find(id="main")
-        soup.insert(0, title)
         fix_links(soup, updatesections=False)
+    soup.insert(0, title)
     folder = os.path.join(output, "docs")
     os.makedirs(folder, exist_ok=True)
     with open(
@@ -155,9 +154,10 @@ def add_docs(start, end):
 
 
 def get_doc(
-    page,
+    page_id,
     url="http://git-scm.com/docs",
     ignorelang=False,
+    split=True,
     txt2html=False,
     fixlinks=False,
     updatesections=False,
@@ -165,32 +165,33 @@ def get_doc(
 ):
     global lang
     global sections
-    print(f"Downloading document: {page}")
+    print(f"Downloading document: {page_id}")
     if ignorelang or lang == "en":
         suffix = ""
     else:
         suffix = f"/{lang}"
-    response = requests.get(f"{url}/{page}{suffix}", stream=True)
+    response = requests.get(f"{url}/{page_id}{suffix}", stream=True)
     if response.status_code != 200:
         print(f"HTTP error: {response.status_code}")
         return
+    if split:
+        page_id = page_id.split(".")[0]
     if txt2html:
-        page = page.split(".")[0]
         doc = (
-            f"<html><body><pre><title>{page}"
+            f"<html><body><pre><title>{page_id}"
             f"</title>{response.text}</pre></body></html>"
         )
     else:
         soup = bs(response.text, parser)
         title_tag = soup.new_tag("title")
-        title_tag.append(page.split(".")[0])
+        title_tag.append(page_id)
         soup = soup.find(id="main")
         soup.insert(0, title_tag)
         if fixlinks:
             soup = fix_links(soup)
         doc = str(soup)
     with open(
-        os.path.join(output, f"docs/{page}.html"),
+        os.path.join(output, f"docs/{page_id}.html"),
         "w",
         encoding="iso-8859-1",
         errors="ignore",
@@ -198,7 +199,7 @@ def get_doc(
         f.write(doc)
         print("Success")
     if updatesections:
-        sections.update({f"docs/{page}.html": (page.rsplit("/")[0], type)})
+        sections.update({f"docs/{page_id}.html": (page_id, type)})
 
 
 def fix_links(soup, index=False, updatesections=True):
@@ -206,8 +207,8 @@ def fix_links(soup, index=False, updatesections=True):
     global sections
     for link in soup.findAll("a", {"href": True}):
         if link.attrs:
-            p = re.compile("^(http|mailto)")
-            if not re.match(p, link["href"]):
+            pattern = re.compile("^(http|mailto)")
+            if not re.match(pattern, link["href"]):
                 if "#" not in link.attrs["href"]:
                     path_noext = re.split(f"(^/|/{lang})", link["href"])[2]
                     path = f"{path_noext}.html"
@@ -249,25 +250,25 @@ def fix_links(soup, index=False, updatesections=True):
 def misc_fixes():
     global lang
     global sections
-    pages = {
+    page_ids = {
         "api-simple-ipc",
         "api-merge",
         "api-error-handling",
         "api-parse-options",
     }
-    for page in pages:
+    for page_id in page_ids:
         get_doc(
-            f"{page}",
+            page_id,
             fixlinks=False,
             updatesections=True,
             type="Interface",
         )
     url = "https://api.github.com/repos/git/git/contents/Documentation/howto"
-    dir = eval(requests.get(url, stream=True).content.decode("utf-8"))
+    dir = json.loads(requests.get(url).content.decode())
     url = "https://raw.githubusercontent.com/git/git/master/Documentation/howto"
     for entry in dir:
         get_doc(
-            f"{entry['name']}",
+            entry["name"],
             url,
             ignorelang=True,
             txt2html=True,
@@ -277,6 +278,7 @@ def misc_fixes():
     get_doc(
         "gitweb.conf",
         ignorelang=True,
+        split=False,
         fixlinks=True,
         type="File",
     )
@@ -297,20 +299,35 @@ def misc_fixes():
         "docs/howto/revert-a-faulty-merge.html",
         "docs/howto-index.html",
         # pt_BR clanger
-        "docs/gitignorar.html"
+        "docs/gitignorar.html",
     ]
     for path in deletions:
         try:
             sections.pop(path)
         except (KeyError):
             pass
-    if lang == "de":
-        jump = "_umgebungsvariablen"
-    elif lang == "pt_BR":
-        jump = "_as_vari%C3%A1veis_do_ambiente"
+    if lang == "en":
+        jump_variables = "_environment_variables"
     else:
-        jump = "_environment_variables"  
-    sections.update({f"docs/git.html#{jump}": ("Variables", "Environment")})
+        if lang == "de":
+            jump_commands = "_git_befehle"
+            jump_variables = "_umgebungsvariablen"
+        elif lang == "pt_BR":
+            jump_commands = "_os_comandos_do_git"
+            jump_variables = "_as_vari%C3%A1veis_do_ambiente"
+        with open(
+            os.path.join(output, "index.html"),
+            "r+",
+            encoding="iso-8859-1",
+            errors="ignore",
+        ) as f:
+            html = f.read().replace("_git_commands", jump_commands)
+            f.seek(0)
+            f.write(html)
+            f.truncate()
+    sections.update(
+        {f"docs/git.html#{jump_variables}": ("Variables", "Environment")}
+    )
     sections.update({"docs/partial-clone.html": ("partial-clone", "Interface")})
     sections.update({"docs/gitglossary.html": ("Git Glossary", "Glossary")})
 
